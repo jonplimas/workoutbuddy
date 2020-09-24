@@ -17,7 +17,8 @@ import kotlinx.android.synthetic.main.fragment_home.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-//TO DO: implement a hardcoded list of Exercise Items
+// TO DO FOR ITERATION 1: implement a hardcoded list of 10 Exercise Items HERE
+
 
 /**
  * A simple [Fragment] subclass.
@@ -50,6 +51,7 @@ class HomeFragment : Fragment() {
 
         // display list of exercises to display onto fragment
         // genDummyList = populates the screen to make a placeholder list of 10 exercises
+        // TO DO FOR ITERATION 1: replace dummy list with hardcoded list of exercises
         val exerciseList = generateDummyList(10)
         exercise_view.adapter = ExerciseAdapter(exerciseList)
         exercise_view.layoutManager = LinearLayoutManager(context)
@@ -83,7 +85,9 @@ class HomeFragment : Fragment() {
             }
     }
 
-    //fill list with placeholder data
+    // TO DO FOR ITERATION 1: reference this function for WorkoutsFragment.kt
+    // comment out this function when done
+    // fill list with placeholder data
     private fun generateDummyList(size: Int): List<ExerciseItem> {
         val list = ArrayList<ExerciseItem>()
         for (i in 0 until size) {

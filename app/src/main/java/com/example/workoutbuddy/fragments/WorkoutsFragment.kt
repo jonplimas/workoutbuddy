@@ -50,8 +50,10 @@ class WorkoutsFragment : Fragment() {
         //      add and label recyclerview into Gridlayout
         // implement a WorkoutAdapter IN A NEW KOTLIN FILE
         //      - use ExerciseAdapter as a reference
-        // create function to genereate dummy list of Workouts
+        // create function to generate dummy list of Workouts (refer to HomeFragment.kt)
         // implement RecyclerView for Workouts HERE (refer to HomeFragment.kt)
+
+
 
 
         // TO DO FOR ITERATION 3: floating action button functionality
