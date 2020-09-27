@@ -21,20 +21,33 @@
         android:clickable="true"
         android:src="@drawable/ic_baseline_add_24"
         android:focusable="true" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <!--UNCOMMENT TO DISPLAY: view for the list of exercises (also uncomment in MainActivity.kt)-->
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/exercise_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:padding="4dp"
-               tools:listitem="@layout/exercise_item" />
+            android:id="@+id/exercise_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:padding="4dp"
+            tools:listitem="@layout/exercise_item"
+            android:layout_below="@id/search"/>
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/search"
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:menu="@menu/search_menu" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/filter"
+            android:layout_width="348dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/search"
+            android:background="@android:color/white"
+            app:menu="@menu/filter_menu"
+            />
     </RelativeLayout>
-
 </FrameLayout>

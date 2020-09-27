@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--page view for favorites
+<?xml version="1.0" encoding="utf-8"?><!--page view for favorites
 tabbed view so user can switch between their favorite exercises and workouts -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,6 +13,7 @@ tabbed view so user can switch between their favorite exercises and workouts -->
         android:layout_height="match_parent">
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -35,7 +35,22 @@ tabbed view so user can switch between their favorite exercises and workouts -->
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Favorites View" />
-
+            android:text="@string/favorites_view" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/search"
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:menu="@menu/search_menu"
+            android:layout_below="@id/tabs"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/filter"
+            android:layout_width="348dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/search"
+            android:background="@android:color/white"
+            app:menu="@menu/filter_menu"
+            android:layout_below="@id/tabs"
+            />
     </RelativeLayout>
 </FrameLayout>

@@ -3,8 +3,20 @@
     <string name="favExercisesTab">Exercises</string>
     <string name="favWorkoutsTab">Workouts</string>
     <string name="description_exercise_image">image of exercise</string>
+    <string name="workout_name">workout_name</string>
+    <string name="workout_cat">Category</string>
     <string name="exerciseName">Line 1</string>
     <string name="exerciseType">Line 2</string>
     <string name="home_view">Home View</string>
     <string name="user_view">User View</string>
+    <string name="favorites_view">Favorites View</string>
+    <string name="search">Search</string>
+    <string name="filter">Filter</string>
+    <string name="home">Home</string>
+    <string name="favorites">Favorites</string>
+    <string name="workouts">Workouts</string>
+    <string name="user">User</string>
+    <string name="content_desc">TODO</string>
+
+
 </resources>

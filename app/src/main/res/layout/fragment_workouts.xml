@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,16 +18,45 @@
         android:layout_marginRight="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
         android:clickable="true"
-        android:src="@drawable/ic_baseline_add_24"
-        android:focusable="true" />
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_add_24" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/search"
+            android:layout_width="331dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:menu="@menu/search_menu" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/filter"
+            android:layout_width="348dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/search"
+            android:background="@android:color/white"
+            app:menu="@menu/filter_menu" />
+        <GridView
+            android:id="@+id/grid_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:numColumns="2"
+            android:verticalSpacing="32dp"
+            android:layout_below="@id/search"
+            tools:listitem="@layout/workout_item">
+        </GridView>
     </RelativeLayout>
 
+
 </FrameLayout>
+    <!--            <androidx.recyclerview.widget.RecyclerView-->
+    <!--                android:id="@+id/exercise_view"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:clipToPadding="false"-->
+    <!--                android:padding="4dp"-->
+    <!--                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+    <!--                tools:listitem="@layout/workout_item" />-->

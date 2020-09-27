@@ -56,8 +56,6 @@ class HomeFragment : Fragment() {
         exercise_view.adapter = ExerciseAdapter(exerciseList)
         exercise_view.layoutManager = LinearLayoutManager(context)
         exercise_view.setHasFixedSize(true)
-
-
         // TO DO FOR ITERATION 2: floating action button functionality
         // will open new fragment for user to input new Exercise Entry
         addExerciseButton.setOnClickListener {
