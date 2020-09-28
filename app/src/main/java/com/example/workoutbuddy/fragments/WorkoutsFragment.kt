@@ -1,13 +1,15 @@
 package com.example.workoutbuddy.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.workoutbuddy.R
-import kotlinx.android.synthetic.main.fragment_home.*
+import com.example.workoutbuddy.WorkoutAdapter
+import com.example.workoutbuddy.WorkoutItem
 import kotlinx.android.synthetic.main.fragment_workouts.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -20,10 +22,20 @@ private const val ARG_PARAM2 = "param2"
  * Use the [WorkoutsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+
+
+
 class WorkoutsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+
+    private lateinit var mWorkoutList: ArrayList<WorkoutItem>
+    private lateinit var gridView: GridView
+    private lateinit var workoutAdapter: WorkoutAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,15 +57,16 @@ class WorkoutsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        // TO DO FOR ITERATION 1:
-        // implement a GridLayout in fragments_workouts.xml
-        //      add and label recyclerview into Gridlayout
-        // implement a WorkoutAdapter IN A NEW KOTLIN FILE
-        //      - use ExerciseAdapter as a reference
-        // create function to generate dummy list of Workouts (refer to HomeFragment.kt)
-        // implement RecyclerView for Workouts HERE (refer to HomeFragment.kt)
+        // implemented a GridLayout in fragments_workouts.xml
+        //      added and label Gridview into Relative Layout
+        // implemented a WorkoutAdapter IN A NEW KOTLIN FILE
+        //      used BaseAdapter as a reference
+        // create function to generate dummy list of Workouts
+        // implemented GridView with Adapter for Workouts HERE
 
-
+        mWorkoutList = generateDummyList(7)
+        workoutAdapter = WorkoutAdapter(requireContext(), mWorkoutList)
+        grid_view.adapter = workoutAdapter
 
 
         // TO DO FOR ITERATION 3: floating action button functionality
@@ -82,4 +95,26 @@ class WorkoutsFragment : Fragment() {
                 }
             }
     }
+
+
+    // fill Workout List with placeholder data
+    private fun generateDummyList(size: Int): ArrayList<WorkoutItem> {
+        val list = ArrayList<WorkoutItem>()
+        for (i in 0 until size) {
+            val drawable = when (i % 3) {
+                // sets image for each item.
+                0 -> R.drawable.ic_baseline_image_24
+                1 -> R.drawable.ic_baseline_favorite_24
+                else -> R.drawable.ic_baseline_fitness_center_24
+            }
+            // sets the text of each heading: item position number + 1, subheading: category position number
+            val j = i + 1
+            val item = WorkoutItem(drawable, "Workout $j", "Category: $i")
+            list += item
+        }
+        // return populated list
+        return list
+    }
+
+
 }

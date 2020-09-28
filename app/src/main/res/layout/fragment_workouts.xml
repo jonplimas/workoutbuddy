@@ -36,6 +36,7 @@
             android:layout_width="348dp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/search"
+            android:layout_toEndOf="@id/search"
             android:background="@android:color/white"
             app:menu="@menu/filter_menu" />
         <GridView
@@ -45,6 +46,7 @@
             android:gravity="center"
             android:numColumns="2"
             android:verticalSpacing="32dp"
+            android:horizontalSpacing="8dp"
             android:layout_below="@id/search"
             tools:listitem="@layout/workout_item">
         </GridView>

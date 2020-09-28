@@ -2,9 +2,10 @@
     <string name="app_name">workoutbuddy</string>
     <string name="favExercisesTab">Exercises</string>
     <string name="favWorkoutsTab">Workouts</string>
+    <string name="exercise_image">exerciseImage</string>
     <string name="description_exercise_image">image of exercise</string>
-    <string name="workout_name">workout_name</string>
-    <string name="workout_cat">Category</string>
+    <string name="workout_name">Line 1</string>
+    <string name="workout_cat">Line 2</string>
     <string name="exerciseName">Line 1</string>
     <string name="exerciseType">Line 2</string>
     <string name="home_view">Home View</string>
@@ -17,6 +18,8 @@
     <string name="workouts">Workouts</string>
     <string name="user">User</string>
     <string name="content_desc">TODO</string>
+    <string name="description_workout_image">image of workout</string>
+    <string name="workout_image">workoutImage</string>
 
 
 </resources>

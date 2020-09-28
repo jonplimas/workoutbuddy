@@ -10,21 +10,21 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/image_view"
+            android:id="@+id/workoutImage"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/description_workout_image"
             android:src="@drawable/ic_baseline_image_24" />
 
         <TextView
-            android:id="@+id/exerciseName"
+            android:id="@+id/workoutName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/image_view"
+            android:layout_alignBottom="@+id/workoutImage"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="-32dp"
             android:paddingTop="5dp"
@@ -34,10 +34,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/exerciseType"
+            android:id="@+id/workoutCat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/image_view"
+            android:layout_below="@string/workout_image"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"

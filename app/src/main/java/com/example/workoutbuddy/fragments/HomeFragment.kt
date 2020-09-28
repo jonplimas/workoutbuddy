@@ -17,8 +17,19 @@ import kotlinx.android.synthetic.main.fragment_home.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-// TO DO FOR ITERATION 1: implement a hardcoded list of 10 Exercise Items HERE
-
+// ITERATION 1: implemented a hardcoded list of 10 Exercise Items to simulate Local Database
+private val myExerciseList: List<ExerciseItem> = listOf(
+    ExerciseItem(R.drawable.ic_baseline_image_24, "Push-Ups", "Chest", "Plank position, press up"),
+    ExerciseItem(R.drawable.ic_baseline_favorite_24, "Pull-Ups", "Back", "Pull body up til chin reaches past bar"),
+    ExerciseItem(R.drawable.ic_baseline_fitness_center_24, "Wall Sits", "Legs", "Hold a 90-degree squat against wall"),
+    ExerciseItem(R.drawable.ic_baseline_image_24, "Arm Circles", "Shoulders", "Lateral raise of arms and move in circular motion"),
+    ExerciseItem(R.drawable.ic_baseline_favorite_24, "Burpees", "Full Body", "push-up to jump squat"),
+    ExerciseItem(R.drawable.ic_baseline_fitness_center_24, "Plank", "Core", "hold bridge postion on elbows"),
+    ExerciseItem(R.drawable.ic_baseline_image_24,"Crunches", "Core", "sit up while lying on back "),
+    ExerciseItem(R.drawable.ic_baseline_favorite_24, "Bicep Curls", "Biceps", "curl dumbbell while arms at sides"),
+    ExerciseItem(R.drawable.ic_baseline_fitness_center_24,"Skull Crushers", "Triceps", "lying on bench, barbell tricep extension behind the head"),
+    ExerciseItem(R.drawable.ic_baseline_image_24, "Mountain Climbers","Core", "knee drives in push-up position")
+)
 
 /**
  * A simple [Fragment] subclass.
@@ -49,15 +60,14 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        // display list of exercises to display onto fragment
-        // genDummyList = populates the screen to make a placeholder list of 10 exercises
-        // TO DO FOR ITERATION 1: replace dummy list with hardcoded list of exercises
-        val exerciseList = generateDummyList(10)
+        //ITERATION 1: display hard-coded list of exercises to display onto fragment
+        val exerciseList = myExerciseList
         exercise_view.adapter = ExerciseAdapter(exerciseList)
         exercise_view.layoutManager = LinearLayoutManager(context)
         exercise_view.setHasFixedSize(true)
+
         // TO DO FOR ITERATION 2: floating action button functionality
-        // will open new fragment for user to input new Exercise Entry
+        // - will open new fragment for user to input new Exercise Entry
         addExerciseButton.setOnClickListener {
             Toast.makeText(context,"Add new Exercise HERE." , Toast.LENGTH_SHORT).show()
         }
@@ -82,25 +92,4 @@ class HomeFragment : Fragment() {
                 }
             }
     }
-
-    // TO DO FOR ITERATION 1: reference this function for WorkoutsFragment.kt
-    // comment out this function when done
-    // fill list with placeholder data
-    private fun generateDummyList(size: Int): List<ExerciseItem> {
-        val list = ArrayList<ExerciseItem>()
-        for (i in 0 until size) {
-            val drawable = when (i % 3) {
-                // sets image for each item.
-                0 -> R.drawable.ic_baseline_image_24
-                1 -> R.drawable.ic_baseline_favorite_24
-                else -> R.drawable.ic_baseline_fitness_center_24
-            }
-            // sets the text of each heading: item position number, subheading: line 2
-            val item = ExerciseItem(drawable, "Item $i", "Line 2")
-            list += item
-        }
-        // return populated list
-        return list
-    }
-
 }

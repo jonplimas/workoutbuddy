@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "workout_table")
 data class WorkoutItem(
+    val workoutImageResource: Int,
     @PrimaryKey @NonNull @ColumnInfo(name = "name") val name : String = " ",
     @ColumnInfo(name = "category") val category : String? = null,
     @ColumnInfo(name = "duration")val duration : Int? = null,

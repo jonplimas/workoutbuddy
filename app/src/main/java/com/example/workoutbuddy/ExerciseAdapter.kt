@@ -26,15 +26,17 @@ class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
     override fun getItemCount() = exerciseList.size
 
     inner class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.image_view
+        val imageView: ImageView = itemView.exerciseImage
         val textView1: TextView = itemView.exerciseName
         val textView2: TextView = itemView.exerciseType
 
         // TO DO FOR ITERATION 2: change toast to display item's actual description
         // Note: must wait for an actual library of exercises
+
+        // ITERATION 1: Use toast to check if appropriate values of ExerciseItems can accessed
         init {
             itemView.setOnClickListener {
-                 Toast.makeText(itemView.context, "Description: " + exerciseList[adapterPosition].name, Toast.LENGTH_SHORT).show()
+                 Toast.makeText(itemView.context, "Exercise Description: " + exerciseList[adapterPosition].description, Toast.LENGTH_SHORT).show()
             }
         }
     }

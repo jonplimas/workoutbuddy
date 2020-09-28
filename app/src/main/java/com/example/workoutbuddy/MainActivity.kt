@@ -1,29 +1,13 @@
 package com.example.workoutbuddy
 
 import android.os.Bundle
-import android.widget.Button
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import androidx.viewpager.widget.ViewPager
 import com.example.workoutbuddy.fragments.FavoritesFragment
 import com.example.workoutbuddy.fragments.HomeFragment
 import com.example.workoutbuddy.fragments.UserFragment
 import com.example.workoutbuddy.fragments.WorkoutsFragment
-import com.example.workoutbuddy.ExerciseAdapter
-import com.example.workoutbuddy.ExerciseItem
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.tabs.TabLayout
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import com.google.android.material.internal.ContextUtils.getActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -57,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.fl_wrapper, fragment)
             commit()
         }
-    
+
     //fill list with placeholder data
     private fun generateDummyList(size: Int): List<ExerciseItem> {
         val list = ArrayList<ExerciseItem>()

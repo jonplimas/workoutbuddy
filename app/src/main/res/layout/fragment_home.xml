@@ -48,6 +48,6 @@
             android:layout_toRightOf="@id/search"
             android:background="@android:color/white"
             app:menu="@menu/filter_menu"
-            />
+            android:layout_toEndOf="@id/search" />
     </RelativeLayout>
 </FrameLayout>
