@@ -10,7 +10,7 @@ data class WorkoutItem(
     val workoutImageResource: Int,
     @PrimaryKey @NonNull @ColumnInfo(name = "name") val name : String = " ",
     @ColumnInfo(name = "category") val category : String? = null,
-    @ColumnInfo(name = "duration")val duration : Int? = null,
+    @ColumnInfo(name = "description") val description : String? = null,
     @ColumnInfo(name = "exercises") var excercises : List<ExerciseItem>? = null,
     @ColumnInfo(name = "reps") var reps : Int? = null,
     @ColumnInfo(name = "sets") var sets : Int? = null
