@@ -1,5 +1,6 @@
 package com.example.workoutbuddy.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workoutbuddy.ExerciseAdapter
 import com.example.workoutbuddy.ExerciseItem
 import com.example.workoutbuddy.R
+import com.example.workoutbuddy.activities.NewExerciseActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -41,6 +43,8 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private val REQUEST_CODE_EX = 4
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -55,6 +59,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -70,8 +75,12 @@ class HomeFragment : Fragment() {
         // - will open new fragment for user to input new Exercise Entry
         addExerciseButton.setOnClickListener {
             Toast.makeText(context,"Add new Exercise HERE." , Toast.LENGTH_SHORT).show()
+            val i = Intent(activity, NewExerciseActivity::class.java)
+            startActivityForResult(i, REQUEST_CODE_EX)
         }
     }
+
+
 
     companion object {
         /**

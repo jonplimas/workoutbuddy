@@ -1,11 +1,16 @@
 package com.example.workoutbuddy.fragments
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.workoutbuddy.R
+import com.example.workoutbuddy.activities.LoginActivity
+import com.example.workoutbuddy.activities.NewExerciseActivity
+import kotlinx.android.synthetic.main.fragment_user.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,6 +34,8 @@ class UserFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
+
+
     }
 
     override fun onCreateView(
@@ -37,6 +44,21 @@ class UserFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        logoutButton.setOnClickListener {
+            val i = Intent(activity, LoginActivity::class.java)
+            startActivity(i)
+            activity?.finish()
+        }
+
+
+
+
+
     }
 
     companion object {

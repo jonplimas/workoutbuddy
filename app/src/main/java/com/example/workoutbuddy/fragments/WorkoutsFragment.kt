@@ -1,5 +1,6 @@
 package com.example.workoutbuddy.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import androidx.fragment.app.Fragment
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.WorkoutAdapter
 import com.example.workoutbuddy.WorkoutItem
+import com.example.workoutbuddy.activities.NewExerciseActivity
+import com.example.workoutbuddy.activities.NewWorkoutActivity
 import kotlinx.android.synthetic.main.fragment_workouts.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,6 +33,8 @@ class WorkoutsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private val REQUEST_CODE_W = 5
 
 
     private lateinit var mWorkoutList: ArrayList<WorkoutItem>
@@ -73,6 +78,8 @@ class WorkoutsFragment : Fragment() {
         // will open new fragment for user to input new Workout
         addWorkoutButton.setOnClickListener {
             Toast.makeText(context,"Add new Workout HERE." , Toast.LENGTH_SHORT).show()
+            val i = Intent(activity, NewWorkoutActivity::class.java)
+            startActivityForResult(i, REQUEST_CODE_W)
         }
     }
 

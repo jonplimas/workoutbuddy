@@ -1,8 +1,10 @@
-package com.example.workoutbuddy
+package com.example.workoutbuddy.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.workoutbuddy.ExerciseItem
+import com.example.workoutbuddy.R
 import com.example.workoutbuddy.fragments.FavoritesFragment
 import com.example.workoutbuddy.fragments.HomeFragment
 import com.example.workoutbuddy.fragments.UserFragment
@@ -34,6 +36,13 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+//        //logout
+//        logoutButton.setOnClickListener {
+//            val replyIntent = Intent(this, LoginActivity::class.java)
+//            startActivity(replyIntent)
+//        }
+
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
@@ -53,7 +62,11 @@ class MainActivity : AppCompatActivity() {
                 else -> R.drawable.ic_baseline_fitness_center_24
             }
             //sets the text of each heading: item position number, subheading: line 2
-            val item = ExerciseItem(drawable, "Item $i", "Line 2")
+            val item = ExerciseItem(
+                drawable,
+                "Item $i",
+                "Line 2"
+            )
             list += item
         }
         //return populated list
