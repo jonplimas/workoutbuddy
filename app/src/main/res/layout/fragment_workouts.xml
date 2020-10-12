@@ -24,6 +24,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/search"
             android:layout_width="331dp"
@@ -35,30 +36,26 @@
             android:id="@+id/filter"
             android:layout_width="348dp"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/search"
             android:layout_toEndOf="@id/search"
+            android:layout_toRightOf="@id/search"
             android:background="@android:color/white"
             app:menu="@menu/filter_menu" />
+
         <GridView
             android:id="@+id/grid_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:numColumns="2"
-            android:verticalSpacing="32dp"
-            android:horizontalSpacing="8dp"
             android:layout_below="@id/search"
-            tools:listitem="@layout/workout_item">
-        </GridView>
+            android:layout_marginHorizontal="16dp"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:paddingTop="8dp"
+            android:horizontalSpacing="16dp"
+            android:numColumns="2"
+            android:scrollbars="none"
+            android:verticalSpacing="16dp"
+            tools:listitem="@layout/workout_item" />
     </RelativeLayout>
 
 
 </FrameLayout>
-    <!--            <androidx.recyclerview.widget.RecyclerView-->
-    <!--                android:id="@+id/exercise_view"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:clipToPadding="false"-->
-    <!--                android:padding="4dp"-->
-    <!--                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
-    <!--                tools:listitem="@layout/workout_item" />-->

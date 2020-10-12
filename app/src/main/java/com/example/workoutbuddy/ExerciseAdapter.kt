@@ -1,17 +1,24 @@
 package com.example.workoutbuddy
 
+import android.graphics.Color
+import android.graphics.ColorFilter
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.exercise_item.view.*
 
 
 class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
     RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
+    private var heartClicked = false
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.exercise_item,
             parent, false)
@@ -25,6 +32,7 @@ class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
     }
     override fun getItemCount() = exerciseList.size
 
+    @RequiresApi(Build.VERSION_CODES.M)
     inner class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.exerciseImage
         val textView1: TextView = itemView.exerciseName
@@ -38,6 +46,17 @@ class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
             itemView.setOnClickListener {
                  Toast.makeText(itemView.context, "Exercise Description: " + exerciseList[adapterPosition].description, Toast.LENGTH_SHORT).show()
             }
+            itemView.imageHeartButton.setOnClickListener {
+                if(heartClicked == false){
+                    itemView.imageHeartButton.setBackgroundColor(Color.RED)
+                    heartClicked = true
+                } else {
+                    itemView.imageHeartButton.setBackgroundColor(Color.TRANSPARENT)
+                    heartClicked = false
+                }
+
+            }
+
         }
     }
 }

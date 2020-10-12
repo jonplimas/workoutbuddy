@@ -6,50 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".activities.SignupActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:src="@drawable/rectangle"
+        tools:ignore="MissingConstraints" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="227dp"
+        android:layout_height="465dp"
         android:layout_marginTop="140dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/signupUsernameEditText"
+        <TextView
+            android:id="@+id/sign_up_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="@string/enter_username"
-            android:inputType="textPersonName" />
+            android:paddingBottom="32dp"
+            android:text="@string/sign_up"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="48dp"
+            app:layout_constraintBottom_toTopOf="@id/linearLayout"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="151dp" />
 
-        <EditText
-            android:id="@+id/signupPasswordEditText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/signupUsernameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:ems="10"
+                android:hint="@string/enter_username"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="103dp"
+                tools:layout_editor_absoluteY="285dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/create_password"
-            android:inputType="textPassword" />
+            app:passwordToggleEnabled="true">
 
-        <EditText
-            android:id="@+id/signupPasswordEditText2"
+            <EditText
+                android:id="@+id/signupPasswordEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:ems="10"
+                android:hint="@string/create_password"
+                android:inputType="textPassword"
+                tools:layout_editor_absoluteX="103dp"
+                tools:layout_editor_absoluteY="338dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/confirm_password"
-            android:inputType="textPassword" />
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/signupPasswordEditText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:ems="10"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                tools:layout_editor_absoluteX="103dp"
+                tools:layout_editor_absoluteY="383dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/submitNewUserButton"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/create_new_user"
+            android:textColor="#ffffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     </LinearLayout>
-
-    <Button
-        android:id="@+id/submitNewUserButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="@string/create_new_user"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
