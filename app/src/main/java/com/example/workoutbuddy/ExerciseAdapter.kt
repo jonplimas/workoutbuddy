@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.exercise_item.view.*
 class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
     RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
     private var heartClicked = false
-
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.exercise_item,
@@ -30,6 +29,7 @@ class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
         holder.textView1.text = currentItem.name
         holder.textView2.text = currentItem.type
     }
+
     override fun getItemCount() = exerciseList.size
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -47,11 +47,11 @@ class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
                  Toast.makeText(itemView.context, "Exercise Description: " + exerciseList[adapterPosition].description, Toast.LENGTH_SHORT).show()
             }
             itemView.imageHeartButton.setOnClickListener {
-                if(heartClicked == false){
-                    itemView.imageHeartButton.setBackgroundColor(Color.RED)
+                if(!heartClicked){
+                    itemView.imageHeartButton.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
                     heartClicked = true
                 } else {
-                    itemView.imageHeartButton.setBackgroundColor(Color.TRANSPARENT)
+                    itemView.imageHeartButton.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
                     heartClicked = false
                 }
 
@@ -60,3 +60,4 @@ class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
         }
     }
 }
+
