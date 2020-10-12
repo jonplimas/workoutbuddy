@@ -11,11 +11,13 @@ class NewExerciseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_exercise)
+
         val mStartActBtn = findViewById<Button>(R.id.startActBtn)
-        //handle button click
+
+        //handle back button click
         mStartActBtn.setOnClickListener {
-            //start activity intent
-            startActivity(Intent(this@NewExerciseActivity, ExerciseAdapter::class.java))
+            //Destroy Actviity
+            finish()
         }
     }
 

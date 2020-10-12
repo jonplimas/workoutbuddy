@@ -10,11 +10,13 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+
         val mStartActBtn = findViewById<Button>(R.id.startActBtn)
-        //handle button click
+
+        // handle back button click
         mStartActBtn.setOnClickListener {
-            //start activity intent
-            startActivity(Intent(this@SignupActivity, LoginActivity::class.java))
+            // close out activity
+            finish()
         }
     }
 }
