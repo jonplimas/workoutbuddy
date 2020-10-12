@@ -11,36 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_navigation">
-
     </FrameLayout>
-
-    <!--UNCOMMENT TO DISPLAY: view for the list of exercises (also uncomment in MainActivity.kt)-->
-    <!--TO DO: Currently displays on all pages when uncommented, needs to only display on fragment_home-->
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-    <!--        android:id="@+id/exercise_view"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_above="@id/bottom_navigation"-->
-    <!--        android:clipToPadding="false"-->
-    <!--        android:padding="4dp"-->
-    <!--        tools:listitem="@layout/exercise_item" />-->
-
-    <!--view for exercise cards (not in grid layout yet.)-->
-    <!--TO DO: Currently displays on all pages when uncommented, needs to only display on fragment_exercises, + needs to be in a grid layout.-->
-<!--            <androidx.gridlayout.widget.GridLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
-<!--                <androidx.recyclerview.widget.RecyclerView-->
-<!--                    android:id="@+id/exercise_view"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_above="@id/bottom_navigation"-->
-<!--                    android:clipToPadding="false"-->
-<!--                    android:padding="4dp"-->
-<!--                    tools:listitem="@layout/workout_item" />-->
-<!--            </androidx.gridlayout.widget.GridLayout>-->
-
-
     <!--view for bottom navigation-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

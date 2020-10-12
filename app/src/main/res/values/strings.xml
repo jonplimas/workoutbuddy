@@ -30,16 +30,16 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="login">Log In</string>
-    <string name="sign_up">Sign Up</string>
+    <string name="sign_up">New here?</string>
     <string name="password_hint">Password</string>
     <string name="username_hint">Username</string>
-    <string name="welcome_text">Welcome to My Workout Buddy</string>
+    <string name="welcome_text1">Hello there!</string>
     <string name="signup_text_view">Sign Up</string>
     <string name="log_out">Log Out</string>
     <string name="confirm_password">confirm password</string>
     <string name="create_password">create password</string>
     <string name="enter_username">enter username</string>
-    <string name="create_new_user">Create New User</string>
+    <string name="create_new_user">Sign Up</string>
     <string name="exercisetype">Exercise Type</string>
     <string name="chestEx">Chest</string>
     <string name="backEx">Back</string>
@@ -52,7 +52,7 @@
     <string name="create_new_exercise">Create New Exercise</string>
     <string name="quadricepsEx">Quadriceps</string>
     <string name="coreEx">Core</string>
-    <string name="add_exercise_description_here">add exercise description here</string>
-
-
+    <string name="add_exercise_description_here">Description</string>
+    <string name="welcome_text2">Login to continue.</string>
+    <string name="add_new_exercise">Add New Exercise</string>
 </resources>
