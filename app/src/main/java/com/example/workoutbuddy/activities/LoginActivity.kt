@@ -47,8 +47,8 @@ class LoginActivity : AppCompatActivity() {
             val i2 = Intent(this, SignupActivity::class.java)
             startActivityForResult(i2, SIGNUP_REQUEST_CODE)
         }
-
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
