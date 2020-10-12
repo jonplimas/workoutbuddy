@@ -7,6 +7,7 @@
     tools:context=".activities.LoginActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="225dp"
         android:src="@drawable/rectangle"
@@ -52,9 +53,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="503dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username_text_input_layout"
