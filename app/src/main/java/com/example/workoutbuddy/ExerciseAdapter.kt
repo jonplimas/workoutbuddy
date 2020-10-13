@@ -1,5 +1,6 @@
 package com.example.workoutbuddy
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.ColorFilter
 import android.os.Build
@@ -14,37 +15,27 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.exercise_item.view.*
 
 
-class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
-    RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
-    private var heartClicked = false
-    @RequiresApi(Build.VERSION_CODES.M)
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.exercise_item,
-            parent, false)
-        return ExerciseViewHolder(itemView)
-    }
-    override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
-        val currentItem = exerciseList[position]
-        holder.imageView.setImageResource(currentItem.imageResource)
-        holder.textView1.text = currentItem.name
-        holder.textView2.text = currentItem.type
-    }
+class ExerciseAdapter internal constructor(
+    context: Context
+) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
 
-    override fun getItemCount() = exerciseList.size
+
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
+    private var exercises = emptyList<ExerciseItem>()   // Cached copy of exercises
+    private var heartClicked = false
 
     @RequiresApi(Build.VERSION_CODES.M)
     inner class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.exerciseImage
-        val textView1: TextView = itemView.exerciseName
-        val textView2: TextView = itemView.exerciseType
+        val imageView: ImageView = itemView.findViewById(R.id.exerciseImage)
+        val textView1: TextView = itemView.findViewById(R.id.exerciseName)
+        val textView2: TextView = itemView.findViewById(R.id.exerciseType)
+
 
         // TO DO FOR ITERATION 2: change toast to display item's actual description
         // Note: must wait for an actual library of exercises
-
-        // ITERATION 1: Use toast to check if appropriate values of ExerciseItems can accessed
         init {
             itemView.setOnClickListener {
-                 Toast.makeText(itemView.context, "Exercise Description: " + exerciseList[adapterPosition].description, Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Exercise Description: " + exercises[adapterPosition].description, Toast.LENGTH_SHORT).show()
             }
             itemView.imageHeartButton.setOnClickListener {
                 if(!heartClicked){
@@ -59,5 +50,29 @@ class ExerciseAdapter(private val exerciseList: List<ExerciseItem>) :
 
         }
     }
+
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExerciseViewHolder {
+        // val itemView = LayoutInflater.from(parent.context).inflate(R.layout.exercise_item, parent, false)
+        val itemView = inflater.inflate(R.layout.exercise_item, parent, false)
+        return ExerciseViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
+        val currentItem = exercises[position]
+        holder.imageView.setImageResource(currentItem.imageResource)
+        holder.textView1.text = currentItem.name
+        holder.textView2.text = currentItem.type
+    }
+
+    internal fun setExercises(exercises: List<ExerciseItem>) {
+        this.exercises = exercises
+        notifyDataSetChanged()
+    }
+
+    override fun getItemCount() = exercises.size
+
+
 }
 

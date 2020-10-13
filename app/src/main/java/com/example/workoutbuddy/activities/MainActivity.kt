@@ -3,6 +3,7 @@ package com.example.workoutbuddy.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.workoutbuddy.ExerciseItem
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.fragments.FavoritesFragment
@@ -36,42 +37,13 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-//        //logout
-//        logoutButton.setOnClickListener {
-//            val replyIntent = Intent(this, LoginActivity::class.java)
-//            startActivity(replyIntent)
-//        }
-
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_wrapper, fragment)
+            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            addToBackStack(null)
             commit()
         }
-
-    //fill list with placeholder data
-    private fun generateDummyList(size: Int): List<ExerciseItem> {
-        val list = ArrayList<ExerciseItem>()
-        for (i in 0 until size) {
-            val drawable = when (i % 3) {
-                //sets image for each item.
-                0 -> R.drawable.ic_baseline_image_24
-                1 -> R.drawable.ic_baseline_favorite_24
-                else -> R.drawable.ic_baseline_fitness_center_24
-            }
-            //sets the text of each heading: item position number, subheading: line 2
-            val item = ExerciseItem(
-                drawable,
-                "Item $i",
-                "Line 2"
-            )
-            list += item
-        }
-        //return populated list
-        return list
-    }
-
-
 }
