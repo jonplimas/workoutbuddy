@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         val usernameInputText: EditText = findViewById(R.id.usernameEditText)
         val passwordInputText: EditText = findViewById(R.id.passwordEditText)
         val loginButton: Button = findViewById(R.id.login_button)
-        val signUpTextView: TextView = findViewById(R.id.signupTextView)
+        // val signUpTextView: TextView = findViewById(R.id.signupTextView)
 
         loginButton.setOnClickListener {
             if (usernameInputText.text.toString() == admin.loginName && passwordInputText.text.toString() == admin.loginpassword) {
@@ -47,8 +47,8 @@ class LoginActivity : AppCompatActivity() {
             val i2 = Intent(this, SignupActivity::class.java)
             startActivityForResult(i2, SIGNUP_REQUEST_CODE)
         }
-
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

@@ -6,13 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".activities.NewExerciseActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingLeft="16dp"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/startActBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_baseline_arrow_back_24_black" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginLeft="68dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="69dp"
         android:layout_marginRight="69dp"
         android:gravity="center"
@@ -30,7 +44,7 @@
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/descriptionEditText"
+        app:layout_constraintBottom_toTopOf="@+id/newExerciseDescriptionEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +55,7 @@
             android:layout_height="30dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/newExerciseNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
@@ -124,11 +138,11 @@
 
         <Space
             android:layout_width="1dp"
-            android:layout_height="40dp" />
+            android:layout_height="32dp" />
     </LinearLayout>
 
     <EditText
-        android:id="@+id/descriptionEditText"
+        android:id="@+id/newExerciseDescriptionEditText"
         android:layout_width="374dp"
         android:layout_height="71dp"
         android:layout_marginBottom="108dp"
@@ -153,6 +167,6 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/newExerciseDescriptionEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
