@@ -41,18 +41,20 @@
     <string name="enter_username">enter username</string>
     <string name="create_new_user">Sign Up</string>
     <string name="exercisetype">Exercise Type</string>
-    <string name="chestEx">Chest</string>
-    <string name="backEx">Back</string>
-    <string name="tricepsEx">Triceps</string>
-    <string name="hamstringsEx">Hamstrings</string>
-    <string name="bicepsEx">Biceps</string>
+    <string name="chestEx">Chest/Back</string>
+    <string name="tricepsEx">Triceps/Biceps</string>
     <string name="exNameHint">Exercise Name</string>
     <string name="shouldersEx">Shoulders</string>
     <string name="glutesEx">Glutes</string>
     <string name="create_new_exercise">Create New Exercise</string>
-    <string name="quadricepsEx">Quadriceps</string>
+    <string name="quadricepsEx">Quadriceps/Hamstring</string>
     <string name="coreEx">Core</string>
     <string name="add_exercise_description_here">Description</string>
     <string name="welcome_text2">Login to continue.</string>
     <string name="add_new_exercise">Add New Exercise</string>
+    <string name="calves">Calves</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="pullups">Pullups</string>
+    <string name="_5_exercises_3_sets">5 exercises - 3 sets</string>
+    <string name="description">Description</string>
 </resources>
