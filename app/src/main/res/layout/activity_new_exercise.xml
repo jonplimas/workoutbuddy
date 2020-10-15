@@ -80,7 +80,7 @@
             android:layout_height="315dp"
             android:paddingVertical="8dp"
             android:paddingLeft="24dp">
-
+<!--            (Upper chest/back, triceps/biceps, deltroids, quads/hamstring, calves, core/stomach, glutes)-->
             <CheckBox
                 android:id="@+id/chestExButton"
                 android:layout_width="match_parent"
@@ -88,52 +88,37 @@
                 android:text="@string/chestEx" />
 
             <CheckBox
-                android:id="@+id/backExButton"
+                android:id="@+id/coreExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/backEx" />
+                android:text="@string/coreEx" />
 
             <CheckBox
                 android:id="@+id/tricepsExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/tricepsEx" />
-
-            <CheckBox
-                android:id="@+id/bicepsExButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/bicepsEx" />
-
             <CheckBox
                 android:id="@+id/shouldersExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/shouldersEx" />
-
             <CheckBox
                 android:id="@+id/glutesExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/glutesEx" />
-
             <CheckBox
                 android:id="@+id/quadsExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/quadricepsEx" />
-
             <CheckBox
-                android:id="@+id/hamsExButton"
+                android:id="@+id/calvesExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hamstringsEx" />
+                android:text="@string/calves" />
 
-            <CheckBox
-                android:id="@+id/coreExButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/coreEx" />
         </RadioGroup>
 
         <Space
