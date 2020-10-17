@@ -4,31 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.WorkoutInProgress">
+    tools:context=".activities.WorkoutInProgressActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/curExNameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="216dp"
-        android:layout_marginEnd="252dp"
-        android:layout_marginRight="252dp"
-        android:layout_marginBottom="470dp"
+        android:layout_marginTop="24dp"
         android:text="Crunches"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:layout_marginBottom="4dp"
         android:text="Exercise 1 of 5"
         app:layout_constraintBottom_toTopOf="@+id/progressBar2"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -37,25 +32,24 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:text="3 Sets of 5000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/curExNameTV" />
 
     <ProgressBar
         android:id="@+id/progressBar2"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="172dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="468dp"
+        android:layout_marginBottom="488dp"
         android:indeterminate="false"
         android:max="100"
         android:progress="20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -78,8 +72,12 @@
         android:id="@+id/endWorkoutTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/end_workout"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nextExBtn"
         app:layout_constraintStart_toEndOf="@+id/prevExBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

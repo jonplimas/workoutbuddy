@@ -10,11 +10,14 @@ import androidx.core.view.isVisible
 import com.example.workoutbuddy.R
 import kotlinx.android.synthetic.main.activity_workout_in_progress.*
 
-class WorkoutInProgress : AppCompatActivity() {
+class WorkoutInProgressActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workout_in_progress)
 
+        val exercises = arrayOf("Crunches", "Toe Touches","Russian Twists", "Bicycle Crunches", "Leg Raises")
+
+        val exName = findViewById<TextView>(R.id.curExNameTV)
         val backBtn = findViewById<Button>(R.id.prevExBtn)
         val nextBtn = findViewById<Button>(R.id.nextExBtn)
         val endWorkoutTV = findViewById<TextView>(R.id.endWorkoutTV)
@@ -26,7 +29,6 @@ class WorkoutInProgress : AppCompatActivity() {
 
         backBtn.isEnabled = false
 
-
         backBtn.setOnClickListener {
             if (progressBar.progress > 20) {
                 progressBar.progress -= 20
@@ -34,12 +36,19 @@ class WorkoutInProgress : AppCompatActivity() {
                 x--
                 wProgressTV.text = "Exercise $x of $end"
 
+
+
+            }
+
+            if (progressBar.progress == 20) {
+                backBtn.isEnabled = false
             }
 
             if(progressBar.progress != progressBar.max) {
                 endWorkoutTV.isVisible = true
                 nextBtn.text = "Next Exercise"
             }
+            exName.text = exercises[x-1]
         }
 
 
@@ -49,6 +58,7 @@ class WorkoutInProgress : AppCompatActivity() {
             if(progressBar.progress == progressBar.max) {
                 val i = Intent(this, EndWorkoutActivity::class.java)
                 startActivity(i)
+                finish()
             }
 
             if (progressBar.progress < progressBar.max) {
@@ -60,13 +70,14 @@ class WorkoutInProgress : AppCompatActivity() {
                 endWorkoutTV.isVisible = false
                 nextBtn.text = "Finish"
             }
+            exName.text = exercises[x-1]
 
         }
 
         endWorkoutTV.setOnClickListener{
             val i = Intent(this, EndWorkoutActivity::class.java)
             startActivity(i)
-            //finish()
+            finish()
         }
     }
 

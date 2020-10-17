@@ -3,9 +3,7 @@ package com.example.workoutbuddy.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.widget.Button
-import android.widget.ImageView
 import com.example.workoutbuddy.R
 
 class StartWorkoutActivity : AppCompatActivity() {
@@ -25,9 +23,9 @@ class StartWorkoutActivity : AppCompatActivity() {
         val i = intent
 
         startWorkoutBtn.setOnClickListener {
-            val i2 = Intent(this, WorkoutInProgress::class.java)
+            val i2 = Intent(this, WorkoutInProgressActivity::class.java)
             startActivity(i2)
-            // finish()
+            finish()
         }
     }
 

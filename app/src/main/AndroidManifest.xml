@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.EndWorkoutActivity"></activity>
-        <activity android:name=".activities.WorkoutInProgress" />
+        <activity android:name=".activities.WorkoutInProgressActivity" />
         <activity android:name=".activities.StartWorkoutActivity" />
         <activity android:name=".activities.ExercisePopupWindow" />
         <activity android:name=".activities.NewWorkoutActivity" />
