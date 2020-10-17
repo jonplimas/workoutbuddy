@@ -17,14 +17,12 @@ class NewExerciseActivity : AppCompatActivity() {
 
     private lateinit var newExerciseNameEditText: EditText
     private lateinit var chest: CheckBox
-    private lateinit var back: CheckBox
     private lateinit var triceps: CheckBox
-    private lateinit var biceps: CheckBox
     private lateinit var shoulders: CheckBox
     private lateinit var glutes: CheckBox
     private lateinit var quads: CheckBox
-    private lateinit var hamstrings: CheckBox
     private lateinit var core: CheckBox
+    private lateinit var calves: CheckBox
     private lateinit var newExerciseDescriptionEditText: EditText
 
 
@@ -34,13 +32,11 @@ class NewExerciseActivity : AppCompatActivity() {
 
         newExerciseNameEditText = findViewById(R.id.newExerciseNameEditText)
         chest = findViewById(R.id.chestExButton)
-        back = findViewById(R.id.backExButton)
         triceps = findViewById(R.id.tricepsExButton)
-        biceps = findViewById(R.id.bicepsExButton)
         shoulders = findViewById(R.id.shouldersExButton)
         glutes = findViewById(R.id.glutesExButton)
         quads = findViewById(R.id.quadsExButton)
-        hamstrings = findViewById(R.id.hamsExButton)
+        calves = findViewById(R.id.calvesExButton)
         core = findViewById(R.id.coreExButton)
         newExerciseDescriptionEditText = findViewById(R.id.newExerciseDescriptionEditText)
 
@@ -51,18 +47,17 @@ class NewExerciseActivity : AppCompatActivity() {
 
         // Handle create new exercise button
         submitButton.setOnClickListener {
+//(Upper chest/back, triceps/biceps, deltroids, quads/hamstring, calves, core/stomach, glutes)
 
             val type = StringBuilder()
             // Observe which Exercise Types are chosen
-            if (chest.isChecked) { type.append("Chest ") }
-            if (back.isChecked) { type.append("Back ") }
-            if (triceps.isChecked) { type.append("Triceps ") }
-            if (biceps.isChecked) { type.append("Biceps ") }
+            if (chest.isChecked) { type.append("Chest/Back ") }
+            if (triceps.isChecked) { type.append("Triceps/Biceps ") }
             if (shoulders.isChecked) { type.append("Shoulders ") }
             if (glutes.isChecked) { type.append("Glutes ") }
-            if (quads.isChecked) { type.append("Quadriceps ") }
-            if (hamstrings.isChecked) { type.append("Hamstrings ") }
+            if (quads.isChecked) { type.append("Quadriceps/Hamstring ") }
             if (core.isChecked) { type.append("Core ") }
+            if (calves.isChecked) { type.append("Calves ") }
 
 
 

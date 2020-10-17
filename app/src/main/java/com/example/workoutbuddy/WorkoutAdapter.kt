@@ -2,9 +2,16 @@ package com.example.workoutbuddy
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.app.ActivityCompat.startActivity
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.ContextCompat
+import com.example.workoutbuddy.activities.NewWorkoutActivity
+import com.example.workoutbuddy.activities.StartWorkoutActivity
 
 class WorkoutAdapter(var context: Context, var workoutList: ArrayList<WorkoutItem>): BaseAdapter() {
 
@@ -39,14 +46,26 @@ class WorkoutAdapter(var context: Context, var workoutList: ArrayList<WorkoutIte
         workoutCategories.text = myWorkoutItem.category
 
         // ITERATION 1: use of Toast to check if proper values can be accessed
-        workoutCardView.setOnClickListener{
-            Toast.makeText(workoutCardView.context, "Workout Description: " + workoutList[position].category, Toast.LENGTH_SHORT).show()
+//        workoutCardView.setOnClickListener{
+//            Toast.makeText(workoutCardView.context, "Workout Description: " + workoutList[position].category, Toast.LENGTH_SHORT).show()
+//            val i = Intent(context, StartWorkoutActivity::class.java)
+//            ContextCompat.startActivity(context,i, )
+//
+//        }
+
+        workoutImages.setOnClickListener {
+            Toast.makeText(context, "Workout Description: " + workoutList[position].category, Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, StartWorkoutActivity::class.java)
+            intent.putExtra("wName", workoutList[position].name)
+            intent.putExtra("wCategory", workoutList[position].category)
+            intent.putExtra("wDesc", workoutList[position].description)
+            intent.putExtra("wImage", workoutList[position].workoutImageResource)
+            intent.putExtra("wReps", workoutList[position].reps)
+            intent.putExtra("wSets", workoutList[position].sets)
+            startActivity(context,intent, Bundle.EMPTY)
         }
 
         return workoutCardView
-
     }
-
-
 }
 

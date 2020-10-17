@@ -3,16 +3,19 @@ package com.example.workoutbuddy.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.WorkoutAdapter
 import com.example.workoutbuddy.WorkoutItem
 import com.example.workoutbuddy.activities.NewExerciseActivity
 import com.example.workoutbuddy.activities.NewWorkoutActivity
+import com.example.workoutbuddy.activities.StartWorkoutActivity
 import kotlinx.android.synthetic.main.fragment_workouts.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -68,20 +71,53 @@ class WorkoutsFragment : Fragment() {
         //      used BaseAdapter as a reference
         // create function to generate dummy list of Workouts
         // implemented GridView with Adapter for Workouts HERE
+        //gridView = grid_view
 
         mWorkoutList = generateDummyList(7)
         workoutAdapter = WorkoutAdapter(requireContext(), mWorkoutList)
         grid_view.adapter = workoutAdapter
 
 
+        // Onclick listener to Start a Workout
+//        grid_view.setOnClickListener {
+//            val intent = Intent(activity, StartWorkoutActivity::class.java)
+//            intent.putExtra("wName", mWorkoutList[0].name)
+//            intent.putExtra("wCategory", mWorkoutList[0].category)
+//            intent.putExtra("wDesc",  mWorkoutList[0].description)
+//            intent.putExtra("wImage", mWorkoutList[0].workoutImageResource)
+//            intent.putExtra("wReps", mWorkoutList[0].reps)
+//            intent.putExtra("wSets", mWorkoutList[0].sets)
+//            startActivity(intent)
+//        }
+            grid_view.setOnItemClickListener { adapterView, view, i, l ->
+            Toast.makeText(activity, "Workout Description: " + mWorkoutList[i].category, Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, StartWorkoutActivity::class.java)
+            intent.putExtra("wName", mWorkoutList[i].name)
+            intent.putExtra("wCategory", mWorkoutList[i].category)
+            intent.putExtra("wDesc",  mWorkoutList[i].description)
+            intent.putExtra("wImage", mWorkoutList[i].workoutImageResource)
+            intent.putExtra("wReps", mWorkoutList[i].reps)
+            intent.putExtra("wSets", mWorkoutList[i].sets)
+            startActivity(intent)
+        }
+
+
         // TO DO FOR ITERATION 3: floating action button functionality
-        // will open new fragment for user to input new Workout
+        // will open new Activity for user to input new Workout
         addWorkoutButton.setOnClickListener {
             Toast.makeText(context,"Add new Workout HERE." , Toast.LENGTH_SHORT).show()
             val i = Intent(activity, NewWorkoutActivity::class.java)
             startActivityForResult(i, REQUEST_CODE_W)
         }
     }
+
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        if (item.itemId == R.id.popupbttn){
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
+
+
 
     companion object {
         /**
@@ -122,6 +158,4 @@ class WorkoutsFragment : Fragment() {
         // return populated list
         return list
     }
-
-
 }

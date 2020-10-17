@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="375dp"
+    android:layout_height="325dp"
+    android:layout_gravity="center"
+    android:background="@drawable/popup_background">
+
+    <TextView
+        android:id="@+id/popuptitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/pullups"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/popuptitlebelow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popuptitle"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="4dp"
+        android:text="@string/_5_exercises_3_sets"
+        android:textSize="16sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/popupdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popuptitlebelow"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/description"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/popupdesctext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/popupdesc"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Hang on the bar with straight arms. Pull yourself up until your chin passes the bar."
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/popupbttn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button"
+        android:text="@string/dismiss"
+        android:textColor="@color/white" />
+</RelativeLayout>
