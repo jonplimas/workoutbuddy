@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.NewWorkoutActivity"></activity>
+        <activity android:name=".activities.EndWorkoutActivity"></activity>
+        <activity android:name=".activities.WorkoutInProgress" />
+        <activity android:name=".activities.StartWorkoutActivity" />
+        <activity android:name=".activities.ExercisePopupWindow" />
+        <activity android:name=".activities.NewWorkoutActivity" />
         <activity android:name=".activities.NewExerciseActivity" />
         <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.LoginActivity">

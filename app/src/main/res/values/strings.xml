@@ -57,4 +57,7 @@
     <string name="pullups">Pullups</string>
     <string name="_5_exercises_3_sets">5 exercises - 3 sets</string>
     <string name="description">Description</string>
+    <string name="wNameTV">Ab Circuit</string>
+    <string name="startWorkoutButton">Start Workout !</string>
+    <string name="end_workout">END WORKOUT</string>
 </resources>
