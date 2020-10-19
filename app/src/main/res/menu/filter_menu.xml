@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/filter"
-        android:icon="@drawable/ic_baseline_keyboard_arrow_down_24"
-        android:title="@string/filter"
-        app:actionViewClass="androidx.appcompat.widget.AppCompatSpinner"
-        app:showAsAction="ifRoom|collapseActionView" />
+        android:id="@+id/chestback"
+        android:title="Upper Chest/Back" />
+    <item
+        android:id="@+id/tricepbicep"
+        android:title="Triceps/Biceps" />
+    <item
+        android:id="@+id/deltroids"
+        android:title="Deltroids" />
+    <item
+        android:id="@+id/quadhams"
+        android:title="Quads/Hamstring" />
+
+    <item
+        android:id="@+id/calves"
+        android:title="Calves" />
+
+    <item
+        android:id="@+id/core"
+        android:title="Core" />
+    <item
+        android:id="@+id/glutes"
+        android:title="Glutes" />
 </menu>

@@ -9,23 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--        <ScrollView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="match_parent">-->
-        <!--            -->
-        <!--        </ScrollView>-->
-        <TextView
-            android:id="@+id/userViewTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/user_view" />
-
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/log_out" />
+            android:background="@drawable/button"
+            android:gravity="center"
+            android:text="@string/log_out"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"/>
 
     </RelativeLayout>
 

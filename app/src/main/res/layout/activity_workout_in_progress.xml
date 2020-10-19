@@ -13,6 +13,7 @@
         android:layout_marginTop="24dp"
         android:text="Crunches"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
@@ -21,10 +22,12 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
-        android:layout_marginRight="160dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginRight="152dp"
+        android:layout_marginBottom="8dp"
         android:text="Exercise 1 of 5"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/def_text_size"
         app:layout_constraintBottom_toTopOf="@+id/progressBar2"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -34,7 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:text="3 Sets of 5000"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/def_text_size"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/curExNameTV" />
 
@@ -56,7 +62,12 @@
         android:id="@+id/prevExBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/button"
+        android:text="Previous"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -64,7 +75,12 @@
         android:id="@+id/nextExBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next Exercise"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/button"
+        android:text="Next"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -74,10 +90,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="96dp"
         android:text="@string/end_workout"
+        android:textColor="@color/dark_gray"
+        android:textSize="@dimen/def_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nextExBtn"
+        app:layout_constraintHorizontal_bias="0.391"
         app:layout_constraintStart_toEndOf="@+id/prevExBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

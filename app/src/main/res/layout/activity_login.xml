@@ -42,6 +42,7 @@
         android:layout_marginEnd="177dp"
         android:layout_marginRight="177dp"
         android:text="@string/signup_text_view"
+        android:textColor="@color/dark_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"

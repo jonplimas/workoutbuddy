@@ -21,13 +21,15 @@ tabbed view so user can switch between their favorite exercises and workouts -->
                 android:id="@+id/favExercisesTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/favExercisesTab" />
+                android:text="@string/favExercisesTab"
+                android:textSize="@dimen/def_text_size"/>
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/favWorkoutsTab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/favWorkoutsTab" />
+                android:text="@string/favWorkoutsTab"
+                android:textSize="@dimen/def_text_size"/>
 
         </com.google.android.material.tabs.TabLayout>
 
