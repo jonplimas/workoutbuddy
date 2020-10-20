@@ -1,9 +1,9 @@
 package com.example.workoutbuddy.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.example.workoutbuddy.R
 
 class StartWorkoutActivity : AppCompatActivity() {
