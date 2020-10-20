@@ -12,8 +12,9 @@
         android:layout_marginBottom="32dp"
         android:src="@drawable/ic_baseline_tag_faces_24"
         app:layout_constraintBottom_toTopOf="@id/textView10"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="133dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView10"
@@ -42,7 +43,8 @@
         android:background="@drawable/button"
         android:text="Finish"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        tools:layout_editor_absoluteX="161dp"
         tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
