@@ -1,4 +1,4 @@
-package com.example.workoutbuddy.activities
+package com.example.workoutbuddy.activities.LoginSignup
 
 import android.app.Activity
 import android.content.Intent
@@ -6,11 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.UserLogin
+import com.example.workoutbuddy.activities.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {

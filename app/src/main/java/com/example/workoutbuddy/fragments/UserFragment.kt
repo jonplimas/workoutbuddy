@@ -1,6 +1,5 @@
 package com.example.workoutbuddy.fragments
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,8 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.workoutbuddy.R
-import com.example.workoutbuddy.activities.LoginActivity
-import com.example.workoutbuddy.activities.NewExerciseActivity
+import com.example.workoutbuddy.activities.LoginSignup.LoginActivity
 import kotlinx.android.synthetic.main.fragment_user.*
 
 // TODO: Rename parameter arguments, choose names that match

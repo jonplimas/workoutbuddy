@@ -1,4 +1,4 @@
-package com.example.workoutbuddy.activities
+package com.example.workoutbuddy.activities.WorkoutNav
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.view.isVisible
 import com.example.workoutbuddy.R
-import kotlinx.android.synthetic.main.activity_workout_in_progress.*
 
 class WorkoutInProgressActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

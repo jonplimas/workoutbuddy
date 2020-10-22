@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.WorkoutInProgressActivity">
+    tools:context=".activities.WorkoutNav.WorkoutInProgressActivity">
 
     <TextView
         android:id="@+id/curExNameTV"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="3 Sets of 5000"
+        android:text="3 Sets of 20"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/def_text_size"
         app:layout_constraintEnd_toEndOf="parent"

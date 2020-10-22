@@ -8,10 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat.startActivity
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat
-import com.example.workoutbuddy.activities.NewWorkoutActivity
-import com.example.workoutbuddy.activities.StartWorkoutActivity
+import com.example.workoutbuddy.activities.WorkoutNav.StartWorkoutActivity
 
 class WorkoutAdapter(var context: Context, var workoutList: ArrayList<WorkoutItem>): BaseAdapter() {
 

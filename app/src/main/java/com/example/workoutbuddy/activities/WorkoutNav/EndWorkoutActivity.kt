@@ -1,4 +1,4 @@
-package com.example.workoutbuddy.activities
+package com.example.workoutbuddy.activities.WorkoutNav
 
 import android.app.Activity
 import android.content.Intent
