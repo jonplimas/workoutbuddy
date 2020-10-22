@@ -15,8 +15,16 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         setContentView(R.layout.activity_workout_in_progress)
 
         val exercises = arrayOf("Crunches", "Toe Touches","Russian Twists", "Bicycle Crunches", "Leg Raises")
+        val descriptions = arrayOf(
+            "Lie down on back, lift your upper body and return back to starting position. Repeat.",
+            "From sit-up position, straighten out and raise legs perpendicular to the floor. Repeatedly reach for toes.",
+            "Engage core by sitting in v-shaped position, keeping legs off the floor. Alternate twisting motion on both sides.",
+            "Lying on back, imitate pedaling on a bike while keeping chin up and core engaged.",
+            "Lie down on back, keep legs together and straightened, raise them up to engage lower core. Lower legs without touching the floor."
+        )
 
         val exName = findViewById<TextView>(R.id.curExNameTV)
+        val wDescr = findViewById<TextView>(R.id.workoutdesc)
         val backBtn = findViewById<Button>(R.id.prevExBtn)
         val nextBtn = findViewById<Button>(R.id.nextExBtn)
         val endWorkoutTV = findViewById<TextView>(R.id.endWorkoutTV)
@@ -48,6 +56,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
                 nextBtn.text = "Next Exercise"
             }
             exName.text = exercises[x-1]
+            wDescr.text = descriptions[x-1]
         }
 
 
@@ -70,6 +79,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
                 nextBtn.text = "Finish"
             }
             exName.text = exercises[x-1]
+            wDescr.text = descriptions[x-1]
 
         }
 

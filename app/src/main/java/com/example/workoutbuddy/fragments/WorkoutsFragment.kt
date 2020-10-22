@@ -71,6 +71,7 @@ class WorkoutsFragment : Fragment() {
         //gridView = grid_view
 
         mWorkoutList = generateDummyList(7)
+        mWorkoutList[0] = WorkoutItem(R.drawable.ic_baseline_image_24, "Ab Circuit","Core", "Quick ab workout! Repeat every other day.")
         workoutAdapter = WorkoutAdapter(requireContext(), mWorkoutList)
         grid_view.adapter = workoutAdapter
 
