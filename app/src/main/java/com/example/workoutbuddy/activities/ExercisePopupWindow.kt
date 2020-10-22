@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.graphics.Color
+import android.graphics.Color.alpha
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.ColorUtils
+import androidx.core.view.ViewCompat.animate
 import com.example.workoutbuddy.R
 import kotlinx.android.synthetic.main.exercise_popup_card.*
 
@@ -49,18 +51,18 @@ class ExercisePopupWindow : AppCompatActivity() {
         this.window.statusBarColor = Color.TRANSPARENT
 
 //        // Fade animation for the background of Popup Window
-//        val alpha = 100 //between 0-255
-//        val alphaColor = ColorUtils.setAlphaComponent(Color.parseColor("#000000"), alpha)
-//        val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), Color.TRANSPARENT, alphaColor)
-//        colorAnimation.duration = 500 // milliseconds
-//        colorAnimation.addUpdateListener { animator ->
-//            layout.setBackgroundColor(animator.animatedValue as Int)
-//        }
-//        colorAnimation.start()
+        val alpha = 100 //between 0-255
+        val alphaColor = ColorUtils.setAlphaComponent(Color.parseColor("#000000"), alpha)
+        val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), Color.TRANSPARENT, alphaColor)
+        colorAnimation.duration = 500 // milliseconds
+        colorAnimation.addUpdateListener { animator ->
+            popup_window_background.setBackgroundColor(animator.animatedValue as Int)
+        }
+        colorAnimation.start()
 
         // fade animation when card opens up
-        layout.alpha = 0f
-        layout.animate().alpha(1f).setDuration(500).setInterpolator(
+        popup_window_view_with_border.alpha = 0f
+        popup_window_view_with_border.animate().alpha(1f).setDuration(500).setInterpolator(
             DecelerateInterpolator()
         ).start()
 
@@ -73,13 +75,13 @@ class ExercisePopupWindow : AppCompatActivity() {
             val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), alphaColor, Color.TRANSPARENT)
             colorAnimation.duration = 500 // milliseconds
             colorAnimation.addUpdateListener { animator ->
-                layout.setBackgroundColor(
+                popup_window_background.setBackgroundColor(
                     animator.animatedValue as Int
                 )
             }
 
             // Fade animation for the Popup Window when you press the back button
-            layout.animate().alpha(0f).setDuration(500).setInterpolator(
+            popup_window_view_with_border.animate().alpha(0f).setDuration(500).setInterpolator(
                 DecelerateInterpolator()
             ).start()
 
@@ -87,7 +89,7 @@ class ExercisePopupWindow : AppCompatActivity() {
             colorAnimation.addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
                     finish()
-                    //overridePendingTransition(0, 0)
+                    overridePendingTransition(0, 0)
                 }
             })
             colorAnimation.start()
