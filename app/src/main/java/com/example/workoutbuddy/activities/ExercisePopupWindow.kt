@@ -5,20 +5,16 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
 import android.graphics.Color
-import android.graphics.Color.alpha
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.ColorUtils
-import androidx.core.view.ViewCompat.animate
 import com.example.workoutbuddy.R
-import kotlinx.android.synthetic.main.exercise_popup_card.*
+import kotlinx.android.synthetic.main.exercise_popup_window.*
 
 class ExercisePopupWindow : AppCompatActivity() {
 
@@ -34,13 +30,13 @@ class ExercisePopupWindow : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(0, 0)
-        setContentView(R.layout.activity_exercise_popup_window)
+        setContentView(R.layout.exercise_popup_window)
 
 
-        popupTitle = findViewById(R.id.popuptitle)
+        popupTitle = findViewById(R.id.popup_window_title)
         // popupTitleBelow
-        popupDesc = findViewById(R.id.popupdesctext)
-        popupButton = findViewById(R.id.popupbttn)
+        popupDesc = findViewById(R.id.popup_window_text)
+        popupButton = findViewById(R.id.popup_window_button)
 
 
         val bundle = intent.extras
@@ -48,7 +44,7 @@ class ExercisePopupWindow : AppCompatActivity() {
         popupDesc.text = bundle?.getString("eDescr", "Text") ?: ""
 
 
-        this.window.statusBarColor = Color.TRANSPARENT
+        // this.window.statusBarColor = Color.TRANSPARENT
 
 //        // Fade animation for the background of Popup Window
         val alpha = 100 //between 0-255
