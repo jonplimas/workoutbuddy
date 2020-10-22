@@ -17,10 +17,21 @@ class StartWorkoutActivity : AppCompatActivity() {
 //      val wDescriptionTV
 //      val exerciseListView
 
+        val backBtn = findViewById<Button>(R.id.startActBtn)
         val startWorkoutBtn = findViewById<Button>(R.id.startWorkoutBtn)
 
         //get data using intent from Workout Fragment
         val i = intent
+
+
+        //ITERATION 3: extract intent data and store in variables
+
+
+        // Back button to main activity
+        backBtn.setOnClickListener {
+            finish()
+        }
+
 
         startWorkoutBtn.setOnClickListener {
             val i2 = Intent(this, WorkoutInProgressActivity::class.java)
