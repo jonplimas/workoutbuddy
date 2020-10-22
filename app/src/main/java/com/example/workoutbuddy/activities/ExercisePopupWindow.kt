@@ -48,7 +48,7 @@ class ExercisePopupWindow : AppCompatActivity() {
 
         this.window.statusBarColor = Color.TRANSPARENT
 
-        // Fade animation for the background of Popup Window
+//        // Fade animation for the background of Popup Window
 //        val alpha = 100 //between 0-255
 //        val alphaColor = ColorUtils.setAlphaComponent(Color.parseColor("#000000"), alpha)
 //        val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), Color.TRANSPARENT, alphaColor)
@@ -58,13 +58,14 @@ class ExercisePopupWindow : AppCompatActivity() {
 //        }
 //        colorAnimation.start()
 
+        // fade animation when card opens up
         layout.alpha = 0f
         layout.animate().alpha(1f).setDuration(500).setInterpolator(
             DecelerateInterpolator()
         ).start()
 
 
-        // Dismiss button
+        // Dismiss button,
         popupButton.setOnClickListener {
             // Fade animation for the background of Popup Window when you press the back button
             val alpha = 100 // between 0-255
@@ -86,7 +87,7 @@ class ExercisePopupWindow : AppCompatActivity() {
             colorAnimation.addListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
                     finish()
-                    overridePendingTransition(0, 0)
+                    //overridePendingTransition(0, 0)
                 }
             })
             colorAnimation.start()
