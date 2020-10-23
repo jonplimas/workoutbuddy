@@ -46,7 +46,7 @@ class ExercisePopupWindow : AppCompatActivity() {
 
         // this.window.statusBarColor = Color.TRANSPARENT
 
-//        // Fade animation for the background of Popup Window
+        // Fade animation for the background of Popup Window
         val alpha = 100 //between 0-255
         val alphaColor = ColorUtils.setAlphaComponent(Color.parseColor("#000000"), alpha)
         val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), Color.TRANSPARENT, alphaColor)
