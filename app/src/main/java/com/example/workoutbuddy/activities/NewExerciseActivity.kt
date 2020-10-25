@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import com.example.workoutbuddy.ExerciseItem
 import com.example.workoutbuddy.R
 import java.lang.StringBuilder
@@ -44,6 +45,10 @@ class NewExerciseActivity : AppCompatActivity() {
         val mStartActBtn = findViewById<Button>(R.id.startActBtn)
 
 
+        var hasName = false
+        var hasType = false
+        var hasDescr = false
+
 
         // Handle create new exercise button
         submitButton.setOnClickListener {
@@ -64,7 +69,6 @@ class NewExerciseActivity : AppCompatActivity() {
             // Create intent to reply to Exercise List
             val replyIntent = Intent()
 
-            // || TextUtils.isEmpty(newExerciseDescriptionEditText.text) || eTypes.isEmpty()
 
             // Input Validation: CANCEL IF ANYTHING IS MISSING
             if (TextUtils.isEmpty(newExerciseNameEditText.text) || TextUtils.isEmpty(newExerciseDescriptionEditText.text) || type.toString().isEmpty())  {
