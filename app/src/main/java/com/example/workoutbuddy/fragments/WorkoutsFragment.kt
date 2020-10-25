@@ -88,7 +88,7 @@ class WorkoutsFragment : Fragment() {
 //            startActivity(intent)
 //        }
             grid_view.setOnItemClickListener { adapterView, view, i, l ->
-            Toast.makeText(activity, "Workout Description: " + mWorkoutList[i].category, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, "Workout Description: " + mWorkoutList[i].category, Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, StartWorkoutActivity::class.java)
             intent.putExtra("wName", mWorkoutList[i].name)
             intent.putExtra("wCategory", mWorkoutList[i].category)

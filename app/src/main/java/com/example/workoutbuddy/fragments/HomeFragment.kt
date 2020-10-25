@@ -91,7 +91,6 @@ class HomeFragment : Fragment() {
         // TO DO FOR ITERATION 2: floating action button functionality
         // - will open new fragment for user to input new Exercise Entry
         addExerciseButton.setOnClickListener {
-            Toast.makeText(context,"Add new Exercise HERE." , Toast.LENGTH_SHORT).show()
             val i = Intent(activity, NewExerciseActivity::class.java)
             startActivityForResult(i, REQUEST_CODE_EX)
         }
@@ -107,7 +106,7 @@ class HomeFragment : Fragment() {
             val eType = data?.getStringExtra("eType").toString()
             val eDescr = data?.getStringExtra("eDescr").toString()
 
-            Toast.makeText(context, "NAME: $eName TYPE: $eType DESCR: $eDescr", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "NAME: $eName TYPE: $eType DESCR: $eDescr", Toast.LENGTH_LONG).show()
 
             // create exerciseItems based off data received
             val exerciseItem = ExerciseItem(R.drawable.ic_baseline_fitness_center_24, eName, eType, eDescr)
