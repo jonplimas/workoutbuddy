@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?><!--Design for each exercise item. Includes an image, main heading, subheading, and favorite button-->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp">
+
+        <CheckBox
+            android:id="@+id/exerciseCheckbox"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" />
+
+        <TextView
+            android:id="@+id/exerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/exerciseCheckbox"
+            android:layout_toRightOf="@string/exercise_image"
+            android:text="@string/exerciseName"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/exerciseType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/exerciseName"
+            android:layout_toEndOf="@id/exerciseCheckbox"
+            android:layout_toRightOf="@string/exercise_image"
+            android:text="@string/exerciseType" />
+
+        <EditText
+            android:id="@+id/numReps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/reps"
+            android:ems="2"
+            android:hint="15"
+            android:inputType="text"
+            android:paddingRight="4dp" />
+
+        <TextView
+            android:id="@+id/reps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/numSetsTime"
+            android:paddingRight="8dp"
+            android:text="Reps"
+            android:textStyle="bold"
+            tools:ignore="NotSibling" />
+
+        <EditText
+            android:id="@+id/numSetsTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/spinnerSetsTime"
+            android:ems="2"
+            android:hint="15"
+            android:inputType="text"
+            android:paddingRight="4dp" />
+
+        <Spinner
+            android:id="@+id/spinnerSetsTime"
+            android:layout_width="35dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rectangle_outline"
+            android:spinnerMode="dropdown" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

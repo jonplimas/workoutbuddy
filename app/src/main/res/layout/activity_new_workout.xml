@@ -4,6 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.NewWorkoutActivity">
+    tools:context=".activities.WorkoutNav.StartWorkoutActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/startActBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_baseline_arrow_back_24_black" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="24dp"
+            android:text="Create a New Workout"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:padding="4dp"
+            android:text="Workout Name" />
+
+        <EditText
+            android:id="@+id/workoutName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectangle_outline"
+            android:ems="8"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:padding="8dp"
+            android:text="Category" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="131dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rectangle_outline"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp"
+            android:text="Description/Notes" />
+
+        <EditText
+            android:id="@+id/newWorkoutDescription"
+            android:layout_width="374dp"
+            android:layout_height="71dp"
+            android:layout_marginBottom="56dp"
+            android:autofillHints=""
+            android:background="@drawable/rectangle_outline"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Add text..."
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/submitNewUserButton"
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="NEXT"
+            android:textColor="#ffffff"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
