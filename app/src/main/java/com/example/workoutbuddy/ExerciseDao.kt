@@ -20,10 +20,10 @@ interface ExerciseDao {
     @Query("SELECT * from exercise_table WHERE type = 'Core' ORDER BY name ASC")
     fun getCoreExercises(): LiveData<List<ExerciseItem>>
 
-    @Query("SELECT * from exercise_table WHERE type = 'Chest/Back' OR  ORDER BY name ASC")
+    @Query("SELECT * from exercise_table WHERE type = 'Chest/Back' OR type = 'Shoulders' OR type = 'Triceps/Biceps' ORDER BY name ASC")
     fun getUpperExercises(): LiveData<List<ExerciseItem>>
 
-    @Query("SELECT * from exercise_table WHERE type = 'Glutes' ORDER BY name ASC")
+    @Query("SELECT * from exercise_table WHERE type = 'Glutes' OR type = 'Quadriceps/Hamstrings' OR type = 'Calves' ORDER BY name ASC")
     fun getLowerExercises(): LiveData<List<ExerciseItem>>
 
 

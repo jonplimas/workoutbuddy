@@ -16,7 +16,7 @@ import com.example.workoutbuddy.R
 import kotlinx.android.synthetic.main.activity_new_workout.*
 
 class NewWorkoutActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-    private var listOfItems = arrayOf("Full body", "Upper Body", "Lower body", "Core")
+    private var listOfItems = arrayOf("Full Body", "Upper Body", "Lower Body", "Core")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

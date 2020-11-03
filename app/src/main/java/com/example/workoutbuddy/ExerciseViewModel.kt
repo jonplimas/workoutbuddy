@@ -16,6 +16,8 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
     // - Repository is completely separated from the UI through the ViewModel.
     val allExercises: LiveData<List<ExerciseItem>>
     val coreExercises: LiveData<List<ExerciseItem>>
+    val upperExercises: LiveData<List<ExerciseItem>>
+    val lowerExercises: LiveData<List<ExerciseItem>>
 
 
     init {
@@ -23,6 +25,8 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
         repository = ExerciseRepository(exerciseDao)
         allExercises = repository.allExercises
         coreExercises = repository.coreExercises
+        upperExercises = repository.upperExercises
+        lowerExercises = repository.lowerExercises
     }
 
     /**

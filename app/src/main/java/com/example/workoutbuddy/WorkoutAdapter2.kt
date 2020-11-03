@@ -19,6 +19,7 @@ class WorkoutAdapter2 internal constructor(context: Context):
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var exercises = emptyList<ExerciseItem>()   // Cached copy of exercises
+    private var setSecs = arrayOf("Sets", "Secs")
 
 
 
@@ -37,6 +38,8 @@ class WorkoutAdapter2 internal constructor(context: Context):
                 Toast.makeText(itemView.context, "Exercise Description: " + exercises[adapterPosition].description, Toast.LENGTH_SHORT).show()
             }
         }
+
+
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -49,6 +52,7 @@ class WorkoutAdapter2 internal constructor(context: Context):
         val currentItem = exercises[position]
         holder.textView1.text = currentItem.name
         holder.textView2.text = currentItem.type
+
     }
 
     internal fun setExercises(exercises: List<ExerciseItem>) {

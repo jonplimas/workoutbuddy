@@ -11,8 +11,8 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao) {
     val allExercises: LiveData<List<ExerciseItem>> = exerciseDao.getAlphabetizedExercises()
     val coreExercises: LiveData<List<ExerciseItem>> = exerciseDao.getCoreExercises()
 
-    val upperExercises: LiveData<List<ExerciseItem>> = exerciseDao.getCoreExercises()
-    val lowerExercises: LiveData<List<ExerciseItem>> = exerciseDao.getCoreExercises()
+    val upperExercises: LiveData<List<ExerciseItem>> = exerciseDao.getUpperExercises()
+    val lowerExercises: LiveData<List<ExerciseItem>> = exerciseDao.getLowerExercises()
 
 
     // suspend modifier tells the compiler that this needs to be called from a coroutine or another suspending function.

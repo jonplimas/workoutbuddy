@@ -43,7 +43,15 @@ class NewWorkoutActivity2 : AppCompatActivity() {
             exerciseViewModel.coreExercises.observe(this , Observer { exercises ->
                 exercises?.let { adapter.setExercises(it) }
             })
-        } else {
+        } else if(type == "Upper Body") {
+            exerciseViewModel.upperExercises.observe(this , Observer { exercises ->
+                exercises?.let { adapter.setExercises(it) }
+            })
+        } else if(type == "Lower Body") {
+            exerciseViewModel.lowerExercises.observe(this , Observer { exercises ->
+                exercises?.let { adapter.setExercises(it) }
+            })
+        } else {    // "Full Body"
             exerciseViewModel.allExercises.observe(this , Observer { exercises ->
                 exercises?.let { adapter.setExercises(it) }
             })

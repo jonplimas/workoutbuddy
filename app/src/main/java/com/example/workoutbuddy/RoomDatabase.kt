@@ -34,13 +34,13 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
             // Initilaize Exercises.
             // TO DO FOR ITERATION 2: UPDATE LIST OF EXERCISES
-            var exercise = ExerciseItem(R.drawable.ic_baseline_image_24, "Push-Ups", "Chest", "Plank position, press up")
+            var exercise = ExerciseItem(R.drawable.ic_baseline_image_24, "Push-Ups", "Chest/Back", "Plank position, press up")
             exerciseDao.insertExercise(exercise)
 
-            exercise =ExerciseItem(R.drawable.ic_baseline_favorite_24, "Pull-Ups", "Back", "Pull body up til chin reaches past bar")
+            exercise =ExerciseItem(R.drawable.ic_baseline_favorite_24, "Pull-Ups", "Chest/Back", "Pull body up til chin reaches past bar")
             exerciseDao.insertExercise(exercise)
 
-            exercise =  ExerciseItem(R.drawable.ic_baseline_fitness_center_24, "Wall Sits", "Quadriceps", "Hold a 90-degree squat against wall")
+            exercise =  ExerciseItem(R.drawable.ic_baseline_fitness_center_24, "Wall Sits", "Quadriceps/Hamstring", "Hold a 90-degree squat against wall")
             exerciseDao.insertExercise(exercise)
 
             exercise = ExerciseItem(R.drawable.ic_baseline_image_24, "Arm Circles", "Shoulders", "Lateral raise of arms and move in circular motion")
@@ -55,10 +55,10 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(R.drawable.ic_baseline_image_24,"Crunches", "Core", "sit up while lying on back ")
             exerciseDao.insertExercise(exercise)
 
-            exercise = ExerciseItem(R.drawable.ic_baseline_favorite_24, "Bicep Curls", "Biceps", "curl dumbbell while arms at sides")
+            exercise = ExerciseItem(R.drawable.ic_baseline_favorite_24, "Bicep Curls", "Triceps/Biceps", "curl dumbbell while arms at sides")
             exerciseDao.insertExercise(exercise)
 
-            exercise = ExerciseItem(R.drawable.ic_baseline_fitness_center_24,"Skull Crushers", "Triceps", "lying on bench, barbell tricep extension behind the head")
+            exercise = ExerciseItem(R.drawable.ic_baseline_fitness_center_24,"Skull Crushers", "Triceps/Biceps", "lying on bench, barbell tricep extension behind the head")
             exerciseDao.insertExercise(exercise)
 
             exercise = ExerciseItem(R.drawable.ic_baseline_image_24, "Mountain Climbers", "Core", "knee drives in push-up position")
