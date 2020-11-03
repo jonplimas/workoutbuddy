@@ -103,7 +103,7 @@ class WorkoutsFragment : Fragment() {
         // TO DO FOR ITERATION 3: floating action button functionality
         // will open new Activity for user to input new Workout
         addWorkoutButton.setOnClickListener {
-            Toast.makeText(context,"Add new Workout HERE." , Toast.LENGTH_SHORT).show()
+            // Toast.makeText(context,"Add new Workout HERE." , Toast.LENGTH_SHORT).show()
             val i = Intent(activity, NewWorkoutActivity::class.java)
             startActivityForResult(i, REQUEST_CODE_W)
         }

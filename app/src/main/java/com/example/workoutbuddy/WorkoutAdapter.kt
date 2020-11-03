@@ -42,13 +42,6 @@ class WorkoutAdapter(var context: Context, var workoutList: ArrayList<WorkoutIte
         workoutNames.text = myWorkoutItem.name
         workoutCategories.text = myWorkoutItem.category
 
-        // ITERATION 1: use of Toast to check if proper values can be accessed
-//        workoutCardView.setOnClickListener{
-//            Toast.makeText(workoutCardView.context, "Workout Description: " + workoutList[position].category, Toast.LENGTH_SHORT).show()
-//            val i = Intent(context, StartWorkoutActivity::class.java)
-//            ContextCompat.startActivity(context,i, )
-//
-//        }
 
         workoutImages.setOnClickListener {
             //Toast.makeText(context, "Workout Description: " + workoutList[position].description, Toast.LENGTH_SHORT).show()

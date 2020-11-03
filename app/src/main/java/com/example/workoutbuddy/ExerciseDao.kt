@@ -17,6 +17,16 @@ interface ExerciseDao {
     @Query("SELECT * from exercise_table ORDER BY name ASC")
     fun getAlphabetizedExercises(): LiveData<List<ExerciseItem>>
 
+    @Query("SELECT * from exercise_table WHERE type = 'Core' ORDER BY name ASC")
+    fun getCoreExercises(): LiveData<List<ExerciseItem>>
+
+    @Query("SELECT * from exercise_table WHERE type = 'Chest/Back' OR  ORDER BY name ASC")
+    fun getUpperExercises(): LiveData<List<ExerciseItem>>
+
+    @Query("SELECT * from exercise_table WHERE type = 'Glutes' ORDER BY name ASC")
+    fun getLowerExercises(): LiveData<List<ExerciseItem>>
+
+
     // ConflictStrategy: ignores new word if it has the same name as one already in the list
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExercise(exerciseItem: ExerciseItem)
