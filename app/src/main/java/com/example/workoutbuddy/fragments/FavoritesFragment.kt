@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.workoutbuddy.ExerciseItem
+import com.example.workoutbuddy.Data.ExerciseItem
 import com.example.workoutbuddy.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -88,7 +88,11 @@ class FavoritesFragment : Fragment() {
                 else -> R.drawable.ic_baseline_fitness_center_24
             }
             //sets the text of each heading: item position number, subheading: line 2
-            val item = ExerciseItem(drawable, "Item $i", "Line 2")
+            val item = ExerciseItem(
+                drawable,0,
+                "Item $i",
+                "Line 2"
+            )
             list += item
         }
         //return populated list

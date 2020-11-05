@@ -1,10 +1,7 @@
-package com.example.workoutbuddy
+package com.example.workoutbuddy.Data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 
 // In the DAO (data access object), you specify SQL queries and associate them with method calls.
@@ -26,7 +23,6 @@ interface ExerciseDao {
     @Query("SELECT * from exercise_table WHERE type = 'Glutes' OR type = 'Quadriceps/Hamstrings' OR type = 'Calves' ORDER BY name ASC")
     fun getLowerExercises(): LiveData<List<ExerciseItem>>
 
-
     // ConflictStrategy: ignores new word if it has the same name as one already in the list
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExercise(exerciseItem: ExerciseItem)
@@ -34,4 +30,24 @@ interface ExerciseDao {
     //
     @Query("DELETE FROM exercise_table")
     suspend fun deleteAllExercises()
+
+
+
+
+//    @Transaction
+//    @Query("SELECT * from workout_table")
+//    fun getWorkoutWithExercises(): LiveData<List<WorkoutWithExercises>>
+
+//    @Transaction
+//    @Query("SELECT * from user_table")
+//    fun getUserWithWorkoutsAndExercises(): LiveData<List<UserWithWorkoutsAndExercises>>
+
+
+
+
+
+
+
+
+
 }

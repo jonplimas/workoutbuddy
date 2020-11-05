@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.example.workoutbuddy.ExerciseItem
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.fragments.FavoritesFragment
 import com.example.workoutbuddy.fragments.HomeFragment

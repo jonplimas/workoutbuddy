@@ -8,9 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat.startActivity
+import com.example.workoutbuddy.Data.WorkoutItem
 import com.example.workoutbuddy.activities.WorkoutNav.StartWorkoutActivity
 
-class WorkoutAdapter(var context: Context, var workoutList: ArrayList<WorkoutItem>): BaseAdapter() {
+class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): BaseAdapter() {
 
     override fun getItem(position: Int): Any {
         return workoutList.get(position)
@@ -22,6 +23,11 @@ class WorkoutAdapter(var context: Context, var workoutList: ArrayList<WorkoutIte
 
     override fun getCount(): Int {
         return workoutList.size
+    }
+
+    internal fun setWorkouts(workouts: List<WorkoutItem>) {
+        this.workoutList = workouts
+        notifyDataSetChanged()
     }
 
     @SuppressLint("ViewHolder")
@@ -50,11 +56,10 @@ class WorkoutAdapter(var context: Context, var workoutList: ArrayList<WorkoutIte
             intent.putExtra("wCategory", workoutList[position].category)
             intent.putExtra("wDesc", workoutList[position].description)
             intent.putExtra("wImage", workoutList[position].workoutImageResource)
-            intent.putExtra("wReps", workoutList[position].reps)
-            intent.putExtra("wSets", workoutList[position].sets)
+            //intent.putExtra("wReps", workoutList[position].reps)
+            //intent.putExtra("wSets", workoutList[position].sets)
             startActivity(context,intent, Bundle.EMPTY)
         }
-
         return workoutCardView
     }
 }

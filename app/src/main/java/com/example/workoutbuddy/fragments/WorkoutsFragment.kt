@@ -1,5 +1,7 @@
 package com.example.workoutbuddy.fragments
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +10,18 @@ import android.view.ViewGroup
 import android.widget.GridView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.WorkoutAdapter
-import com.example.workoutbuddy.WorkoutItem
+import com.example.workoutbuddy.Data.WorkoutItem
+import com.example.workoutbuddy.ViewModels.WorkoutViewModel
+import com.example.workoutbuddy.activities.NewExerciseActivity.Companion.EXTRA_REPLY
 import com.example.workoutbuddy.activities.NewWorkoutActivity
+import com.example.workoutbuddy.activities.NewWorkoutActivity2
 import com.example.workoutbuddy.activities.WorkoutNav.StartWorkoutActivity
 import kotlinx.android.synthetic.main.fragment_workouts.*
+import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,6 +49,8 @@ class WorkoutsFragment : Fragment() {
     private lateinit var gridView: GridView
     private lateinit var workoutAdapter: WorkoutAdapter
 
+    private lateinit var workoutViewModel: WorkoutViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +69,7 @@ class WorkoutsFragment : Fragment() {
     }
 
     // NOTE: can only access recyclerView AFTER you create the view and inflate the layout of the fragment
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -71,31 +82,32 @@ class WorkoutsFragment : Fragment() {
         //gridView = grid_view
 
         mWorkoutList = generateDummyList(7)
-        mWorkoutList[0] = WorkoutItem(R.drawable.ic_baseline_image_24, "Ab Circuit","Core", "Quick ab workout! Repeat every other day.")
+        mWorkoutList[0] = WorkoutItem(
+            R.drawable.ic_baseline_image_24,
+            1,
+            1,
+            "Ab Circuit",
+            "Core",
+            "Quick ab workout! Repeat every other day."
+        )
         workoutAdapter = WorkoutAdapter(requireContext(), mWorkoutList)
         grid_view.adapter = workoutAdapter
 
+        workoutViewModel = ViewModelProvider(this).get(WorkoutViewModel::class.java)
+        workoutViewModel.allWorkouts.observe(this, Observer { workouts ->
+            workouts?.let { workoutAdapter.setWorkouts(it) }
+        })
 
-        // Onclick listener to Start a Workout
-//        grid_view.setOnClickListener {
-//            val intent = Intent(activity, StartWorkoutActivity::class.java)
-//            intent.putExtra("wName", mWorkoutList[0].name)
-//            intent.putExtra("wCategory", mWorkoutList[0].category)
-//            intent.putExtra("wDesc",  mWorkoutList[0].description)
-//            intent.putExtra("wImage", mWorkoutList[0].workoutImageResource)
-//            intent.putExtra("wReps", mWorkoutList[0].reps)
-//            intent.putExtra("wSets", mWorkoutList[0].sets)
-//            startActivity(intent)
-//        }
-            grid_view.setOnItemClickListener { adapterView, view, i, l ->
+        // Start Workout By Clicking on an item
+        grid_view.setOnItemClickListener { adapterView, view, i, l ->
             //Toast.makeText(activity, "Workout Description: " + mWorkoutList[i].category, Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, StartWorkoutActivity::class.java)
             intent.putExtra("wName", mWorkoutList[i].name)
             intent.putExtra("wCategory", mWorkoutList[i].category)
             intent.putExtra("wDesc",  mWorkoutList[i].description)
             intent.putExtra("wImage", mWorkoutList[i].workoutImageResource)
-            intent.putExtra("wReps", mWorkoutList[i].reps)
-            intent.putExtra("wSets", mWorkoutList[i].sets)
+            //intent.putExtra("wReps", mWorkoutList[i].reps)
+            //intent.putExtra("wSets", mWorkoutList[i].sets)
             startActivity(intent)
         }
 
@@ -109,11 +121,23 @@ class WorkoutsFragment : Fragment() {
         }
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        if (item.itemId == R.id.popupbttn){
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+            val wName = data?.getStringExtra("Name").toString()
+            val wCat = data?.getStringExtra("Category").toString()
+            val wDescr = data?.getStringExtra("Descr").toString()
+
+            val newWorkout = WorkoutItem(R.drawable.ic_baseline_fitness_center_24, 99,
+                0, wName, wCat, wDescr)
+
+            workoutViewModel.insertWorkout(newWorkout)
+
+
+            Toast.makeText(context,"name: $wName, cat: $wCat, descr: $wDescr", Toast.LENGTH_LONG).show()
+
+    }
 
 
 
@@ -150,7 +174,13 @@ class WorkoutsFragment : Fragment() {
             }
             // sets the text of each heading: item position number + 1, subheading: category position number
             val j = i + 1
-            val item = WorkoutItem(drawable, "Workout $j", "Category: $i")
+            val item = WorkoutItem(
+                drawable,
+                0,
+                0,
+                "Workout $j",
+                "Category: $i"
+            )
             list += item
         }
         // return populated list

@@ -8,15 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutbuddy.*
-import com.example.workoutbuddy.activities.MainActivity
+import com.example.workoutbuddy.Data.ExerciseItem
+import com.example.workoutbuddy.ViewModels.ExerciseViewModel
 import com.example.workoutbuddy.activities.NewExerciseActivity
-import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -108,10 +106,15 @@ class HomeFragment : Fragment() {
             //Toast.makeText(context, "NAME: $eName TYPE: $eType DESCR: $eDescr", Toast.LENGTH_LONG).show()
 
             // create exerciseItems based off data received
-            val exerciseItem = ExerciseItem(R.drawable.ic_baseline_fitness_center_24, eName, eType, eDescr)
+            val exerciseItem = ExerciseItem(
+                R.drawable.ic_baseline_fitness_center_24,
+                0, eName,
+                eType,
+                eDescr
+            )
 
             // insert new exercise
-            exerciseViewModel.insert(exerciseItem)
+            exerciseViewModel.insertExer(exerciseItem)
 
             //HomeFragment.apply {  }
         }

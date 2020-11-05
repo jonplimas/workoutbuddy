@@ -1,9 +1,13 @@
-package com.example.workoutbuddy
+package com.example.workoutbuddy.ViewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.workoutbuddy.Data.ExerciseItem
+import com.example.workoutbuddy.Data.ExerciseRepository
+import com.example.workoutbuddy.Data.ExerciseRoomDatabase
+import com.example.workoutbuddy.Data.WorkoutItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -21,18 +25,25 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
 
 
     init {
-        val exerciseDao = ExerciseRoomDatabase.getDatabase(application,viewModelScope).exerciseDao()
-        repository = ExerciseRepository(exerciseDao)
+        val exerciseDao = ExerciseRoomDatabase.getDatabase(
+            application,
+            viewModelScope
+        ).exerciseDao()
+        repository =
+            ExerciseRepository(exerciseDao)
         allExercises = repository.allExercises
         coreExercises = repository.coreExercises
         upperExercises = repository.upperExercises
         lowerExercises = repository.lowerExercises
+
     }
 
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
-    fun insert(exerciseItem: ExerciseItem) = viewModelScope.launch(Dispatchers.IO) {
+    fun insertExer(exerciseItem: ExerciseItem) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertExercise(exerciseItem)
     }
+
+
 }
