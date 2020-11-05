@@ -18,9 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val homeFragment = HomeFragment()
+        val homeFragment = WorkoutsFragment()
         val favoritesFragment = FavoritesFragment()
-        val workoutsFragment = WorkoutsFragment()
+        val workoutsFragment = HomeFragment()
         val userFragment = UserFragment()
 
 
