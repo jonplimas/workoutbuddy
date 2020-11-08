@@ -29,8 +29,8 @@ class WorkoutAdapter2 internal constructor(context: Context):
         val textView2: TextView = itemView.findViewById(R.id.exerciseType)
         val exCheckBox: CheckBox = itemView.findViewById(R.id.exerciseCheckbox)
         val numReps: EditText = itemView.findViewById(R.id.numReps)
-        val numSets: EditText = itemView.findViewById(R.id.numSetsTime)
-        val numSetsTime: Spinner = itemView.findViewById(R.id.spinnerSetsTime)
+        val numSets: EditText = itemView.findViewById(R.id.numRepsTime)
+        val numSetsTime: Spinner = itemView.findViewById(R.id.spinnerRepsTime)
 
 
         init {

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.transition.Transition
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.ArrayAdapter
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -13,18 +14,21 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutbuddy.*
+import kotlinx.android.synthetic.main.activity_new_workout.*
 import kotlinx.android.synthetic.main.activity_new_workout2.*
+import kotlinx.android.synthetic.main.exercise_item_options.*
 
 private lateinit var exerciseViewModel: ExerciseViewModel
 
 class NewWorkoutActivity2 : AppCompatActivity() {
+    private var listOfItems = arrayOf("Full Body", "Upper Body", "Lower Body", "Core")
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_workout2)
 
-        val bundle = intent.extras
 
+        val bundle = intent.extras
         val name = bundle?.getString("wName", "Title") ?: ""
         val type = bundle?.getString("wType", "Title") ?: ""
         val descr = bundle?.getString("wDescr", "Title") ?: ""
