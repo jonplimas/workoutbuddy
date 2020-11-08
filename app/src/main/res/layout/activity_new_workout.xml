@@ -73,7 +73,7 @@
 
         <EditText
             android:id="@+id/newWorkoutDescription"
-            android:layout_width="374dp"
+            android:layout_width="350dp"
             android:layout_height="71dp"
             android:layout_marginBottom="56dp"
             android:autofillHints=""

@@ -22,17 +22,20 @@ import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 import kotlinx.android.synthetic.main.activity_new_workout2.*
 import kotlin.random.Random
 
+
+
 private lateinit var exerciseViewModel: ExerciseViewModel
 private lateinit var workoutViewModel: WorkoutViewModel
 
 class NewWorkoutActivity2 : AppCompatActivity() {
+    private var listOfItems = arrayOf("Full Body", "Upper Body", "Lower Body", "Core")
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_workout2)
 
-        val bundle = intent.extras
 
+        val bundle = intent.extras
         val name = bundle?.getString("wName", "Title") ?: ""
         val type = bundle?.getString("wType", "Title") ?: ""
         val descr = bundle?.getString("wDescr", "Title") ?: ""

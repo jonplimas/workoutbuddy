@@ -19,13 +19,13 @@
 
         <TextView
             android:id="@+id/exerciseName"
-            android:layout_width="wrap_content"
+            android:layout_width="135dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/exerciseCheckbox"
             android:layout_toRightOf="@id/exerciseCheckbox"
             android:text="@string/exerciseName"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -34,42 +34,43 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/exerciseName"
             android:layout_toEndOf="@id/exerciseCheckbox"
-            android:layout_toRightOf="@string/exercise_image"
-            android:text="@string/exerciseType" />
+            android:layout_toRightOf="@id/exerciseCheckbox"
+            android:text="@string/exerciseType"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/numReps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/reps"
-            android:ems="2"
-            android:hint="15"
-            android:inputType="text"
+            android:layout_toLeftOf="@id/sets"
+            android:ems="1"
+            android:hint="3"
+            android:inputType="number"
             android:paddingRight="4dp" />
 
         <TextView
-            android:id="@+id/reps"
+            android:id="@+id/sets"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_toLeftOf="@id/numSetsTime"
+            android:layout_toLeftOf="@id/numRepsTime"
             android:paddingRight="8dp"
-            android:text="Reps"
+            android:text="Sets"
             android:textStyle="bold"
             tools:ignore="NotSibling" />
 
         <EditText
-            android:id="@+id/numSetsTime"
+            android:id="@+id/numRepsTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/spinnerSetsTime"
+            android:layout_toLeftOf="@id/spinnerRepsTime"
             android:ems="2"
             android:hint="15"
-            android:inputType="text"
+            android:inputType="number"
             android:paddingRight="4dp" />
 
         <Spinner
-            android:id="@+id/spinnerSetsTime"
+            android:id="@+id/spinnerRepsTime"
             android:layout_width="35dp"
             android:layout_height="25dp"
             android:layout_alignParentRight="true"
