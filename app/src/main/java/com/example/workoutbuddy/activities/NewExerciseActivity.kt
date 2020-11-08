@@ -9,8 +9,6 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
-import androidx.core.widget.doOnTextChanged
-import com.example.workoutbuddy.ExerciseItem
 import com.example.workoutbuddy.R
 import java.lang.StringBuilder
 

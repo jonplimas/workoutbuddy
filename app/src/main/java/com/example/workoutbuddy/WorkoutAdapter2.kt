@@ -1,7 +1,6 @@
 package com.example.workoutbuddy
 
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.example.workoutbuddy.activities.ExercisePopupWindow
-import kotlinx.android.synthetic.main.exercise_item.view.*
-
+import com.example.workoutbuddy.Data.ExerciseItem
 
 
 class WorkoutAdapter2 internal constructor(context: Context):
@@ -52,13 +49,19 @@ class WorkoutAdapter2 internal constructor(context: Context):
         val currentItem = exercises[position]
         holder.textView1.text = currentItem.name
         holder.textView2.text = currentItem.type
-
     }
+
 
     internal fun setExercises(exercises: List<ExerciseItem>) {
         this.exercises = exercises
         notifyDataSetChanged()
     }
+
+    internal fun getExercise(position: Int): ExerciseItem {
+        return this.exercises[position]
+    }
+
+
 
     override fun getItemCount() = exercises.size
 

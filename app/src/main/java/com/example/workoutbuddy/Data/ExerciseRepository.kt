@@ -1,4 +1,4 @@
-package com.example.workoutbuddy
+package com.example.workoutbuddy.Data
 
 import androidx.lifecycle.LiveData
 
@@ -10,13 +10,13 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao) {
     // Observed LiveData will notify the observer when the data has changed.
     val allExercises: LiveData<List<ExerciseItem>> = exerciseDao.getAlphabetizedExercises()
     val coreExercises: LiveData<List<ExerciseItem>> = exerciseDao.getCoreExercises()
-
     val upperExercises: LiveData<List<ExerciseItem>> = exerciseDao.getUpperExercises()
     val lowerExercises: LiveData<List<ExerciseItem>> = exerciseDao.getLowerExercises()
-
 
     // suspend modifier tells the compiler that this needs to be called from a coroutine or another suspending function.
     suspend fun insertExercise(exercise: ExerciseItem) {
         exerciseDao.insertExercise(exercise)
     }
+
+
 }

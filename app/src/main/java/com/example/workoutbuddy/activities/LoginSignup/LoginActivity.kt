@@ -8,8 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.view.isVisible
+import com.example.workoutbuddy.Data.Login
 import com.example.workoutbuddy.R
-import com.example.workoutbuddy.UserLogin
 import com.example.workoutbuddy.activities.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
     private val SIGNUP_REQUEST_CODE = 3
 
     private val admin =
-        UserLogin(1, "Admin", "password")
+        Login(0, "Admin", "password")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

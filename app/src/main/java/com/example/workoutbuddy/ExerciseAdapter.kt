@@ -2,23 +2,15 @@ package com.example.workoutbuddy
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.ColorFilter
 import android.os.Build
-import android.transition.Slide
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.workoutbuddy.Data.ExerciseItem
 import com.example.workoutbuddy.activities.ExercisePopupWindow
-import com.example.workoutbuddy.activities.MainActivity
-import com.example.workoutbuddy.fragments.HomeFragment
-import kotlinx.android.synthetic.main.activity_login.view.*
 import kotlinx.android.synthetic.main.exercise_item.view.*
 
 

@@ -56,9 +56,28 @@ class NewWorkoutActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
                 i.putExtra("wType", wType)
                 i.putExtra("wDescr", wDescr)
                 startActivity(i)
+                finish()
             }
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            val replyIntent = Intent()
+
+            replyIntent.putExtra( "wName", data?.getStringExtra("wName").toString())
+            replyIntent.putExtra( "wCategory", data?.getStringExtra("wCategory").toString())
+            replyIntent.putExtra("wDescription",data?.getStringExtra("eDescr").toString())
+            replyIntent.putExtra("xNames", data?.getStringArrayExtra("xNames"))
+            replyIntent.putExtra("xTypes", data?.getStringArrayExtra("xTypes"))
+            replyIntent.putExtra("xDescr", data?.getStringArrayExtra("xDescripts"))
+            setResult(Activity.RESULT_OK, replyIntent)
+        } else {
+            Toast.makeText(this,"COULD NOT PULL", Toast.LENGTH_LONG).show()
+        }
+        finish()
     }
 
     override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {
