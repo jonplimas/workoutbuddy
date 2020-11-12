@@ -46,10 +46,14 @@ class UserFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //TODO: on click, navigate to the achievements activity
+        //Onclick navigates to the achievements activity
         achievementnav.setOnClickListener {
-            Toast.makeText(activity, "clicked achievements tab", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, "clicked achievements tab", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, AchievementsActivity::class.java)
+            startActivity(intent)
         }
+
+
         logoutButton.setOnClickListener {
             val i = Intent(activity, LoginActivity::class.java)
             startActivity(i)
