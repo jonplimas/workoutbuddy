@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.activity_new_workout2.*
 import kotlin.random.Random
 
 
-
 private lateinit var exerciseViewModel: ExerciseViewModel
 private lateinit var workoutViewModel: WorkoutViewModel
 

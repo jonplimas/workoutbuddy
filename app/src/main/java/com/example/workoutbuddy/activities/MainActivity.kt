@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val homeFragment = WorkoutsFragment()
-        val favoritesFragment = FavoritesFragment()
+//        val favoritesFragment = FavoritesFragment()
         val workoutsFragment = HomeFragment()
         val userFragment = UserFragment()
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_home -> makeCurrentFragment(homeFragment)
-                R.id.navigation_favorite -> makeCurrentFragment(favoritesFragment)
+//                R.id.navigation_favorite -> makeCurrentFragment(favoritesFragment)
                 R.id.navigation_workout -> makeCurrentFragment(workoutsFragment)
                 R.id.navigation_user -> makeCurrentFragment(userFragment)
             }
