@@ -44,7 +44,6 @@ class WorkoutsFragment : Fragment() {
 
     private val REQUEST_CODE_W = 5
 
-
     private lateinit var mWorkoutList: ArrayList<WorkoutItem>
     private lateinit var gridView: GridView
     private lateinit var workoutAdapter: WorkoutAdapter
@@ -160,7 +159,6 @@ class WorkoutsFragment : Fragment() {
                 }
             }
     }
-
 
     // fill Workout List with placeholder data
     private fun generateDummyList(size: Int): ArrayList<WorkoutItem> {

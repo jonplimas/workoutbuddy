@@ -9,8 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="24dp"
         android:paddingLeft="16dp"
+        android:paddingTop="24dp"
         tools:ignore="MissingConstraints">
 
         <Button
@@ -42,78 +42,87 @@
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
         android:baselineAligned="false"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/newExerciseDescriptionEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="MissingConstraints">
 
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="Exercise Name" />
 
         <EditText
             android:id="@+id/newExerciseNameEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
+            android:background="@drawable/rectangle_outline"
+            android:ems="8"
             android:hint="@string/exNameHint"
             android:inputType="textPersonName" />
+
 
         <TextView
             android:id="@+id/exTypeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="24dp"
-            android:paddingTop="16dp"
-            android:text="@string/exercisetype"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:paddingTop="32dp"
+            android:text="@string/exercisetype" />
 
         <RadioGroup
             android:layout_width="374dp"
-            android:layout_height="315dp"
+            android:layout_height="wrap_content"
             android:paddingVertical="8dp"
             android:paddingLeft="24dp"
             android:textColor="@color/dark_gray">
-<!--            (Upper chest/back, triceps/biceps, deltroids, quads/hamstring, calves, core/stomach, glutes)-->
+
             <CheckBox
                 android:id="@+id/chestExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/checkbox_spacing"
                 android:text="@string/chestEx" />
 
             <CheckBox
                 android:id="@+id/coreExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/checkbox_spacing"
                 android:text="@string/coreEx" />
 
             <CheckBox
                 android:id="@+id/tricepsExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/checkbox_spacing"
                 android:text="@string/tricepsEx" />
+
             <CheckBox
                 android:id="@+id/shouldersExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/checkbox_spacing"
                 android:text="@string/shouldersEx" />
+
             <CheckBox
                 android:id="@+id/glutesExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/checkbox_spacing"
                 android:text="@string/glutesEx" />
+
             <CheckBox
                 android:id="@+id/quadsExButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/checkbox_spacing"
                 android:text="@string/quadricepsEx" />
+
             <CheckBox
                 android:id="@+id/calvesExButton"
                 android:layout_width="match_parent"
@@ -121,17 +130,13 @@
                 android:text="@string/calves" />
 
         </RadioGroup>
-
-        <Space
-            android:layout_width="1dp"
-            android:layout_height="32dp" />
     </LinearLayout>
 
     <EditText
         android:id="@+id/newExerciseDescriptionEditText"
         android:layout_width="374dp"
         android:layout_height="71dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="144dp"
         android:autofillHints=""
         android:background="@drawable/rectangle_outline"
         android:ems="10"
