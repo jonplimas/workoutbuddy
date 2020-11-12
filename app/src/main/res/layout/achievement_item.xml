@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--Design for each workout item. Includes an image, main heading, subheading, and favorite button-->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp">
@@ -10,7 +9,7 @@
         android:layout_height="170dp">
 
         <ImageView
-            android:id="@+id/workoutImage"
+            android:id="@+id/achievementBadge"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
@@ -21,36 +20,16 @@
             android:src="@drawable/ic_baseline_image_24" />
 
         <TextView
-            android:id="@+id/workoutName"
+            android:id="@+id/achName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/workoutImage"
+            android:layout_below="@id/achievementBadge"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/workout_name"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/workoutCat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/workoutName"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
-            android:text="@string/workout_cat"
-            android:textSize="15sp" />
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/imageButton2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:background="#ffffff"-->
-<!--            android:src="@drawable/ic_baseline_favorite_border_24" />-->
 
 
     </RelativeLayout>

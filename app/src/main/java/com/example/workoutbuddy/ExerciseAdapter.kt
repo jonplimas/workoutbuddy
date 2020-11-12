@@ -48,15 +48,15 @@ class ExerciseAdapter internal constructor(
 
 
             // Favorites action
-            itemView.imageHeartButton.setOnClickListener {
-                if(!heartClicked){
-                    itemView.imageHeartButton.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
-                    heartClicked = true
-                } else {
-                    itemView.imageHeartButton.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
-                    heartClicked = false
-                }
-            }
+//            itemView.imageHeartButton.setOnClickListener {
+//                if(!heartClicked){
+//                    itemView.imageHeartButton.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+//                    heartClicked = true
+//                } else {
+//                    itemView.imageHeartButton.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
+//                    heartClicked = false
+//                }
+//            }
 
 
 
