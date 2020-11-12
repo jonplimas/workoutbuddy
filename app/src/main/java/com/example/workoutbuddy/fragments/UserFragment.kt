@@ -1,5 +1,6 @@
 package com.example.workoutbuddy.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.workoutbuddy.Data.WorkoutItem
+import com.example.workoutbuddy.ExerciseAdapter
 import com.example.workoutbuddy.R
+import com.example.workoutbuddy.UserRecentsAdapter
+import com.example.workoutbuddy.ViewModels.ExerciseViewModel
+import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 import com.example.workoutbuddy.activities.AchievementsActivity
 import com.example.workoutbuddy.activities.LoginSignup.LoginActivity
+import kotlinx.android.synthetic.main.fragment_exercises.*
 import kotlinx.android.synthetic.main.fragment_user.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,6 +37,11 @@ class UserFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var rWorkoutList: ArrayList<WorkoutItem>
+    private lateinit var rWorkoutViewModel: WorkoutViewModel
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -43,8 +58,23 @@ class UserFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_user, container, false)
     }
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        val adapter = context?.let { UserRecentsAdapter(it) }
+        recentworkoutrecycler.adapter = adapter
+        recentworkoutrecycler.layoutManager = LinearLayoutManager(context)
+        recentworkoutrecycler.setHasFixedSize(true)
+
+        // TODO: Create new view model for
+        rWorkoutViewModel = ViewModelProvider(this).get(WorkoutViewModel::class.java)
+        rWorkoutViewModel.allWorkouts.observe(this , Observer { rWorkouts ->
+            rWorkouts?.let { (recentworkoutrecycler.adapter as UserRecentsAdapter?)?.setWorkouts(it) }
+        })
+
+
+
 
         //Onclick navigates to the achievements activity
         achievementnav.setOnClickListener {
@@ -59,6 +89,9 @@ class UserFragment : Fragment() {
             startActivity(i)
             activity?.finish()
         }
+
+
+
 
 
     }

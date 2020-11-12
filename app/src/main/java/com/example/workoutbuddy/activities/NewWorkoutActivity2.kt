@@ -5,11 +5,8 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.view.get
-import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +17,6 @@ import com.example.workoutbuddy.ViewModels.ExerciseViewModel
 import com.example.workoutbuddy.Data.WorkoutItem
 import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 import kotlinx.android.synthetic.main.activity_new_workout2.*
-import kotlin.random.Random
 
 
 private lateinit var exerciseViewModel: ExerciseViewModel

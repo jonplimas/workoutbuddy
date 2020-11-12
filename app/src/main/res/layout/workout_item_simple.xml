@@ -11,13 +11,13 @@
         android:padding="12dp">
 
         <TextView
-            android:id="@+id/workoutName"
+            android:id="@+id/pizza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/exerciseName"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

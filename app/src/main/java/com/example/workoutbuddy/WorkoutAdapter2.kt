@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutbuddy.Data.ExerciseItem
+import com.example.workoutbuddy.Data.WorkoutItem
 
 
 class WorkoutAdapter2 internal constructor(context: Context):
