@@ -21,10 +21,20 @@ data class ExerciseItem(
     @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "exerciseID") val exerciseID: Long,
     @NonNull @ColumnInfo(name = "name") val name: String,
     @NonNull @ColumnInfo(name = "type") val type: String? = null,
-    @NonNull @ColumnInfo(name = "description") val description: String? = null,
-    @ColumnInfo(name = "reps") val reps: Int? = null,
-    @ColumnInfo(name = "sets") val sets: Int? = null,
-    @ColumnInfo(name = "setQuantifier") val setQuantifier: String? = null
+    @NonNull @ColumnInfo(name = "description") val description: String? = null
+)
+
+
+@Entity(tableName = "routine_table")
+data class Routine(
+    @PrimaryKey @NonNull @ColumnInfo(name = "routineID") val routineID: Long,
+    @NonNull @ColumnInfo(name = "exID") val exID: Long,
+    @NonNull @ColumnInfo(name = "name") val name: String,
+    @NonNull @ColumnInfo(name = "type") val type: String,
+    @NonNull @ColumnInfo(name = "description") val description: String,
+    @ColumnInfo(name = "reps") val reps: Int?,
+    @ColumnInfo(name = "sets") val sets: Int?,
+    @ColumnInfo(name = "setQuantifier") val setQuantifier: String?
 )
 
 
@@ -42,6 +52,15 @@ data class User(
     @ColumnInfo(name = "userName") val userName: String
 )
 
+
+@Entity(tableName = "badge_table")
+data class Badge(
+    @Ignore val imageResource: Int,
+    @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "title") val title: String,
+    @NonNull @ColumnInfo(name = "description") val description: String,
+    @NonNull @ColumnInfo(name = "count") val count: Int = 0,
+    @NonNull @ColumnInfo(name = "goal") val goal: Int?
+)
 
 
 
