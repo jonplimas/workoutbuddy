@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.workoutbuddy.Data.Badge
 import com.example.workoutbuddy.Data.WorkoutItem
@@ -27,7 +28,7 @@ class BadgeAdapter(var context: Context, var badgeList: List<Badge>): BaseAdapte
         return badgeList.size
     }
 
-    internal fun setWorkouts(badges: List<Badge>) {
+    internal fun setBadges(badges: List<Badge>) {
         this.badgeList = badges
         notifyDataSetChanged()
     }
@@ -37,11 +38,11 @@ class BadgeAdapter(var context: Context, var badgeList: List<Badge>): BaseAdapte
         // inflate individual Workout Card
         val badgeCardView: View = View.inflate(context, R.layout.achievement_item, null)
 
-        // initialize items in relation to workout_item.xml
+        // initialize items in relation to achievementBadge.xml
         val badgeImages: ImageView = badgeCardView.findViewById(R.id.achievementBadge)
         val badgeTitles: TextView = badgeCardView.findViewById(R.id.achName)
 
-        // initialize individual cards based on indices.
+        // initialize individual Badges based on indices.
         val badge: Badge = badgeList[position]
 
         // fill workout card with data
@@ -49,15 +50,10 @@ class BadgeAdapter(var context: Context, var badgeList: List<Badge>): BaseAdapte
         badgeTitles.text = badge.title
 
 
-        badgeImages.setOnClickListener {
-            //Toast.makeText(context, "Workout Description: " + workoutList[position].description, Toast.LENGTH_SHORT).show()
-            val intent = Intent(context, StartWorkoutActivity::class.java)
-            intent.putExtra("bName", badgeList[position].title)
-            intent.putExtra("bDesc", badgeList[position].description)
-            intent.putExtra("bCount", badgeList[position].count)
-            intent.putExtra("bGoal", badgeList[position].goal)
-            ActivityCompat.startActivity(context, intent, Bundle.EMPTY)
+        badgeCardView.setOnClickListener {
+            Toast.makeText(context, "${badgeList[position].title}: " + badgeList[position].description, Toast.LENGTH_SHORT).show()
         }
+
         return badgeCardView
     }
 }

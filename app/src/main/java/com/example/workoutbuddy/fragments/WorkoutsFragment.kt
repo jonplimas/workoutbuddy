@@ -89,6 +89,9 @@ class WorkoutsFragment : Fragment() {
             "Core",
             "Quick ab workout! Repeat every other day."
         )
+
+
+
         workoutAdapter = WorkoutAdapter(requireContext(), mWorkoutList)
         grid_view.adapter = workoutAdapter
 

@@ -5,10 +5,13 @@ import android.widget.Button
 import android.widget.GridView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.workoutbuddy.BadgeAdapter
 import com.example.workoutbuddy.Data.Badge
 import com.example.workoutbuddy.Data.WorkoutItem
 import com.example.workoutbuddy.R
+import com.example.workoutbuddy.ViewModels.BadgeViewModel
 import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 import com.example.workoutbuddy.WorkoutAdapter
 import kotlinx.android.synthetic.main.activity_achievements.*
@@ -19,7 +22,9 @@ class AchievementsActivity : AppCompatActivity() {
     private lateinit var gridView: GridView
     private lateinit var badgeAdapter: BadgeAdapter
 
-    // private lateinit var badgeViewModel: BadgeViewModel
+
+
+    private lateinit var badgeViewModel: BadgeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +36,14 @@ class AchievementsActivity : AppCompatActivity() {
         badgeAdapter = BadgeAdapter(this, mBadgeList)
         gridView.adapter = badgeAdapter
 
-        gridView.setOnItemClickListener { adapterView, view, i, l ->
-            Toast.makeText(this, mBadgeList[i].description, Toast.LENGTH_SHORT).show()
-        }
+        badgeViewModel = ViewModelProvider(this).get(BadgeViewModel::class.java)
+        badgeViewModel.allBadges.observe(this, Observer { badges ->
+            badges?.let { badgeAdapter.setBadges(it) }
+        })
+//
+//        gridView.setOnItemClickListener { adapterView, view, i, l ->
+//            Toast.makeText(this, mBadgeList[i].description, Toast.LENGTH_SHORT).show()
+//        }
 
 
 

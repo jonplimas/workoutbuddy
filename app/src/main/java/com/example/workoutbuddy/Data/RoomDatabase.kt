@@ -11,11 +11,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(ExerciseItem::class, WorkoutItem::class), version = 5, exportSchema = false)
+@Database(entities = arrayOf(ExerciseItem::class, WorkoutItem::class, Badge::class), version = 7, exportSchema = false)
 abstract class ExerciseRoomDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
     abstract fun workoutDao(): WorkoutDao
+    abstract fun badgeDao(): BadgeDao
 
     val MIGRATION_1_2 = object : Migration(1,2) {
         override fun migrate(database: SupportSQLiteDatabase) {
@@ -32,17 +33,18 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             super.onOpen(db)
             INSTANCE?.let { database ->
                 scope.launch {
-                    populateDatabase(database.exerciseDao(), database.workoutDao())
+                    populateDatabase(database.exerciseDao(), database.workoutDao(), database.badgeDao())
                 }
             }
         }
 
 
-        suspend fun populateDatabase(exerciseDao: ExerciseDao, workoutDao:WorkoutDao) {
+        suspend fun populateDatabase(exerciseDao: ExerciseDao, workoutDao:WorkoutDao, badgeDao:BadgeDao) {
 
             // Delete all content here.
             exerciseDao.deleteAllExercises()
             workoutDao.deleteAllWorkouts()
+            badgeDao.deleteAllBadges()
 
             // Initilaize Exercises.
             // TO DO FOR ITERATION 2: UPDATE LIST OF EXERCISES
@@ -150,6 +152,119 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
                 "DB Arm Blaster", "Upper Body", "Quick arm workout with dumb bells! "
             )
             workoutDao.insertWorkout(workout)
+
+
+
+            // TODO: Add your own Badges!
+            var badge = Badge(
+                imageResource = R.drawable.full_body1,
+                title = "Feeling The Burn",
+                description = "Complete 5 full body workouts",
+                count = 0,
+                goal = 5
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.full_body2,
+                title = "ON FIRE",
+                description = "Complete 15 full body workouts ",
+                count = 0,
+                goal = 15
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.full_body3,
+                title = "#BuiltDifferent",
+                description = "Complete 25 full body workouts",
+                count = 0,
+                goal = 25
+            )
+            badgeDao.insertBadge(badge)
+
+
+            badge = Badge(
+                imageResource = R.drawable.upper_body1,
+                title = "Tickets to The Gun Show",
+                description = "Reach 5 upper body workouts",
+                count = 0,
+                goal = 5
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.upper_body2,
+                title = "Holding Up the Weight of the World",
+                description = "Reach 15 upper body workouts",
+                count = 0,
+                goal = 15
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.upper_body3,
+                title = "Terry Crew's Seal of Approval",
+                description = "Reach 25 upper body workouts",
+                count = 0,
+                goal = 15
+            )
+            badgeDao.insertBadge(badge)
+
+
+            badge = Badge(
+                imageResource = R.drawable.core1,
+                title = "Dad Bod No More" ,
+                description = "Reach 5 core workouts",
+                count = 0,
+                goal = 5
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.core2,
+                title = "Beer Belly Goodbye",
+                description = "Reach 15 core workouts",
+                count = 0,
+                goal = 15
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.core3,
+                title = "Is that a 6-Pack?!",
+                description = "Reach 25 core workouts",
+                count = 0,
+                goal = 25
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.lower_body1,
+                title = "Leg Up on the Competition",
+                description = " Reach 5 lower body workouts",
+                count = 0,
+                goal = 5
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.lower_body2,
+                title = "That Cake is not a Lie",
+                description = "Reach 15 lower body workouts",
+                count = 0,
+                goal = 15
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
+                imageResource = R.drawable.lower_body3,
+                title = "Never Skip Leg Day",
+                description ="Reach 25 lower body workouts",
+                count = 0,
+                goal = 25
+            )
+            badgeDao.insertBadge(badge)
 
 
         }
