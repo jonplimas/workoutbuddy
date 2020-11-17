@@ -80,15 +80,15 @@ class WorkoutsFragment : Fragment() {
         // implemented GridView with Adapter for Workouts HERE
         //gridView = grid_view
 
-        mWorkoutList = generateDummyList(7)
-        mWorkoutList[0] = WorkoutItem(
-            R.drawable.ic_baseline_image_24,
-            1,
-            1,
-            "Ab Circuit",
-            "Core",
-            "Quick ab workout! Repeat every other day."
-        )
+        mWorkoutList = generateDummyList(10)
+//        mWorkoutList[0] = WorkoutItem(
+//            R.drawable.ic_baseline_image_24,
+//            1,
+//            1,
+//            "Ab Circuit",
+//            "Core",
+//            "Quick ab workout! Repeat every other day."
+//        )
 
 
 
