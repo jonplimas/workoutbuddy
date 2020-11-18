@@ -20,29 +20,10 @@
         android:focusable="true"
         android:src="@drawable/ic_baseline_add_24" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <!--        <androidx.appcompat.widget.Toolbar-->
-            <!--            android:id="@+id/search"-->
-            <!--            android:layout_width="331dp"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:background="@android:color/white"-->
-            <!--            app:menu="@menu/search_menu" />-->
-
-            <!--        <androidx.appcompat.widget.Toolbar-->
-            <!--            android:id="@+id/filter"-->
-            <!--            android:layout_width="348dp"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_toEndOf="@id/search"-->
-            <!--            android:layout_toRightOf="@id/search"-->
-            <!--            android:background="@android:color/white"-->
-            <!--            app:menu="@menu/filter_menu" />-->
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
@@ -54,7 +35,6 @@
                 android:textColor="@android:color/black"
                 android:textSize="48sp"
                 android:textStyle="bold" />
-
             <GridView
                 android:id="@+id/grid_view"
                 android:layout_width="match_parent"
@@ -71,5 +51,6 @@
                 tools:listitem="@layout/workout_item" />
         </RelativeLayout>
 
-    </ScrollView>
+
+
 </FrameLayout>
