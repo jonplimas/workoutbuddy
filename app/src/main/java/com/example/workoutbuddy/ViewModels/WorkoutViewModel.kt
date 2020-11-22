@@ -15,11 +15,14 @@ class WorkoutViewModel(application: Application): AndroidViewModel(application) 
     private val repository: WorkoutRepository
 
     val allWorkouts: LiveData<List<WorkoutItem>>
+    val recentWorkouts: LiveData<List<WorkoutItem>>
 
     init {
         val workoutDao = ExerciseRoomDatabase.getDatabase(application, viewModelScope).workoutDao()
         repository = WorkoutRepository(workoutDao)
         allWorkouts = repository.allWorkouts
+        recentWorkouts = repository.recentWorkouts
+
     }
 
     fun insertWorkout(workoutItem: WorkoutItem) = viewModelScope.launch(Dispatchers.IO) {

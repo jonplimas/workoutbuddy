@@ -69,7 +69,7 @@ class UserFragment : Fragment() {
 
         // TODO: Create new view model for
         rWorkoutViewModel = ViewModelProvider(this).get(WorkoutViewModel::class.java)
-        rWorkoutViewModel.allWorkouts.observe(this , Observer { rWorkouts ->
+        rWorkoutViewModel.recentWorkouts.observe(this , Observer { rWorkouts ->
             rWorkouts?.let { (recentworkoutrecycler.adapter as UserRecentsAdapter?)?.setWorkouts(it) }
         })
 

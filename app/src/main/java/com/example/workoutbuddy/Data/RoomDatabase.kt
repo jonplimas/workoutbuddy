@@ -11,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(ExerciseItem::class, WorkoutItem::class, Badge::class), version = 8, exportSchema = false)
+@Database(entities = arrayOf(ExerciseItem::class, WorkoutItem::class, Badge::class), version = 9, exportSchema = false)
 abstract class ExerciseRoomDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
@@ -514,8 +514,6 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
 
-
-
             // TODO: Add your own Workouts!
             var workout = WorkoutItem(
                 R.drawable.ic_baseline_fitness_center_24, 1,0,
@@ -543,7 +541,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
                 workoutImageResource = R.drawable.ic_baseline_fitness_center_24,
                 workoutID = 4,
                 workoutCreatorID = 0,
-                name = "Chest Day, but with Abs",
+                name = "Chest Day with Abs",
                 category = "Upper Body",
                 description = "Chest and core workout at the gym. Some equipment needed"
             )
