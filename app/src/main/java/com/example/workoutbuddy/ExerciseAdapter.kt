@@ -14,15 +14,11 @@ import com.example.workoutbuddy.activities.ExercisePopupWindow
 import kotlinx.android.synthetic.main.exercise_item.view.*
 
 
-class ExerciseAdapter internal constructor(
-    context: Context
-) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
-
+class ExerciseAdapter internal constructor(context: Context) : RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var exercises = emptyList<ExerciseItem>()   // Cached copy of exercises
     private var heartClicked = false
-
 
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -85,6 +81,7 @@ class ExerciseAdapter internal constructor(
     }
 
     override fun getItemCount() = exercises.size
+
 
 
 }
