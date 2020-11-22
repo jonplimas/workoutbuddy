@@ -1,10 +1,7 @@
 package com.example.workoutbuddy.Data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 
 // In the DAO (data access object), you specify SQL queries and associate them with method calls.
@@ -37,7 +34,8 @@ interface ExerciseDao {
     @Query("SELECT * FROM exercise_table LIMIT 1")
     fun getAnyExercise(): Array<ExerciseItem?>?
 
-
+    @Delete
+    fun deleteExercise(exerciseItem: ExerciseItem?)
 
 
 //    @Transaction

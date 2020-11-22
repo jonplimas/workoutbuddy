@@ -1,10 +1,8 @@
 package com.example.workoutbuddy.Data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+
 
 @Dao
 interface WorkoutDao {
@@ -21,8 +19,10 @@ interface WorkoutDao {
     @Query("DELETE FROM workout_table")
     suspend fun deleteAllWorkouts()
 
-//    @Query("SELECT * FROM exercise_table LIMIT 1")
-//    fun getAnyWorkout(): Array<WorkoutItem>
+    @Query("SELECT * FROM workout_table LIMIT 1")
+    fun getAnyWorkout(): Array<WorkoutItem>
 
+    @Delete
+    fun deleteWorkout(workout: WorkoutItem?)
 
 }
