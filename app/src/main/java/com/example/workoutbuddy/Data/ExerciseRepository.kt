@@ -2,9 +2,11 @@ package com.example.workoutbuddy.Data
 
 import androidx.lifecycle.LiveData
 
+
 // Declares the DAO as a private property in the constructor. Pass in the DAO
 // instead of the whole database, because you only need access to the DAO
 class ExerciseRepository(private val exerciseDao: ExerciseDao) {
+
 
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.
@@ -17,6 +19,13 @@ class ExerciseRepository(private val exerciseDao: ExerciseDao) {
     suspend fun insertExercise(exercise: ExerciseItem) {
         exerciseDao.insertExercise(exercise)
     }
+
+    fun deleteExercise(exercise: ExerciseItem?) {
+        exerciseDao.deleteExercise(exercise)
+    }
+
+
+
 
 
 }

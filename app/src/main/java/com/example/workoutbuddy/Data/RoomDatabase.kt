@@ -36,6 +36,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     populateDatabase(database.exerciseDao(), database.workoutDao(), database.badgeDao())
+
                 }
             }
         }
@@ -767,9 +768,11 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
     // Populate the database with the initial data set
     // only if the database has no entries.
-    private class PopulateDbAsync internal constructor(db: ExerciseRoomDatabase) : AsyncTask<Void?, Void?, Void?>() {
+    private class PopulateDbAsync internal constructor(db: ExerciseRoomDatabase) {
 
         private val eDao: ExerciseDao = db.exerciseDao()
+        private val wDao: WorkoutDao = db.workoutDao()
+        private val bDao: BadgeDao = db.badgeDao()
 
 
             // Initial data set
@@ -1402,17 +1405,33 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
 
+        suspend fun doInBackground(vararg p0: Void?): Void? {
 
-        override fun doInBackground(vararg p0: Void?): Void? {
-            // If we have no words, then create the initial list of words
+            // If we have no exercises, workouts, or badges, then create the initial lists
             if (eDao.getAnyExercise()?.isEmpty()!!) {
                 for (i in 0.. exercises.size) {
                     val e = exercises[i]
-                    val exercise = ExerciseItem(e.imageResource, e.exerciseID, e.name, e.type,e.description)
-                    //eDao.insertExercise(exercise)
+                    val exercise = ExerciseItem(e.imageResource, e.exerciseID, e.name, e.type, e.description)
+                    eDao.insertExercise(exercise)
                 }
-
             }
+
+            if (wDao.getAnyWorkout()?.isEmpty()!!) {
+                for (i in 0.. workouts.size) {
+                    val w = workouts[i]
+                    val workout = WorkoutItem(w.workoutImageResource, w.workoutID, w.workoutCreatorID, w.name, w.category, w.description)
+                    wDao.insertWorkout(workout)
+                }
+            }
+
+            if (bDao.getAnyBadge()?.isEmpty()!!) {
+                for (i in 0.. badges.size) {
+                    val b = badges[i]
+                    val badge = Badge(b.imageResource, b.title, b.description, b.count, b.goal)
+                    bDao.insertBadge(badge)
+                }
+            }
+
             return null
         }
 

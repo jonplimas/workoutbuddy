@@ -16,4 +16,8 @@ interface BadgeDao {
 
     @Query("DELETE FROM badge_table")
     suspend fun deleteAllBadges()
+
+    @Query("SELECT * FROM badge_table LIMIT 1")
+    fun getAnyBadge(): Array<Badge?>?
+
 }
