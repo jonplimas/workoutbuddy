@@ -42,7 +42,6 @@ class ExerciseAdapter internal constructor(context: Context) : RecyclerView.Adap
             }
 
 
-
             // Favorites action
 //            itemView.imageHeartButton.setOnClickListener {
 //                if(!heartClicked){

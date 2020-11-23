@@ -19,6 +19,7 @@ import com.example.workoutbuddy.ViewModels.ExerciseViewModel
 import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 import com.example.workoutbuddy.activities.AchievementsActivity
 import com.example.workoutbuddy.activities.LoginSignup.LoginActivity
+import com.example.workoutbuddy.activities.MainActivity
 import kotlinx.android.synthetic.main.fragment_exercises.*
 import kotlinx.android.synthetic.main.fragment_user.*
 
@@ -37,7 +38,7 @@ class UserFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private lateinit var rWorkoutList: ArrayList<WorkoutItem>
+    //private lateinit var rWorkoutList: ArrayList<WorkoutItem>
     private lateinit var rWorkoutViewModel: WorkoutViewModel
 
 
@@ -61,6 +62,9 @@ class UserFragment : Fragment() {
     @SuppressLint("FragmentLiveDataObserve")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        val mainActivity = MainActivity()
+        name.text = mainActivity.getUserNameFromMain()
 
         val adapter = context?.let { UserRecentsAdapter(it) }
         recentworkoutrecycler.adapter = adapter

@@ -108,7 +108,7 @@ class HomeFragment : Fragment() {
             // create exerciseItems based off data received
             val exerciseItem = ExerciseItem(
                 R.drawable.ic_baseline_fitness_center_24,
-                0, eName,
+                eName,
                 eType,
                 eDescr
             )

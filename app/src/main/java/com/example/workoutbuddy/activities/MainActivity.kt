@@ -13,6 +13,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val bundle = intent?.extras
+    private val uName = bundle?.getString("userName", "Title") ?: "Jane Doe"
+
+    fun getUserNameFromMain(): String {
+        return uName.toString()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 //        val favoritesFragment = FavoritesFragment()
         val workoutsFragment = HomeFragment()
         val userFragment = UserFragment()
+
 
 
         //set HomeFragment as initial view

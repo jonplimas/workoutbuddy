@@ -120,7 +120,8 @@ class NewWorkoutActivity2 : AppCompatActivity() {
     fun compileWorkout(name: String, category: String, description: String, exercises: List<ExerciseItem>) {
         val workoutItem = WorkoutItem(
             R.drawable.ic_baseline_fitness_center_24,
-            99,99, name,
+            99,
+            name,
             category,
             description
         )

@@ -100,18 +100,18 @@ class WorkoutsFragment : Fragment() {
             workouts?.let { workoutAdapter.setWorkouts(it) }
         })
 
-        // Start Workout By Clicking on an item
-        grid_view.setOnItemClickListener { adapterView, view, i, l ->
-            //Toast.makeText(activity, "Workout Description: " + mWorkoutList[i].category, Toast.LENGTH_SHORT).show()
-            val intent = Intent(activity, StartWorkoutActivity::class.java)
-            intent.putExtra("wName", mWorkoutList[i].name)
-            intent.putExtra("wCategory", mWorkoutList[i].category)
-            intent.putExtra("wDesc",  mWorkoutList[i].description)
-            intent.putExtra("wImage", mWorkoutList[i].workoutImageResource)
-            //intent.putExtra("wReps", mWorkoutList[i].reps)
-            //intent.putExtra("wSets", mWorkoutList[i].sets)
-            startActivity(intent)
-        }
+//        // Start Workout By Clicking on an item
+//        grid_view.setOnItemClickListener { adapterView, view, i, l ->
+//            //Toast.makeText(activity, "Workout Description: " + mWorkoutList[i].category, Toast.LENGTH_SHORT).show()
+//            val intent = Intent(activity, StartWorkoutActivity::class.java)
+//            intent.putExtra("wName", mWorkoutList[i].name)
+//            intent.putExtra("wCategory", mWorkoutList[i].category)
+//            intent.putExtra("wDesc",  mWorkoutList[i].description)
+//            intent.putExtra("wImage", mWorkoutList[i].workoutImageResource)
+//            //intent.putExtra("wReps", mWorkoutList[i].reps)
+//            //intent.putExtra("wSets", mWorkoutList[i].sets)
+//            startActivity(intent)
+//        }
 
 
         // TO DO FOR ITERATION 3: floating action button functionality
@@ -132,7 +132,7 @@ class WorkoutsFragment : Fragment() {
             val wDescr = data?.getStringExtra("Descr").toString()
 
             val newWorkout = WorkoutItem(R.drawable.ic_baseline_fitness_center_24, 99,
-                0, wName, wCat, wDescr)
+                wName, wCat, wDescr)
 
             workoutViewModel.insertWorkout(newWorkout)
 
@@ -177,7 +177,6 @@ class WorkoutsFragment : Fragment() {
             val j = i + 1
             val item = WorkoutItem(
                 drawable,
-                0,
                 0,
                 "Workout $j",
                 "Category: $i"

@@ -7,50 +7,61 @@ import androidx.room.*
 @Entity(tableName = "workout_table")
 data class WorkoutItem(
     val workoutImageResource: Int,
-    @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "workoutID") val workoutID: Long,
-    @NonNull @ColumnInfo(name = "workoutCreatorID") val workoutCreatorID: Long,
+    @NonNull @ColumnInfo(name = "workoutCreatorID") val workoutCreatorID: Int,
     @NonNull @ColumnInfo(name = "name") val name : String = " ",
     @NonNull @ColumnInfo(name = "category") val category : String? = null,
     @ColumnInfo(name = "description") val description : String? = null
-)
+){
+    @PrimaryKey(autoGenerate = true)
+    @NonNull @ColumnInfo(name = "workoutID") var workoutID: Int = 0
+}
 
 
 @Entity(tableName = "exercise_table")
 data class ExerciseItem(
     val imageResource: Int,
-    @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "exerciseID") val exerciseID: Long,
-    @NonNull @ColumnInfo(name = "name") val name: String,
-    @NonNull @ColumnInfo(name = "type") val type: String? = null,
-    @NonNull @ColumnInfo(name = "description") val description: String? = null
-)
+    @NonNull @ColumnInfo(name = "name") var name: String,
+    @NonNull @ColumnInfo(name = "type") var type: String? = null,
+    @NonNull @ColumnInfo(name = "description") var description: String? = null
+){
+    @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "exerciseID ") var exerciseID: Int = 0
+}
 
 
 @Entity(tableName = "routine_table")
 data class Routine(
-    @PrimaryKey @NonNull @ColumnInfo(name = "routineID") val routineID: Long,
-    @NonNull @ColumnInfo(name = "exID") val exID: Long,
-    @NonNull @ColumnInfo(name = "name") val name: String,
-    @NonNull @ColumnInfo(name = "type") val type: String,
-    @NonNull @ColumnInfo(name = "description") val description: String,
-    @ColumnInfo(name = "reps") val reps: Int?,
-    @ColumnInfo(name = "sets") val sets: Int?,
-    @ColumnInfo(name = "setQuantifier") val setQuantifier: String?
+    @PrimaryKey @NonNull @ColumnInfo(name = "routineID") val routineID: Int,
+    @NonNull @ColumnInfo(name = "exID") var exID: Long,
+    @NonNull @ColumnInfo(name = "name") var name: String,
+    @NonNull @ColumnInfo(name = "type") var type: String,
+    @NonNull @ColumnInfo(name = "description") var description: String,
+    @ColumnInfo(name = "reps") var reps: Int?,
+    @ColumnInfo(name = "sets") var sets: Int?,
+    @ColumnInfo(name = "setQuantifier") var setQuantifier: String?
 )
-
 
 
 @Entity(tableName = "login_table")
 data class Login(
-    @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "loginID") val loginID: Long,
     @ColumnInfo(name = "loginName") val loginName: String,
-    @ColumnInfo(name = "password") val loginpassword: String
-)
+    @ColumnInfo(name = "password") val loginPassword: String
+) {
+    @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "loginID") var loginID: Int = 0
+}
+
 
 @Entity(tableName = "user_table")
 data class User(
-    @PrimaryKey @NonNull @ColumnInfo(name = "userID") val userID: Long,
-    @ColumnInfo(name = "userName") val userName: String
-)
+    @ColumnInfo(name = "userName") var userName: String,
+    //User Metrics
+    @ColumnInfo(name = "totalCount") var totolCount: Int = 0,
+    @ColumnInfo(name = "fullCount") var fullCount: Int = 0,
+    @ColumnInfo(name = "upperCount") var upperCount: Int = 0,
+    @ColumnInfo(name = "lowerCount") var lowerCount: Int = 0,
+    @ColumnInfo(name = "coreCount") var coreCount: Int = 0
+){
+    @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "userID") var userID: Int = 0
+}
 
 
 @Entity(tableName = "badge_table")
@@ -73,10 +84,6 @@ data class Badge(
 //    )
 //    val user: User
 //)
-
-
-
-
 
 
 //@Entity(primaryKeys = ["workoutID", "exerciseID"])

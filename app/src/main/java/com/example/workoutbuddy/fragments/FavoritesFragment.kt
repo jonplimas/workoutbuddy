@@ -89,7 +89,7 @@ class FavoritesFragment : Fragment() {
             }
             //sets the text of each heading: item position number, subheading: line 2
             val item = ExerciseItem(
-                drawable,0,
+                drawable,
                 "Item $i",
                 "Line 2"
             )

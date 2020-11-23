@@ -45,7 +45,7 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
         repository.insertExercise(exerciseItem)
     }
 
-    fun deleteExer(exerciseItem: ExerciseItem) {
+    fun deleteExer(exerciseItem: ExerciseItem) = viewModelScope.launch(Dispatchers.IO){
         repository.deleteExercise(exerciseItem)
     }
 
