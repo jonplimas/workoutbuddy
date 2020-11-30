@@ -119,25 +119,25 @@ class WorkoutsFragment : Fragment() {
         addWorkoutButton.setOnClickListener {
             // Toast.makeText(context,"Add new Workout HERE." , Toast.LENGTH_SHORT).show()
             val i = Intent(activity, NewWorkoutActivity::class.java)
-            startActivityForResult(i, REQUEST_CODE_W)
+            startActivity(i)
         }
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-            val wName = data?.getStringExtra("Name").toString()
-            val wCat = data?.getStringExtra("Category").toString()
-            val wDescr = data?.getStringExtra("Descr").toString()
-
-            val newWorkout = WorkoutItem(R.drawable.ic_baseline_fitness_center_24, 99,
-                wName, wCat, wDescr)
-
-            workoutViewModel.insertWorkout(newWorkout)
-
-
-            Toast.makeText(context,"name: $wName, cat: $wCat, descr: $wDescr", Toast.LENGTH_LONG).show()
+//
+//            val wName = data?.getStringExtra("Name").toString()
+//            val wCat = data?.getStringExtra("Category").toString()
+//            val wDescr = data?.getStringExtra("Descr").toString()
+//
+//            val newWorkout = WorkoutItem(R.drawable.ic_baseline_fitness_center_24, 99,
+//                wName, wCat, wDescr)
+//
+//            workoutViewModel.insertWorkout(newWorkout)
+//
+//
+//            Toast.makeText(context,"name: $wName, cat: $wCat, descr: $wDescr", Toast.LENGTH_LONG).show()
 
     }
 

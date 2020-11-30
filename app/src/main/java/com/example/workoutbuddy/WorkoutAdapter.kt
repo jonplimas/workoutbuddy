@@ -48,7 +48,7 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): 
         workoutNames.text = myWorkoutItem.name
         workoutCategories.text = myWorkoutItem.category
 
-
+        // Click to Start WorkoutNav
         workoutImages.setOnClickListener {
             //Toast.makeText(context, "Workout Description: " + workoutList[position].description, Toast.LENGTH_SHORT).show()
             val intent = Intent(context, StartWorkoutActivity::class.java)

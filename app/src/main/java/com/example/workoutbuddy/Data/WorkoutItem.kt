@@ -2,6 +2,7 @@ package com.example.workoutbuddy.Data
 
 import androidx.annotation.NonNull
 import androidx.room.*
+import com.example.workoutbuddy.R
 
 
 @Entity(tableName = "workout_table")
@@ -11,9 +12,8 @@ data class WorkoutItem(
     @NonNull @ColumnInfo(name = "name") val name : String = " ",
     @NonNull @ColumnInfo(name = "category") val category : String? = null,
     @ColumnInfo(name = "description") val description : String? = null
-){
-    @PrimaryKey(autoGenerate = true)
-    @NonNull @ColumnInfo(name = "workoutID") var workoutID: Int = 0
+) {
+    @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "workoutID") var workoutID: Int = 0
 }
 
 
@@ -22,23 +22,28 @@ data class ExerciseItem(
     val imageResource: Int,
     @NonNull @ColumnInfo(name = "name") var name: String,
     @NonNull @ColumnInfo(name = "type") var type: String? = null,
-    @NonNull @ColumnInfo(name = "description") var description: String? = null
-){
+    @NonNull @ColumnInfo(name = "description") var description: String? = null,
+    @ColumnInfo(name = "reps") var reps: String? = "",
+    @ColumnInfo(name = "sets") var sets: String? = "",
+    @ColumnInfo(name = "setQuantifier") var setQuantifier: String? = ""
+
+) {
     @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "exerciseID ") var exerciseID: Int = 0
 }
 
 
 @Entity(tableName = "routine_table")
 data class Routine(
-    @PrimaryKey @NonNull @ColumnInfo(name = "routineID") val routineID: Int,
-    @NonNull @ColumnInfo(name = "exID") var exID: Long,
+    @NonNull @ColumnInfo(name = "exID") var exID: Int,
     @NonNull @ColumnInfo(name = "name") var name: String,
     @NonNull @ColumnInfo(name = "type") var type: String,
     @NonNull @ColumnInfo(name = "description") var description: String,
     @ColumnInfo(name = "reps") var reps: Int?,
     @ColumnInfo(name = "sets") var sets: Int?,
     @ColumnInfo(name = "setQuantifier") var setQuantifier: String?
-)
+) {
+    @PrimaryKey @NonNull @ColumnInfo(name = "routineID") var routineID: Int = 0
+}
 
 
 @Entity(tableName = "login_table")
@@ -59,7 +64,7 @@ data class User(
     @ColumnInfo(name = "upperCount") var upperCount: Int = 0,
     @ColumnInfo(name = "lowerCount") var lowerCount: Int = 0,
     @ColumnInfo(name = "coreCount") var coreCount: Int = 0
-){
+) {
     @PrimaryKey(autoGenerate = true) @NonNull @ColumnInfo(name = "userID") var userID: Int = 0
 }
 
@@ -113,5 +118,3 @@ data class Badge(
 //    )
 //    val workouts: List<WorkoutWithExercises>
 //)
-
-
