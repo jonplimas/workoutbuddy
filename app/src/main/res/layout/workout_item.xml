@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp">
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:padding="8dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
 
     <RelativeLayout
         android:layout_width="170dp"
@@ -15,8 +20,7 @@
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_margin="4dp"
             android:contentDescription="@string/description_workout_image"
             android:src="@drawable/ic_baseline_image_24" />
 
@@ -26,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/workoutImage"
             android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="2dp"
             android:layout_marginTop="4dp"
             android:text="@string/workout_name"
             android:textColor="@android:color/black"
@@ -42,16 +47,5 @@
             android:layout_marginTop="4dp"
             android:text="@string/workout_cat"
             android:textSize="15sp" />
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/imageButton2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:background="#ffffff"-->
-<!--            android:src="@drawable/ic_baseline_favorite_border_24" />-->
-
-
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
