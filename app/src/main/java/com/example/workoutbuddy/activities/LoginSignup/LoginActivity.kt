@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
                 loadingBar.isVisible = true
                 val i = Intent(this, MainActivity::class.java)
                 //add user info into extras to pass to main activity
-                i.putExtra("userName", usernameInputText.text)
+                i.putExtra("userName", usernameInputText.text.toString())
 
                 startActivity(i)
                 finish()

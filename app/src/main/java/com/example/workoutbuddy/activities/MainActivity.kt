@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private val bundle = intent?.extras
-    private val uName = bundle?.getString("userName", "Title") ?: "Jane Doe"
+    private var uName: String = bundle?.getString("userName") ?: "Jane Doe"
 
     fun getUserNameFromMain(): String {
         return uName.toString()
@@ -24,10 +24,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        uName = bundle?.getString("userName") ?: "Jane Doe"
+
         val homeFragment = WorkoutsFragment()
 //        val favoritesFragment = FavoritesFragment()
         val workoutsFragment = HomeFragment()
         val userFragment = UserFragment()
+
+
 
 
 
