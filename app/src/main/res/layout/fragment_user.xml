@@ -20,7 +20,7 @@
                 android:layout_height="175dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="32dp"
-                android:src="@mipmap/profile_img_round"
+                android:src="@drawable/ic_baseline_account_circle_24"
 
                 />
 
