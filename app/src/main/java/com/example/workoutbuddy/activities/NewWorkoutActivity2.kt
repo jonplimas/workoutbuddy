@@ -110,10 +110,10 @@ class NewWorkoutActivity2 : AppCompatActivity() {
                     xSetsQ += exercise.setQuantifier!!.toString()
                 }
             }
-            //Toast.makeText(this, "2nd EXERCISE: ${xNames[1]}, ${xSets[1]} Sets X ${xReps[1]} ${xSetsQ[1]}", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "1st EXERCISE: ${xNames[0]}, ${xSets[0]} Sets X ${xReps[0]} ${xSetsQ[0]}", Toast.LENGTH_LONG).show()
 
             lateinit var routine: Routine
-            for(i in 0..xNames.size) {
+            for(i in 0 until xNames.size) {
                 // create routine
                 routine = Routine(
                     exID = id!!.toInt(),
@@ -128,34 +128,19 @@ class NewWorkoutActivity2 : AppCompatActivity() {
                 //routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
                 //routineViewModel.insertRoutine(routine)
             }
-            Toast.makeText(this, "ROUTINE -> id: ${routine.exID}, sets: ${routine.sets}, reps: ${routine.reps}, setsQ: ${routine.setQuantifier}", Toast.LENGTH_LONG).show()
 
             // Package intent with data needed to make workout
             val reply = Intent()
 
-//            reply.putExtra("Name", name)
-//            reply.putExtra("Category", type)
-//            reply.putExtra("Descr", descr)
-//            reply.putExtra("xNames", xNames.toTypedArray())
-//            reply.putExtra("xTypes", xTypes.toTypedArray())
-//            reply.putExtra("xDescripts", xDescripts.toTypedArray())
+            reply.putExtra("Name", name)
+            reply.putExtra("Category", type)
+            reply.putExtra("Descr", descr)
+            reply.putExtra("xNames", xNames.toTypedArray())
+            reply.putExtra("xTypes", xTypes.toTypedArray())
+            reply.putExtra("xDescripts", xDescripts.toTypedArray())
 
-            //setResult(Activity.RESULT_OK, reply)
-            //finish()
+            setResult(Activity.RESULT_OK, reply)
+            finish()
         }
     }
-
-
-//    fun compileWorkout(name: String, category: String, description: String, exercises: List<ExerciseItem>) {
-//        val workoutItem = WorkoutItem(
-//            R.drawable.ic_baseline_fitness_center_24,
-//            99,
-//            name,
-//            category,
-//            description
-//        )
-//
-//
-//    }
-
 }

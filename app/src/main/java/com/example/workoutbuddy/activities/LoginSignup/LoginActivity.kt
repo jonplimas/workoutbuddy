@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
 
 
         loginButton.setOnClickListener {
+
             //Check for login credentials exist
             var loginIsValid = false
             for (i in 0..mLoginList.size-1) {
@@ -53,7 +54,6 @@ class LoginActivity : AppCompatActivity() {
                     break
                 }
             }
-
 
             if (loginIsValid) {
                 loadingBar.isVisible = true
@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(i)
                 finish()
             } else {
-                Toast.makeText(this, "INVALID LOGIN CREDENTIALS", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "FAILED LOGIN: Invalid Credentials", Toast.LENGTH_SHORT).show()
             }
             // clear login input text
             usernameInputText.text.clear()
@@ -93,7 +93,9 @@ class LoginActivity : AppCompatActivity() {
             mLoginList.add(newLogin)
             loginViewModel.insertLogin(newLogin)
 
-//            Toast.makeText(this, "NAME: ${mLoginList[mLoginList.size-1].loginName},  PW:${mLoginList[mLoginList.size-1].loginPassword}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "SUCCESSFULLY CREATED NEW USER--> Name: ${mLoginList[mLoginList.size-1].loginName},  Password:${mLoginList[mLoginList.size-1].loginPassword}", Toast.LENGTH_SHORT).show()
+        } else if (requestCode == SIGNUP_REQUEST_CODE && resultCode != Activity.RESULT_OK) {
+            Toast.makeText(this, "FAILED TO CREATE NEW USER ", Toast.LENGTH_SHORT).show()
 
         } else if (resultCode == Activity.RESULT_OK && requestCode == LOGIN_REQUEST_CODE) {
             Toast.makeText(this, "Come again soon!", Toast.LENGTH_LONG).show()

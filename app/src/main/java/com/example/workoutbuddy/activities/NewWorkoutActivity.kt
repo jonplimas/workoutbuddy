@@ -22,8 +22,10 @@ import kotlinx.android.synthetic.main.activity_new_workout.*
 
 private lateinit var workoutViewModel: WorkoutViewModel
 
+
 class NewWorkoutActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
+    private val REQUEST_CODE_NW = 69
     private var listOfItems = arrayOf("Full Body", "Upper Body", "Lower Body", "Core")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,7 @@ class NewWorkoutActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
 
 
         startActBtn.setOnClickListener {
+            setResult(Activity.RESULT_FIRST_USER)
             onBackPressed()
         }
 
@@ -63,7 +66,7 @@ class NewWorkoutActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
                     description = newWorkoutDescr.text.toString()
                 )
                 // Update DB with new workout
-                workoutViewModel.insertWorkout(newWorkout)
+                // workoutViewModel.insertWorkout(newWorkout)
 
                 // Create Intent and store new workout data
                 val i = Intent(this, NewWorkoutActivity2::class.java)
@@ -80,6 +83,7 @@ class NewWorkoutActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
                 i.putExtra("wType", wType)
                 i.putExtra("wDescr", wDescr)
 
+                setResult(Activity.RESULT_OK)
                 startActivity(i)
                 finish()
             }
@@ -87,23 +91,25 @@ class NewWorkoutActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
 
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (resultCode == Activity.RESULT_OK) {
-//            val replyIntent = Intent()
-//
-//            replyIntent.putExtra( "wName", data?.getStringExtra("wName").toString())
-//            replyIntent.putExtra( "wCategory", data?.getStringExtra("wCategory").toString())
-//            replyIntent.putExtra("wDescription",data?.getStringExtra("eDescr").toString())
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_CODE_NW && resultCode == Activity.RESULT_OK) {
+            val replyIntent = Intent()
+
+            replyIntent.putExtra( "wName", data?.getStringExtra("wName").toString())
+            replyIntent.putExtra( "wCategory", data?.getStringExtra("wCategory").toString())
+            replyIntent.putExtra("wDescription",data?.getStringExtra("wDescription").toString())
 //            replyIntent.putExtra("xNames", data?.getStringArrayExtra("xNames"))
 //            replyIntent.putExtra("xTypes", data?.getStringArrayExtra("xTypes"))
 //            replyIntent.putExtra("xDescr", data?.getStringArrayExtra("xDescripts"))
-//            setResult(Activity.RESULT_OK, replyIntent)
-//        } else {
-//            Toast.makeText(this,"COULD NOT PULL", Toast.LENGTH_LONG).show()
-//        }
-//        finish()
-//    }
+            setResult(Activity.RESULT_OK, replyIntent)
+            //finish()
+        } else {
+            Toast.makeText(this,"COULD NOT PULL", Toast.LENGTH_LONG).show()
+        }
+
+    }
 
     override fun onItemSelected(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {
         // use position to know the selected item

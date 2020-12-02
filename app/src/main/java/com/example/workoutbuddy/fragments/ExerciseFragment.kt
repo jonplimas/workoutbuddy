@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -98,12 +99,13 @@ class HomeFragment : Fragment() {
 
         // Request Validation: if request from intended activity and results were successful
         if (requestCode == REQUEST_CODE_EX && resultCode == Activity.RESULT_OK) {
+
             // extract Data received from New Exercise Activity
             val eName = data?.getStringExtra("eName").toString()
             val eType = data?.getStringExtra("eType").toString()
             val eDescr = data?.getStringExtra("eDescr").toString()
 
-            //Toast.makeText(context, "NAME: $eName TYPE: $eType DESCR: $eDescr", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "POST SUCCESSFUL--> Name: $eName Type: $eType Description: $eDescr", Toast.LENGTH_LONG).show()
 
             // create exerciseItems based off data received
             val exerciseItem = ExerciseItem(
@@ -117,6 +119,10 @@ class HomeFragment : Fragment() {
             exerciseViewModel.insertExer(exerciseItem)
 
             //HomeFragment.apply {  }
+        } else if(resultCode == Activity.RESULT_FIRST_USER){
+            Toast.makeText(context, "DID NOT POST: Back button pressed", Toast.LENGTH_LONG).show()
+        } else if(requestCode == REQUEST_CODE_EX && resultCode != Activity.RESULT_OK) {
+            Toast.makeText(context, "FAILED TO POST: missing information for new entry", Toast.LENGTH_LONG).show()
         }
     }
 

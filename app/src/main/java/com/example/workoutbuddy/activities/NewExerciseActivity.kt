@@ -43,16 +43,11 @@ class NewExerciseActivity : AppCompatActivity() {
         val mStartActBtn = findViewById<Button>(R.id.startActBtn)
 
 
-        var hasName = false
-        var hasType = false
-        var hasDescr = false
-
-
         // Handle create new exercise button
         submitButton.setOnClickListener {
-//(Upper chest/back, triceps/biceps, deltroids, quads/hamstring, calves, core/stomach, glutes)
 
             val type = StringBuilder()
+
             // Observe which Exercise Types are chosen
             if (chest.isChecked) { type.append("Chest/Back ") }
             if (triceps.isChecked) { type.append("Triceps/Biceps ") }
@@ -63,14 +58,12 @@ class NewExerciseActivity : AppCompatActivity() {
             if (calves.isChecked) { type.append("Calves ") }
 
 
-
             // Create intent to reply to Exercise List
             val replyIntent = Intent()
 
-
             // Input Validation: CANCEL IF ANYTHING IS MISSING
             if (TextUtils.isEmpty(newExerciseNameEditText.text) || TextUtils.isEmpty(newExerciseDescriptionEditText.text) || type.toString().isEmpty())  {
-                Toast.makeText(this, "UNSUCCESSFUL EX POST, SOMETHING EMPTY", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "UNSUCCESSFUL EX POST, SOMETHING EMPTY", Toast.LENGTH_SHORT).show()
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 val eName = newExerciseNameEditText.text.toString()
@@ -91,6 +84,7 @@ class NewExerciseActivity : AppCompatActivity() {
         // Handle back button click
         mStartActBtn.setOnClickListener {
             //Destroy Actviity
+            setResult(Activity.RESULT_FIRST_USER)
             finish()
         }
     }

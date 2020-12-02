@@ -119,26 +119,38 @@ class WorkoutsFragment : Fragment() {
         addWorkoutButton.setOnClickListener {
             // Toast.makeText(context,"Add new Workout HERE." , Toast.LENGTH_SHORT).show()
             val i = Intent(activity, NewWorkoutActivity::class.java)
-            startActivity(i)
+            startActivityForResult(i, REQUEST_CODE_W)
         }
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-//
-//            val wName = data?.getStringExtra("Name").toString()
-//            val wCat = data?.getStringExtra("Category").toString()
-//            val wDescr = data?.getStringExtra("Descr").toString()
-//
-//            val newWorkout = WorkoutItem(R.drawable.ic_baseline_fitness_center_24, 99,
-//                wName, wCat, wDescr)
-//
-//            workoutViewModel.insertWorkout(newWorkout)
-//
-//
-//            Toast.makeText(context,"name: $wName, cat: $wCat, descr: $wDescr", Toast.LENGTH_LONG).show()
 
+        if (requestCode != REQUEST_CODE_W && resultCode == Activity.RESULT_OK) {
+
+            // Extract Workout Data from returning intent
+            val wName = data?.getStringExtra("Name").toString()
+            val wCat = data?.getStringExtra("Category").toString()
+            val wDescr = data?.getStringExtra("Descr").toString()
+
+            // Compose new workout based on data sent back
+            val newWorkout = WorkoutItem(R.drawable.ic_baseline_fitness_center_24, 99, wName, wCat, wDescr)
+            workoutViewModel.insertWorkout(newWorkout)
+            Toast.makeText(context, "POST SUCCESSFUL--> Name: ${newWorkout.name}, Category: ${newWorkout.category}, Description: ${newWorkout.description}", Toast.LENGTH_LONG).show()
+
+        } else if(requestCode == REQUEST_CODE_W && resultCode == Activity.RESULT_FIRST_USER) {
+            Toast.makeText(context, "FAILED TO POST: back button pressed", Toast.LENGTH_LONG).show()
+
+        } else if(requestCode == REQUEST_CODE_W && resultCode != Activity.RESULT_OK) {
+            Toast.makeText(context, "FAILED TO POST: result code not OK --> $resultCode vs. ${Activity.RESULT_CANCELED}", Toast.LENGTH_LONG).show()
+
+        } else if(requestCode != REQUEST_CODE_W){
+            Toast.makeText(context, "FAILED TO POST: invalid request code", Toast.LENGTH_LONG).show()
+
+        } else {
+            Toast.makeText(context, "FAILED TO POST--> request code: $requestCode, result code: $resultCode", Toast.LENGTH_LONG).show()
+        }
     }
 
 
