@@ -23,7 +23,7 @@ class ExerciseAdapter internal constructor(context: Context) : RecyclerView.Adap
 
     @RequiresApi(Build.VERSION_CODES.M)
     inner class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.exerciseImage)
+//        val imageView: ImageView = itemView.findViewById(R.id.exerciseImage)
         val textView1: TextView = itemView.findViewById(R.id.exerciseName)
         val textView2: TextView = itemView.findViewById(R.id.exerciseType)
 
@@ -69,7 +69,7 @@ class ExerciseAdapter internal constructor(context: Context) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         val currentItem = exercises[position]
-        holder.imageView.setImageResource(currentItem.imageResource)
+//        holder.imageView.setImageResource(currentItem.imageResource)
         holder.textView1.text = currentItem.name
         holder.textView2.text = currentItem.type
     }
