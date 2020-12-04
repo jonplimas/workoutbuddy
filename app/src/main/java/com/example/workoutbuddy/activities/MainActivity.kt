@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var name = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         val myBundle = Bundle()
         myBundle?.putString("uName", uName)
-
+        name = uName
 
         Toast.makeText(this, uName, Toast.LENGTH_LONG).show()
 
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 //        val favoritesFragment = FavoritesFragment()
         val workoutsFragment = HomeFragment()
         val userFragment = UserFragment()
-        userFragment.arguments = myBundle
+        userFragment.arguments?.putString("uName", name)
 
 
         //set HomeFragment as initial view
