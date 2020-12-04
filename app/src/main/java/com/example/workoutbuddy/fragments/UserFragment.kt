@@ -20,6 +20,7 @@ import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 import com.example.workoutbuddy.activities.AchievementsActivity
 import com.example.workoutbuddy.activities.LoginSignup.LoginActivity
 import com.example.workoutbuddy.activities.MainActivity
+import kotlinx.android.synthetic.main.activity_start_workout.*
 import kotlinx.android.synthetic.main.fragment_exercises.*
 import kotlinx.android.synthetic.main.fragment_user.*
 
@@ -37,6 +38,8 @@ class UserFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var userName: String? = null
+
 
     //private lateinit var rWorkoutList: ArrayList<WorkoutItem>
     private lateinit var rWorkoutViewModel: WorkoutViewModel
@@ -51,10 +54,8 @@ class UserFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        userName = arguments?.getString("uName")
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user, container, false)
     }
@@ -63,8 +64,9 @@ class UserFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val mainActivity = MainActivity()
-        name.text = mainActivity.getUserNameFromMain()
+        //val mainActivity = MainActivity()
+        // name.text = mainActivity.getUserNameFromMain()
+        //name.text = arguments?.getString("uName")
 
         val adapter = context?.let { UserRecentsAdapter(it) }
         recentworkoutrecycler.adapter = adapter

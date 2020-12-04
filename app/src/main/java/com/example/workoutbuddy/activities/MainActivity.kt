@@ -1,6 +1,7 @@
 package com.example.workoutbuddy.activities
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -13,26 +14,25 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val bundle = intent?.extras
-    private var uName: String = bundle?.getString("userName") ?: "Jane Doe"
-
-    fun getUserNameFromMain(): String {
-        return uName.toString()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        uName = bundle?.getString("userName") ?: "Jane Doe"
+        val bundle = intent?.extras
+        val uName = bundle?.getString("userName") ?: "Jane Doe"
+
+        val myBundle = Bundle()
+        myBundle?.putString("uName", uName)
+
+
+        Toast.makeText(this, uName, Toast.LENGTH_LONG).show()
 
         val homeFragment = WorkoutsFragment()
 //        val favoritesFragment = FavoritesFragment()
         val workoutsFragment = HomeFragment()
         val userFragment = UserFragment()
-
-
-
+        userFragment.arguments = myBundle
 
 
         //set HomeFragment as initial view

@@ -46,6 +46,9 @@ class LoginActivity : AppCompatActivity() {
 
         loginButton.setOnClickListener {
 
+            var userLogin = usernameInputText.text.toString()
+            Toast.makeText(this, userLogin, Toast.LENGTH_LONG).show()
+
             //Check for login credentials exist
             var loginIsValid = false
             for (i in 0..mLoginList.size-1) {
@@ -57,12 +60,13 @@ class LoginActivity : AppCompatActivity() {
 
             if (loginIsValid) {
                 loadingBar.isVisible = true
+
                 val i = Intent(this, MainActivity::class.java)
                 //add user info into extras to pass to main activity
-                i.putExtra("userName", usernameInputText.text.toString())
-
+                i.putExtra("userName", userLogin)
                 startActivity(i)
                 finish()
+
             } else {
                 Toast.makeText(this, "FAILED LOGIN: Invalid Credentials", Toast.LENGTH_SHORT).show()
             }
@@ -70,7 +74,6 @@ class LoginActivity : AppCompatActivity() {
             usernameInputText.text.clear()
             passwordInputText.text.clear()
         }
-
 
 
         signUpTextView.setOnClickListener {
