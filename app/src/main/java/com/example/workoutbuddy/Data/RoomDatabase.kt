@@ -87,7 +87,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
                 R.drawable.ic_baseline_fitness_center_24,
                 "Wall Sits",
-                "Quadriceps/Hamstring",
+                "Quads/Hams",
                 "Target Muscles: glutes, calves, quads, hamstrings\n\n" +
                         "1. Stand with your back pressing against a wall\n" +
                         "2. Slide your feet forward while sliding ur back against the wall\n" +
@@ -191,7 +191,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
             imageResource = R.drawable.ic_baseline_fitness_center_24,
             name = "Step-Ups",
-            type = "Quadriceps/Hamstrings",
+            type = "Quads/Hams",
             description = "Target Muscles: glutes, quads, calves, hamstrings, soleus\n" +
                     "(requires step/chair/bench or equivalent)\n\n" +
                     "1. Stand in front of your step/bench\n" +
@@ -205,7 +205,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
                 imageResource = R.drawable.ic_baseline_fitness_center_24,
                 name = "Lunges",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "Target Muscles: glutes, quads, calves, latissimus, trapezius, rhomboids, hamstrings\n\n" +
                         "1. Stand with feet shoulder-width apart\n" +
                         "2. Take a big step forward with 1 leg and shift your weight onto that leg\n" +
@@ -219,7 +219,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
                 imageResource = R.drawable.ic_baseline_fitness_center_24,
                 name = "Squats",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "Target Muscles: quads, hamstrings, glutes, abdominals, calves\n\n" +
                         "1. Stand straight with feet shoulder-width apart\n" +
                         "2. While firmly plant your feet onto the ground, bend your knees and lower ur body down\n" +
@@ -232,7 +232,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
                 imageResource = R.drawable.ic_baseline_fitness_center_24,
                 name = "Single-leg Squats",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "Target Muscles: quads, hamstrings, glutes, abdominals, calves.\n\n" +
                         "1. Stand on 1 leg, your lifted foot pointing forward\n" +
                         "2. Bend the leg your standing on while keeping your lifted leg off the ground\n" +
@@ -375,7 +375,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
                 imageResource = R.drawable.ic_baseline_image_24,
                 name = "Dumbbell Lunges",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "require dumbbells\n\n" +
                         "1. Stand with your feet shoulder-width apart\n" +
                         "2. Grab a pair of dumbbells with palms facing inward and hanging at your sides\n" +
@@ -404,7 +404,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
                 imageResource = R.drawable.ic_baseline_image_24,
                 name = "Barbell Deadlift",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "1. Stand with feet shoulder-width apart, in front of a barbell\n" +
                         "2. Bend over and grab the bar with a shoulder-width grip\n" +
                         "3. Bend your knees until your shins touch the bar\n" +
@@ -443,7 +443,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
                 imageResource = R.drawable.ic_baseline_image_24,
                 name = "Thrusters",
-                type = "Quads/Hamstrings",
+                type = "Quads/Hams",
                 description = "requires dumbbells, kettlebells, or barbell\n\n" +
                         "1. Stand with your feet shoulder-width apart\n" +
                         "2. Grab a barbell, or pair of dumbbells/kettlebells, using an underhand grip and bring the weight by your shoulders\n" +
@@ -472,7 +472,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             exercise = ExerciseItem(
                 imageResource = R.drawable.ic_baseline_image_24,
                 name = "Single-Arm Deadlift",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "Target Muscles: glutes, hamstrings, erector spinae, soleus, quads\n" +
                         "(Require dumbbell or kettlebell)\n\n" +
                         "1. Stand with your feet shoulder-width apart\n" +
@@ -840,7 +840,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routine = Routine(
                 exID = workout.workoutID,
                 name = "Barbell Deadlift",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "1. Stand with feet shoulder-width apart, in front of a barbell\n" +
                         "2. Bend over and grab the bar with a shoulder-width grip\n" +
                         "3. Bend your knees until your shins touch the bar\n" +
@@ -901,7 +901,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routine = Routine(
                 exID = workout.workoutID,
                 name = "Lunges",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "Target Muscles: glutes, quads, calves, latissimus, trapezius, rhomboids, hamstrings\n\n" +
                         "1. Stand with feet shoulder-width apart\n" +
                         "2. Take a big step forward with 1 leg and shift your weight onto that leg\n" +
@@ -949,7 +949,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routine = Routine(
                 exID = workout.workoutID,
                 name = "Single-leg Squats",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "Target Muscles: quads, hamstrings, glutes, abdominals, calves.\n\n" +
                         "1. Stand on 1 leg, your lifted foot pointing forward\n" +
                         "2. Bend the leg your standing on while keeping your lifted leg off the ground\n" +
@@ -1025,7 +1025,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routine = Routine(
                 exID = workout.workoutID,
                 name = "Dumbbell Lunges",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "require dumbbells\n\n" +
                         "1. Stand with your feet shoulder-width apart\n" +
                         "2. Grab a pair of dumbbells with palms facing inward and hanging at your sides\n" +
@@ -1042,7 +1042,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routine = Routine(
                 exID = workout.workoutID,
                 name = "Barbell Deadlift",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "1. Stand with feet shoulder-width apart, in front of a barbell\n" +
                         "2. Bend over and grab the bar with a shoulder-width grip\n" +
                         "3. Bend your knees until your shins touch the bar\n" +
@@ -1243,7 +1243,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routine = Routine(
                 exID = workout.workoutID,
                 name = "Squats",
-                type = "Quadriceps/Hamstrings",
+                type = "Quads/Hams",
                 description = "Target Muscles: quads, hamstrings, glutes, abdominals, calves\n\n" +
                         "1. Stand straight with feet shoulder-width apart\n" +
                         "2. While firmly plant your feet onto the ground, bend your knees and lower ur body down\n" +
@@ -1275,7 +1275,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routine = Routine(
                 exID = workout.workoutID,
                 name = "Wall Sits",
-                type = "Quadriceps/Hamstring",
+                type = "Quads/Hams",
                 description = "Target Muscles: glutes, calves, quads, hamstrings\n\n" +
                         "1. Stand with your back pressing against a wall\n" +
                         "2. Slide your feet forward while sliding ur back against the wall\n" +
@@ -1420,6 +1420,15 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
             // TODO: Add your own Badges!
             var badge = Badge(
+                imageResource = R.drawable.first_workout,
+                title = "Road To Glory",
+                description = "Complete your First Workout!",
+                count = 0,
+                goal = 1
+            )
+            badgeDao.insertBadge(badge)
+
+            badge = Badge(
                 imageResource = R.drawable.full_body1,
                 title = "Feeling The Burn",
                 description = "Complete 5 full body workouts",

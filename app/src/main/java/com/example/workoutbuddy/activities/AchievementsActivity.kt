@@ -40,6 +40,13 @@ class AchievementsActivity : AppCompatActivity() {
         badgeViewModel.allBadges.observe(this, Observer { badges ->
             badges?.let { badgeAdapter.setBadges(it) }
         })
+
+        for (i in badgeAdapter.badgeList) {
+            if(i.count != i.goal){
+                //i.imageResource = R.drawable.ic_baseline_lock_24
+                i.description = "LOCKED BADGE"
+            }
+        }
 //
 //        gridView.setOnItemClickListener { adapterView, view, i, l ->
 //            Toast.makeText(this, mBadgeList[i].description, Toast.LENGTH_SHORT).show()

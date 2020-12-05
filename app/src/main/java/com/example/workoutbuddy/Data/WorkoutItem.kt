@@ -71,9 +71,9 @@ data class User(
 
 @Entity(tableName = "badge_table")
 data class Badge(
-    val imageResource: Int,
+    var imageResource: Int,
     @PrimaryKey @NonNull @ColumnInfo(name = "title") val title: String,
-    @NonNull @ColumnInfo(name = "description") val description: String,
+    @NonNull @ColumnInfo(name = "description") var description: String,
     @NonNull @ColumnInfo(name = "count") val count: Int = 0,
     @NonNull @ColumnInfo(name = "goal") val goal: Int
 )
