@@ -11,17 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.workoutbuddy.Data.WorkoutItem
-import com.example.workoutbuddy.ExerciseAdapter
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.UserRecentsAdapter
-import com.example.workoutbuddy.ViewModels.ExerciseViewModel
 import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 import com.example.workoutbuddy.activities.AchievementsActivity
 import com.example.workoutbuddy.activities.LoginSignup.LoginActivity
-import com.example.workoutbuddy.activities.MainActivity
-import kotlinx.android.synthetic.main.activity_start_workout.*
-import kotlinx.android.synthetic.main.fragment_exercises.*
 import kotlinx.android.synthetic.main.fragment_user.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,7 +39,6 @@ class UserFragment : Fragment() {
     private lateinit var rWorkoutViewModel: WorkoutViewModel
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -55,18 +48,23 @@ class UserFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        userName = arguments?.getString("uName")
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false)
+        val view = inflater.inflate(R.layout.fragment_user, container, false)
+        userName = arguments?.getString("uName")
+        return view
     }
 
     @SuppressLint("FragmentLiveDataObserve")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //val mainActivity = MainActivity()
+        // val mainActivity = MainActivity()
         // name.text = mainActivity.getUserNameFromMain()
-        //name.text = arguments?.getString("uName")
+        // name.text = arguments?.getString("uName")
+        userName = arguments?.getString("uName")
+        Toast.makeText(context, "USERNAME: $userName", Toast.LENGTH_SHORT).show()
+        name.text = userName
 
         val adapter = context?.let { UserRecentsAdapter(it) }
         recentworkoutrecycler.adapter = adapter
