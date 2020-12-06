@@ -36,7 +36,7 @@ class EndWorkoutActivity : AppCompatActivity() {
             if (workoutCompleted!!){
                 badges[0].count += 1
 
-                Toast.makeText(this, "${badges[0].count} ", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, "${badges[0].count} ", Toast.LENGTH_SHORT).show()
 
                 when (workoutType) {
                     "Full Body" -> {
@@ -62,14 +62,22 @@ class EndWorkoutActivity : AppCompatActivity() {
                 }
 
             }
-            badgeViewModel.allBadges.value?.get(0)?.let { badgeViewModel.updateBadge(it) }
+
         })
 
 
 
 
-
         finishWorkoutButton.setOnClickListener {
+            if (workoutCompleted!!){
+                for (badge in badgeViewModel.allBadges.value!!){
+                    badge?.let { badgeViewModel.updateBadge(it) }
+                }
+                //badgeViewModel.allBadges.value?.get(0)?.let { badgeViewModel.updateBadge(it) }
+
+            }
+
+
             val i = Intent()
             setResult(Activity.RESULT_OK, i)
             finish()
