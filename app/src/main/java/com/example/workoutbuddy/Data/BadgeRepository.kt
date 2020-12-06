@@ -11,4 +11,10 @@ class BadgeRepository(private val badgeDao: BadgeDao) {
         badgeDao.insertBadge(badge)
     }
 
+    fun updateBadge(badge: Badge) {
+        badgeDao.updateBadge(badge)
+    }
+
+
+
 }

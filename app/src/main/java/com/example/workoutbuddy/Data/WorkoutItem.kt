@@ -71,12 +71,14 @@ data class User(
 
 @Entity(tableName = "badge_table")
 data class Badge(
-    var imageResource: Int,
+    val imageResource: Int,
     @PrimaryKey @NonNull @ColumnInfo(name = "title") val title: String,
     @NonNull @ColumnInfo(name = "description") var description: String,
-    @NonNull @ColumnInfo(name = "count") val count: Int = 0,
+    @NonNull @ColumnInfo(name = "count") var count: Int = 0,
     @NonNull @ColumnInfo(name = "goal") val goal: Int
-)
+) {
+    var lockImage = R.drawable.ic_baseline_lock_24
+}
 
 
 

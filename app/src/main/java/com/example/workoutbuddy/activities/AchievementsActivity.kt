@@ -41,17 +41,11 @@ class AchievementsActivity : AppCompatActivity() {
             badges?.let { badgeAdapter.setBadges(it) }
         })
 
-        for (i in badgeAdapter.badgeList) {
-            if(i.count != i.goal){
-                //i.imageResource = R.drawable.ic_baseline_lock_24
-                i.description = "LOCKED BADGE"
-            }
-        }
+
 //
 //        gridView.setOnItemClickListener { adapterView, view, i, l ->
 //            Toast.makeText(this, mBadgeList[i].description, Toast.LENGTH_SHORT).show()
 //        }
-
 
 
         // back button to return to User Page
@@ -66,6 +60,11 @@ class AchievementsActivity : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        //badgeAdapter.unlockBadges()
+
+    }
 
     // fill Workout List with placeholder data
     private fun generateDummyList(size: Int): ArrayList<Badge> {

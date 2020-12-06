@@ -33,6 +33,7 @@ class BadgeAdapter(var context: Context, var badgeList: List<Badge>): BaseAdapte
         notifyDataSetChanged()
     }
 
+
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         // inflate individual Workout Card
@@ -46,12 +47,18 @@ class BadgeAdapter(var context: Context, var badgeList: List<Badge>): BaseAdapte
         val badge: Badge = badgeList[position]
 
         // fill workout card with data
-        badgeImages.setImageResource(badge.imageResource)
+        if(badge.count < badge.goal) {
+            badgeImages.setImageResource(badge.lockImage)
+        } else {
+            badgeImages.setImageResource(badge.imageResource)
+        }
+
         badgeTitles.text = badge.title
 
 
         badgeCardView.setOnClickListener {
-            Toast.makeText(context, "${badgeList[position].title}: " + badgeList[position].description, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "${badgeList[position].title}: " + badgeList[position].description
+                    + "\nCURRENT: ${badge.count} \nGOAL: ${badge.goal}", Toast.LENGTH_SHORT).show()
         }
 
         return badgeCardView

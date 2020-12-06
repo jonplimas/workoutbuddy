@@ -65,6 +65,8 @@ class WorkoutInProgressActivity : AppCompatActivity() {
 
             if(progressBar.progress == progressBar.max) {
                 val i = Intent(this, EndWorkoutActivity::class.java)
+                i.putExtra("completed", true)
+                //i.putExtra("type", type)
                 startActivity(i)
                 finish()
             }
@@ -85,6 +87,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
 
         endWorkoutTV.setOnClickListener{
             val i = Intent(this, EndWorkoutActivity::class.java)
+            i.putExtra("completed", false)
             startActivity(i)
             finish()
         }

@@ -1,10 +1,7 @@
 package com.example.workoutbuddy.Data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface BadgeDao {
@@ -19,5 +16,11 @@ interface BadgeDao {
 
     @Query("SELECT * FROM badge_table LIMIT 1")
     fun getAnyBadge(): Array<Badge?>?
+
+    @Query("SELECT * FROM badge_table WHERE title =:mTitle")
+    fun getBadge(mTitle: String): LiveData<Badge>
+
+    @Update
+    fun updateBadge(badge: Badge)
 
 }

@@ -34,4 +34,9 @@ class BadgeViewModel(application: Application) : AndroidViewModel(application) {
     fun insertBadge(badge: Badge) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertBadge(badge)
     }
+
+    fun updateBadge(badge: Badge) = viewModelScope.launch(Dispatchers.IO){
+        repository.updateBadge(badge)
+    }
+
 }

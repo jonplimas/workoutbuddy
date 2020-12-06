@@ -1,7 +1,6 @@
 package com.example.workoutbuddy.Data
 
 import android.content.Context
-import android.os.AsyncTask
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -13,7 +12,7 @@ import kotlinx.coroutines.launch
 
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(ExerciseItem::class, WorkoutItem::class, Badge::class, Login::class, User::class, Routine::class), version = 16, exportSchema = false)
+@Database(entities = arrayOf(ExerciseItem::class, WorkoutItem::class, Badge::class, Login::class, User::class, Routine::class), version = 17, exportSchema = false)
 abstract class ExerciseRoomDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
