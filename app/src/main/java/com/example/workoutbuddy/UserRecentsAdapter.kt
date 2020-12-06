@@ -32,6 +32,7 @@ class UserRecentsAdapter internal constructor(context: Context):
 
                 val i = Intent(mContext, StartWorkoutActivity::class.java)
                 i.putExtra("wName", recentWorkouts[adapterPosition].name)
+                i.putExtra("wCat", recentWorkouts[adapterPosition].category)
                 i.putExtra("wDesc", recentWorkouts[adapterPosition].description)
                 i.putExtra("wID", recentWorkouts[adapterPosition].workoutID)
                 mContext.startActivity(i)

@@ -53,7 +53,7 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): 
             //Toast.makeText(context, "Workout Description: " + workoutList[position].description, Toast.LENGTH_SHORT).show()
             val intent = Intent(context, StartWorkoutActivity::class.java)
             intent.putExtra("wName", workoutList[position].name)
-            intent.putExtra("wCategory", workoutList[position].category)
+            intent.putExtra("wCat", workoutList[position].category)
             intent.putExtra("wDesc", workoutList[position].description)
             intent.putExtra("wImage", workoutList[position].workoutImageResource)
             //intent.putExtra("wReps", workoutList[position].reps)

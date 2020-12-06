@@ -14,6 +14,13 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workout_in_progress)
 
+        //get extras from intent
+        val bundle = intent.extras
+        val name = bundle?.getString("wName", "Title") ?: "NAME?"
+        val category = bundle?.getString("wCat","Title") ?: "CAT?"
+
+
+        // hardcoded list of Exercises and their descriptions
         val exercises = arrayOf("Crunches", "Toe Touches","Russian Twists", "Bicycle Crunches", "Leg Raises")
         val descriptions = arrayOf(
             "Lie down on back, lift your upper body and return back to starting position. Repeat.",
@@ -39,11 +46,8 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         backBtn.setOnClickListener {
             if (progressBar.progress > 20) {
                 progressBar.progress -= 20
-
                 x--
                 wProgressTV.text = "Exercise $x of $end"
-
-
 
             }
 
@@ -66,7 +70,9 @@ class WorkoutInProgressActivity : AppCompatActivity() {
             if(progressBar.progress == progressBar.max) {
                 val i = Intent(this, EndWorkoutActivity::class.java)
                 i.putExtra("completed", true)
-                //i.putExtra("type", type)
+                i.putExtra("wName", name)
+                i.putExtra("wCat", category)
+
                 startActivity(i)
                 finish()
             }

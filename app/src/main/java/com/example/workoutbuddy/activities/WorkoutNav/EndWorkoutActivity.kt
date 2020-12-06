@@ -26,18 +26,22 @@ class EndWorkoutActivity : AppCompatActivity() {
 
         val bundle = intent.extras
         val workoutCompleted = bundle?.getBoolean("completed")
-        val workoutType = bundle?.getString("type")
+        val workoutName = bundle?.getString("wName")
+        val workoutType = bundle?.getString("wCat")
 
         Toast.makeText(this, "Complete? $workoutCompleted", Toast.LENGTH_SHORT).show()
 
 
         badgeViewModel = ViewModelProvider(this).get(BadgeViewModel::class.java)
         badgeViewModel.allBadges.observe(this, Observer { badges ->
+            // Condition to check if workout was fully completed
             if (workoutCompleted!!){
+                // increment total number workouts
                 badges[0].count += 1
 
-                //Toast.makeText(this, "${badges[0].count} ", Toast.LENGTH_SHORT).show()
+                // Toast.makeText(this, "${badges[0].count} ", Toast.LENGTH_SHORT).show()
 
+                //User Metrics are updated based on the category of Workout that was completed
                 when (workoutType) {
                     "Full Body" -> {
                         badges[1].count += 1
@@ -60,28 +64,26 @@ class EndWorkoutActivity : AppCompatActivity() {
                         badges[12].count += 1
                     }
                 }
-
             }
-
         })
 
 
-
-
         finishWorkoutButton.setOnClickListener {
+            Toast.makeText(this, "Workout Type: $workoutType", Toast.LENGTH_SHORT).show()
+            //Updates DB within database
             if (workoutCompleted!!){
                 for (badge in badgeViewModel.allBadges.value!!){
                     badge?.let { badgeViewModel.updateBadge(it) }
                 }
                 //badgeViewModel.allBadges.value?.get(0)?.let { badgeViewModel.updateBadge(it) }
-
             }
 
-
+            // Return user to main activity
             val i = Intent()
             setResult(Activity.RESULT_OK, i)
             finish()
         }
     }
+
 
 }

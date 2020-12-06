@@ -17,16 +17,16 @@ class StartWorkoutActivity : AppCompatActivity() {
         val wNameTV = findViewById<TextView>(R.id.wNameTV)
         val wDescriptionTV = findViewById<TextView>(R.id.textView4)
 //      val exerciseListView
-
         val backBtn = findViewById<Button>(R.id.startActBtn)
         val startWorkoutBtn = findViewById<Button>(R.id.startWorkoutBtn)
+
 
         //get data using intent from Workout Fragment
         //ITERATION 3: extract intent data and store in variables
         val bundle = intent.extras
-        val name = bundle?.getString("wName", "Title") ?: ""
-        val descr = bundle?.getString("wDesc", "Title") ?: ""
-        // val exercises = bundle?.getStringArray()
+        val name = bundle?.getString("wName", "Title") ?: "NAME?"
+        val category = bundle?.getString("wCat","Title") ?: "CAT?"
+        val descr = bundle?.getString("wDesc", "Title") ?: "DESC?"
 
         //Display Workout info that was clicked
         wNameTV.text = name
@@ -43,6 +43,8 @@ class StartWorkoutActivity : AppCompatActivity() {
 
         startWorkoutBtn.setOnClickListener {
             val i2 = Intent(this, WorkoutInProgressActivity::class.java)
+            i2.putExtra("wName", name)
+            i2.putExtra("wCat", category)
             startActivity(i2)
             finish()
         }
@@ -50,7 +52,6 @@ class StartWorkoutActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
 
     }
 }
