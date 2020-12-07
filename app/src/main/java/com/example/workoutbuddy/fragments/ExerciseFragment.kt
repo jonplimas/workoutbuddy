@@ -97,7 +97,7 @@ class HomeFragment : Fragment() {
         }
 
 
-        //ITERATION 5: DELETE FUNCTIONALITY UPON SWIPE
+        //ITERATION 5: DELETE EXERCISE UPON SWIPE
         val helper = ItemTouchHelper(
             object : ItemTouchHelper.SimpleCallback(
                 0,
@@ -123,10 +123,10 @@ class HomeFragment : Fragment() {
                         exerciseViewModel.deleteExer(myExercise)
                     }
                 }
+
             })
 
         helper.attachToRecyclerView(exercise_view)
-
 
     }
 

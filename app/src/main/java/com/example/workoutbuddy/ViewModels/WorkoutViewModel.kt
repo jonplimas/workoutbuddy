@@ -28,4 +28,8 @@ class WorkoutViewModel(application: Application): AndroidViewModel(application) 
     fun insertWorkout(workoutItem: WorkoutItem) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertWorkout(workoutItem)
     }
+
+    fun deleteWorkout(workoutItem: WorkoutItem) = viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteWorkout(workoutItem)
+    }
 }

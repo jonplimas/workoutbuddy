@@ -47,5 +47,18 @@
             android:layout_marginTop="4dp"
             android:text="@string/workout_cat"
             android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/deleteWButton"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="33dp"
+            android:layout_height="37dp"
+            android:layout_alignTop="@+id/workoutImage"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-4dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            android:text="X" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

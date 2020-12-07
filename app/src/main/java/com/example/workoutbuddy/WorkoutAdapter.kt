@@ -9,12 +9,13 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat.startActivity
 import com.example.workoutbuddy.Data.WorkoutItem
+import com.example.workoutbuddy.ViewModels.ExerciseViewModel
 import com.example.workoutbuddy.activities.WorkoutNav.StartWorkoutActivity
 
 class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): BaseAdapter() {
 
     override fun getItem(position: Int): Any {
-        return workoutList.get(position)
+        return workoutList[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -30,6 +31,16 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): 
         notifyDataSetChanged()
     }
 
+
+    internal fun removeWorkout(position: Int) {
+        this.workoutList -= workoutList[position]
+        notifyDataSetChanged()
+    }
+
+    fun getWorkoutAtPosition(position: Int): WorkoutItem {
+        return workoutList[position]
+    }
+
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         // inflate individual Workout Card
@@ -39,6 +50,7 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): 
         val workoutImages: ImageView = workoutCardView.findViewById(R.id.workoutImage)
         val workoutNames: TextView = workoutCardView.findViewById(R.id.workoutName)
         val workoutCategories: TextView = workoutCardView.findViewById(R.id.workoutCat)
+        val deleteButton: Button = workoutCardView.findViewById(R.id.deleteWButton)
 
         // initialize individual cards based on indices.
         val myWorkoutItem: WorkoutItem = workoutList[position]
@@ -60,6 +72,9 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): 
             //intent.putExtra("wSets", workoutList[position].sets)
             startActivity(context,intent, Bundle.EMPTY)
         }
+
+
+
         return workoutCardView
     }
 }

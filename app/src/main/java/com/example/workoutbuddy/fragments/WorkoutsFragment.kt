@@ -12,6 +12,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
+import com.example.workoutbuddy.Data.ExerciseItem
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.WorkoutAdapter
 import com.example.workoutbuddy.Data.WorkoutItem
@@ -20,7 +23,9 @@ import com.example.workoutbuddy.activities.NewExerciseActivity.Companion.EXTRA_R
 import com.example.workoutbuddy.activities.NewWorkoutActivity
 import com.example.workoutbuddy.activities.NewWorkoutActivity2
 import com.example.workoutbuddy.activities.WorkoutNav.StartWorkoutActivity
+import kotlinx.android.synthetic.main.fragment_exercises.*
 import kotlinx.android.synthetic.main.fragment_workouts.*
+import kotlinx.android.synthetic.main.workout_item.view.*
 import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
@@ -100,18 +105,16 @@ class WorkoutsFragment : Fragment() {
             workouts?.let { workoutAdapter.setWorkouts(it) }
         })
 
-//        // Start Workout By Clicking on an item
-//        grid_view.setOnItemClickListener { adapterView, view, i, l ->
-//            //Toast.makeText(activity, "Workout Description: " + mWorkoutList[i].category, Toast.LENGTH_SHORT).show()
-//            val intent = Intent(activity, StartWorkoutActivity::class.java)
-//            intent.putExtra("wName", mWorkoutList[i].name)
-//            intent.putExtra("wCategory", mWorkoutList[i].category)
-//            intent.putExtra("wDesc",  mWorkoutList[i].description)
-//            intent.putExtra("wImage", mWorkoutList[i].workoutImageResource)
-//            //intent.putExtra("wReps", mWorkoutList[i].reps)
-//            //intent.putExtra("wSets", mWorkoutList[i].sets)
-//            startActivity(intent)
-//        }
+        grid_view.deleteWButton.setOnClickListener {
+            val position = grid_view.selectedItemPosition
+            val myWorkout = workoutAdapter.getWorkoutAtPosition(position)
+            workoutAdapter.removeWorkout(position)
+            workoutViewModel.deleteWorkout(myWorkout)
+        }
+
+
+        //ITERATION 5: DELETE EXERCISE UPON SWIPE
+
 
 
         // TO DO FOR ITERATION 3: floating action button functionality
@@ -121,6 +124,12 @@ class WorkoutsFragment : Fragment() {
             val i = Intent(activity, NewWorkoutActivity::class.java)
             startActivityForResult(i, REQUEST_CODE_W)
         }
+
+
+
+
+
+
     }
 
 
