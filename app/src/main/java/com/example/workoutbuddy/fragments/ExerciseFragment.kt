@@ -116,7 +116,7 @@ class HomeFragment : Fragment() {
                 ) {
                     val position = viewHolder.adapterPosition
                     val myExercise: ExerciseItem? = adapter?.getExerciseAtPosition(position)
-                    Toast.makeText(activity, "Deleting ${myExercise?.name}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(activity, "DELETING: ${myExercise?.name}...", Toast.LENGTH_LONG).show()
 
                     // Delete the word
                     if (myExercise != null) {

@@ -34,6 +34,7 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>, p
 
 
     internal fun removeWorkout(position: Int) {
+        Toast.makeText(context, "DELETING: ${workoutList[position].name}...", Toast.LENGTH_LONG).show()
         workoutViewModel.deleteWorkout(workoutList[position])
         this.workoutList -= workoutList[position]
         notifyDataSetChanged()
