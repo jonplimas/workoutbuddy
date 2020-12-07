@@ -66,7 +66,7 @@ class NewWorkoutActivity : AppCompatActivity(), AdapterView.OnItemSelectedListen
                     description = newWorkoutDescr.text.toString()
                 )
                 // Update DB with new workout
-                // workoutViewModel.insertWorkout(newWorkout)
+                workoutViewModel.insertWorkout(newWorkout)
 
                 // Create Intent and store new workout data
                 val i = Intent(this, NewWorkoutActivity2::class.java)

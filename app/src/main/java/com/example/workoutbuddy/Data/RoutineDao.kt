@@ -32,4 +32,7 @@ interface RoutineDao {
 
     @Delete
     fun deleteRoutine(routine: Routine?)
+
+    @Query("DELETE FROM routine_table WHERE exID =:workoutID")
+    fun deleteRoutinesByWorkoutID(workoutID: Int)
 }

@@ -15,4 +15,8 @@ class RoutineRepository(private val routineDao: RoutineDao) {
         routineDao.insertRoutine(routine)
     }
 
+    fun deleteRoutinesByWorkoutID(workoutID: Int) {
+        routineDao.deleteRoutinesByWorkoutID(workoutID)
+    }
+
 }

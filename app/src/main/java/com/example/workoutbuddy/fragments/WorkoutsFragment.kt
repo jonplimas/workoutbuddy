@@ -166,7 +166,7 @@ class WorkoutsFragment : Fragment() {
             Toast.makeText(context, "FAILED TO POST: invalid request code", Toast.LENGTH_LONG).show()
 
         } else {
-            Toast.makeText(context, "FAILED TO POST--> request code: $requestCode, result code: $resultCode", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "FAILED TO POST--> request code: $requestCode, result code: $resultCode", Toast.LENGTH_LONG).show()
         }
     }
 

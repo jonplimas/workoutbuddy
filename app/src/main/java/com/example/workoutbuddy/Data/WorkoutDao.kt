@@ -25,4 +25,7 @@ interface WorkoutDao {
     @Delete
     fun deleteWorkout(workout: WorkoutItem?)
 
+
+    @Query("SELECT * FROM routine_table ORDER BY routineID")
+    fun getAllRoutines(): LiveData<List<Routine>>
 }

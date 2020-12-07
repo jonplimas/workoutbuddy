@@ -27,6 +27,9 @@ interface ExerciseDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertExercise(exerciseItem: ExerciseItem)
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertRoutine(routine: Routine)
+
     //
     @Query("DELETE FROM exercise_table")
     suspend fun deleteAllExercises()

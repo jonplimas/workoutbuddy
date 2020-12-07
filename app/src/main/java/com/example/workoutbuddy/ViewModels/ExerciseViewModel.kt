@@ -4,10 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.workoutbuddy.Data.ExerciseItem
-import com.example.workoutbuddy.Data.ExerciseRepository
-import com.example.workoutbuddy.Data.ExerciseRoomDatabase
-import com.example.workoutbuddy.Data.WorkoutItem
+import com.example.workoutbuddy.Data.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -25,17 +22,13 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
 
 
     init {
-        val exerciseDao = ExerciseRoomDatabase.getDatabase(
-            application,
-            viewModelScope
-        ).exerciseDao()
-        repository =
-            ExerciseRepository(exerciseDao)
+        val exerciseDao = ExerciseRoomDatabase.getDatabase(application, viewModelScope).exerciseDao()
+        val routineDao = ExerciseRoomDatabase.getDatabase(application, viewModelScope).routineDao()
+        repository = ExerciseRepository(exerciseDao, routineDao)
         allExercises = repository.allExercises
         coreExercises = repository.coreExercises
         upperExercises = repository.upperExercises
         lowerExercises = repository.lowerExercises
-
     }
 
     /**
@@ -43,6 +36,10 @@ class ExerciseViewModel(application: Application) : AndroidViewModel(application
      */
     fun insertExer(exerciseItem: ExerciseItem) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertExercise(exerciseItem)
+    }
+
+    fun insertRoutine(routine: Routine) =viewModelScope.launch(Dispatchers.IO) {
+        repository.insertRoutine(routine)
     }
 
     fun deleteExer(exerciseItem: ExerciseItem) = viewModelScope.launch(Dispatchers.IO){

@@ -125,8 +125,7 @@ class NewWorkoutActivity2 : AppCompatActivity() {
                     setQuantifier = xSetsQ[i]
                 )
                 // insert into DB
-                //routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
-                //routineViewModel.insertRoutine(routine)
+                exerciseViewModel.insertRoutine(routine)
             }
 
             // Package intent with data needed to make workout
