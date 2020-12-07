@@ -10,9 +10,10 @@ import android.widget.*
 import androidx.core.app.ActivityCompat.startActivity
 import com.example.workoutbuddy.Data.WorkoutItem
 import com.example.workoutbuddy.ViewModels.ExerciseViewModel
+import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 import com.example.workoutbuddy.activities.WorkoutNav.StartWorkoutActivity
 
-class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): BaseAdapter() {
+class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>, private val workoutViewModel: WorkoutViewModel): BaseAdapter() {
 
     override fun getItem(position: Int): Any {
         return workoutList[position]
@@ -33,6 +34,7 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): 
 
 
     internal fun removeWorkout(position: Int) {
+        workoutViewModel.deleteWorkout(workoutList[position])
         this.workoutList -= workoutList[position]
         notifyDataSetChanged()
     }
@@ -73,6 +75,9 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>): 
             startActivity(context,intent, Bundle.EMPTY)
         }
 
+        deleteButton.setOnClickListener {
+            removeWorkout(position)
+        }
 
 
         return workoutCardView
