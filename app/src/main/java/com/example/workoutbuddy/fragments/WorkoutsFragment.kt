@@ -105,7 +105,7 @@ class WorkoutsFragment : Fragment() {
             workouts?.let { workoutAdapter.setWorkouts(it) }
         })
 
-        grid_view.deleteWButton.setOnClickListener {
+        grid_view.deleteWButton?.setOnClickListener {
             val position = grid_view.selectedItemPosition
             val myWorkout = workoutAdapter.getWorkoutAtPosition(position)
             workoutAdapter.removeWorkout(position)
