@@ -81,6 +81,10 @@ class ExerciseAdapter internal constructor(context: Context) : RecyclerView.Adap
 
     override fun getItemCount() = exercises.size
 
+    fun getExerciseAtPosition(position: Int): ExerciseItem {
+        return exercises[position]
+    }
+
 
 
 }
