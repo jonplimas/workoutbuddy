@@ -28,14 +28,18 @@
             android:layout_marginTop="8dp"
             android:text="@string/workout_name"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textAlignment="center"
+            android:paddingHorizontal="4dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/goalNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/achName"
+            android:layout_marginHorizontal="8dp"
             android:text="0"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -45,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/achName"
             android:layout_alignRight="@id/achievementBadge"
+            android:layout_marginHorizontal="8dp"
             android:text="5"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
