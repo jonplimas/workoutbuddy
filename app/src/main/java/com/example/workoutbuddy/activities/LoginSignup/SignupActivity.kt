@@ -14,6 +14,7 @@ import com.example.workoutbuddy.Data.User
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.ViewModels.UserViewModel
 import kotlinx.android.synthetic.main.fragment_user.*
+import org.w3c.dom.Text
 
 
 private lateinit var userViewModel: UserViewModel
@@ -43,8 +44,10 @@ class SignupActivity : AppCompatActivity() {
 
         submitButton.setOnClickListener {
             //input validation
-            if( TextUtils.isEmpty(signupName.text) && TextUtils.isEmpty(signupPass.text) && signupPass.text.toString() == signupPass2.text.toString()) {
+            if( TextUtils.isEmpty(signupName.text) || TextUtils.isEmpty(signupPass.text) || TextUtils.isEmpty(signupPass2.text) ) {
                 Toast.makeText(this, "UNSUCCESSFUL SUBMISSION, SOMETHING EMPTY", Toast.LENGTH_SHORT).show()
+            } else if(signupPass.text.toString() != signupPass2.text.toString()) {
+                Toast.makeText(this, "UNSUCCESSFUL SUBMISSION, PASSWORD DOES NOT MATCH CONFIRMED PASSWORD", Toast.LENGTH_SHORT).show()
             } else {
                 // flag to check for duplicates
                 var noDuplicates = true
