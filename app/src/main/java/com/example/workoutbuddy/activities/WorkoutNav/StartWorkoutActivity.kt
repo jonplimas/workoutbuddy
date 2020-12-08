@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutbuddy.Data.Routine
+import com.example.workoutbuddy.Data.RoutineDao
 import com.example.workoutbuddy.R
 import com.example.workoutbuddy.ViewModels.RoutineViewModel
 import com.example.workoutbuddy.WorkoutAdapter2
@@ -38,16 +39,19 @@ class StartWorkoutActivity : AppCompatActivity() {
         val category = bundle?.getString("wCat","Title") ?: "CAT?"
         val descr = bundle?.getString("wDesc", "Title") ?: "DESC?"
         val workoutID = bundle?.getInt("wID") ?: 69
-        var mRoutines = emptyList<Routine>()
+        var mRoutines: List<Routine> = listOf()
 
         routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
         routineViewModel.allRoutines.observe(this, Observer { routines ->
-            for(routine in routines) {
-                if(routine.exID == workoutID){
-                    mRoutines += routine
-                }
-            }
+            mRoutines = routines
         })
+
+        val routines: MutableList<Routine> = mutableListOf()
+        for(m in mRoutines){
+            if(m.exID == workoutID){
+                routines.add(m)
+            }
+        }
 
         //Display Workout info that was clicked
         wNameTV.text = name

@@ -27,7 +27,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val name = bundle?.getString("wName", "Title") ?: "NAME?"
         val category = bundle?.getString("wCat","Title") ?: "CAT?"
         val workoutID = bundle?.getInt("wID", 1) ?: 69
-        var mRoutines = emptyList<Routine>()
+        var mRoutines: List<Routine> = listOf()
 
         // hardcoded list of Exercises and their descriptions
         val exercises = arrayOf("Crunches", "Toe Touches","Russian Twists", "Bicycle Crunches", "Leg Raises")
@@ -41,14 +41,17 @@ class WorkoutInProgressActivity : AppCompatActivity() {
 
 
         routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
-
         routineViewModel.allRoutines.observe(this, Observer { routines ->
-            for(routine in routines){
-                if(routine.exID == workoutID){
-                    mRoutines += routine
-                }
-            }
+            mRoutines = routines
         })
+
+        val myRoutines: MutableList<Routine> = mutableListOf()
+        for(routine in mRoutines){
+            if(routine.exID == workoutID){
+                myRoutines.add(routine)
+            }
+        }
+
 
         val exName = findViewById<TextView>(R.id.curExNameTV)
         val wDescr = findViewById<TextView>(R.id.workoutdesc)
@@ -58,7 +61,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val wProgressTV = findViewById<TextView>(R.id.textView3)
         val repsSetsTV = findViewById<TextView>(R.id.textView11)
         var x = 1
-        val end = mRoutines.size
+        val end = myRoutines.size
         val incrementSize = (x/end) * 100
 
         val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
@@ -83,7 +86,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
             }
             exName.text = mRoutines[x-1].name
             wDescr.text = mRoutines[x-1].description
-            repsSetsTV.text = "${mRoutines[x-1].sets} Sets  X  ${mRoutines[x-1].reps} ${mRoutines[x-1].setQuantifier} "
+            repsSetsTV.text = "${myRoutines[x-1].sets} Sets  X  ${myRoutines[x-1].reps} ${myRoutines[x-1].setQuantifier} "
         }
 
 
@@ -111,7 +114,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
             }
             exName.text = mRoutines[x-1].name
             wDescr.text = mRoutines[x-1].name
-            repsSetsTV.text = "${mRoutines[x-1].sets} Sets  X  ${mRoutines[x-1].reps} ${mRoutines[x-1].setQuantifier} "
+            repsSetsTV.text = "${myRoutines[x-1].sets} Sets  X  ${myRoutines[x-1].reps} ${myRoutines[x-1].setQuantifier} "
         }
 
         endWorkoutTV.setOnClickListener{

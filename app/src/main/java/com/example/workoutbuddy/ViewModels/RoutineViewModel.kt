@@ -38,6 +38,11 @@ class RoutineViewModel(application: Application): AndroidViewModel(application) 
         repository.insertRoutine(routine)
     }
 
+    fun getRoutinesByWorkoutID(wID: Int): MutableList<Routine> {
+        val mRoutines: MutableList<Routine> = mutableListOf()
+        return mRoutines
+    }
+
 
 
 }
