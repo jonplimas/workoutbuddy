@@ -3,7 +3,7 @@ package com.example.workoutbuddy.Data
 import androidx.lifecycle.LiveData
 import kotlin.properties.Delegates
 
-class RoutineRepository(private val routineDao: RoutineDao, workoutDao: WorkoutDao) {
+class RoutineRepository(private val routineDao: RoutineDao, private val workoutDao: WorkoutDao) {
 
 
     // private var x by Delegates.notNull<Int>()
@@ -15,8 +15,6 @@ class RoutineRepository(private val routineDao: RoutineDao, workoutDao: WorkoutD
     suspend fun insertRoutine(routine: Routine) {
         routineDao.insertRoutine(routine)
     }
-
-
 
     fun deleteRoutinesByWorkoutID(workoutID: Int) {
         routineDao.deleteRoutinesByWorkoutID(workoutID)

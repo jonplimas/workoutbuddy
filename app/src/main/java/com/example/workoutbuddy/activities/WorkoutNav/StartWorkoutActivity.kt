@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -52,6 +53,8 @@ class StartWorkoutActivity : AppCompatActivity() {
                 routines.add(m)
             }
         }
+
+        //Toast.makeText(this, "First Routine: ${mRoutines[0].name}", Toast.LENGTH_SHORT).show()
 
         //Display Workout info that was clicked
         wNameTV.text = name

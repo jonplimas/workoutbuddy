@@ -62,7 +62,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val repsSetsTV = findViewById<TextView>(R.id.textView11)
         var x = 1
         val end = myRoutines.size
-        val incrementSize = (x/end) * 100
+        val incrementSize = 100 / end
 
         val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
 
@@ -76,7 +76,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
 
             }
 
-            if (progressBar.progress == 20) {
+            if (progressBar.progress == incrementSize) {
                 backBtn.isEnabled = false
             }
 
