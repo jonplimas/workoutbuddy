@@ -53,17 +53,17 @@ class NewWorkoutActivity2 : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
 
-        //Filter Selection of Exercises based on Workout category chosen
+        // Filter Selection of Exercises based on Workout category chosen
         exerciseViewModel = ViewModelProvider(this).get(ExerciseViewModel::class.java)
-        if(type == "Core") {
+        if(type.contains("Core"))  {
             exerciseViewModel.coreExercises.observe(this , Observer { exercises ->
                 exercises?.let { adapter.setExercises(it) }
             })
-        } else if(type == "Upper Body") {
+        } else if(type.contains("Upper Body")) {
             exerciseViewModel.upperExercises.observe(this , Observer { exercises ->
                 exercises?.let { adapter.setExercises(it) }
             })
-        } else if(type == "Lower Body") {
+        } else if(type.contains("Lower Body")) {
             exerciseViewModel.lowerExercises.observe(this , Observer { exercises ->
                 exercises?.let { adapter.setExercises(it) }
             })

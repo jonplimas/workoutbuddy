@@ -14,13 +14,13 @@ interface ExerciseDao {
     @Query("SELECT * from exercise_table ORDER BY name ASC")
     fun getAlphabetizedExercises(): LiveData<List<ExerciseItem>>
 
-    @Query("SELECT * from exercise_table WHERE type = 'Core' ORDER BY name ASC")
+    @Query("SELECT * from exercise_table WHERE type LIKE '%Core%' ORDER BY name ASC")
     fun getCoreExercises(): LiveData<List<ExerciseItem>>
 
-    @Query("SELECT * from exercise_table WHERE type = 'Chest/Back' OR type = 'Shoulders' OR type = 'Triceps/Biceps' ORDER BY name ASC")
+    @Query("SELECT * from exercise_table WHERE type LIKE '%Chest/Back%' OR type LIKE '%Shoulders%' OR type LIKE '%Triceps/Biceps%' ORDER BY name ASC")
     fun getUpperExercises(): LiveData<List<ExerciseItem>>
 
-    @Query("SELECT * from exercise_table WHERE type = 'Glutes' OR type = 'Quads/Hams' OR type = 'Calves' ORDER BY name ASC")
+    @Query("SELECT * from exercise_table WHERE type LIKE '%Glutes%' OR type LIKE '%Quads/Hams%' OR type LIKE '%Calves%' ORDER BY name ASC")
     fun getLowerExercises(): LiveData<List<ExerciseItem>>
 
     // ConflictStrategy: ignores new word if it has the same name as one already in the list
