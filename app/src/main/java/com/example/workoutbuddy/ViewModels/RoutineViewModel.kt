@@ -18,13 +18,15 @@ class RoutineViewModel(application: Application): AndroidViewModel(application) 
     //   the UI when the data actually changes.
     // - Repository is completely separated from the UI through the ViewModel.
     val allRoutines: LiveData<List<Routine>>
-    // val myRoutines: LiveData<List<Routine>>
+    val allWorkouts: LiveData<List<WorkoutItem>>
 
 
     init {
         val routineDao = ExerciseRoomDatabase.getDatabase(application, viewModelScope).routineDao()
-        repository = RoutineRepository(routineDao)
+        val workoutDao = ExerciseRoomDatabase.getDatabase(application, viewModelScope).workoutDao()
+        repository = RoutineRepository(routineDao, workoutDao)
         allRoutines = repository.allRoutines
+        allWorkouts = repository.allWorkouts
 
 
     }
@@ -36,9 +38,6 @@ class RoutineViewModel(application: Application): AndroidViewModel(application) 
         repository.insertRoutine(routine)
     }
 
-//    fun getRoutine(id: Int): LiveData<List<Routine>> {
-//        return routines with workout id = id
-//    }
 
 
 }

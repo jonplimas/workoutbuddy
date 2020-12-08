@@ -5,9 +5,22 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.workoutbuddy.Data.Routine
 import com.example.workoutbuddy.R
+import com.example.workoutbuddy.ViewModels.RoutineViewModel
+import com.example.workoutbuddy.WorkoutAdapter2
+
+private lateinit var routineViewModel: RoutineViewModel
 
 class StartWorkoutActivity : AppCompatActivity() {
+
+    private var mRoutines = emptyList<Routine>()
+    private var workoutID: Int = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_workout)
@@ -28,11 +41,28 @@ class StartWorkoutActivity : AppCompatActivity() {
         val category = bundle?.getString("wCat","Title") ?: "CAT?"
         val descr = bundle?.getString("wDesc", "Title") ?: "DESC?"
 
+
+        routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
+        routineViewModel.allWorkouts.observe(this, Observer { workouts ->
+            for(workout in workouts){
+                if(workout.name == name) {
+                    workoutID = workout.workoutID
+                    break
+                }
+            }
+        })
+
+        routineViewModel.allRoutines.observe(this, Observer { routines ->
+            for(routine in routines) {
+                if(routine.exID == workoutID){
+                    mRoutines += routine
+                }
+            }
+        })
+
         //Display Workout info that was clicked
         wNameTV.text = name
         wDescriptionTV.text = descr
-
-        //Display list of exercises
 
 
         // Back button to main activity
@@ -45,6 +75,7 @@ class StartWorkoutActivity : AppCompatActivity() {
             val i2 = Intent(this, WorkoutInProgressActivity::class.java)
             i2.putExtra("wName", name)
             i2.putExtra("wCat", category)
+            i2.putExtra("wID", workoutID)
             startActivity(i2)
             finish()
         }

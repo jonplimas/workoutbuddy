@@ -16,7 +16,7 @@ interface RoutineDao {
     fun getCoreRoutines(): LiveData<List<Routine>>
 
     @Query("SELECT * from routine_table WHERE exID = :workoutID")
-    fun getRoutinesFor(workoutID: Int): LiveData<List<Routine>>
+    fun getRoutinesByWorkoutID(workoutID: Int): LiveData<List<Routine>>
 
 
     // ConflictStrategy: ignores new word if it has the same name as one already in the list
@@ -35,4 +35,6 @@ interface RoutineDao {
 
     @Query("DELETE FROM routine_table WHERE exID =:workoutID")
     fun deleteRoutinesByWorkoutID(workoutID: Int)
+
+
 }

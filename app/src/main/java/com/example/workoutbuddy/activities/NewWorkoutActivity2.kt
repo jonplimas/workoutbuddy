@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_new_workout2.*
 
 
 private lateinit var exerciseViewModel: ExerciseViewModel
-private lateinit var routineViewModel: RoutineViewModel
+
 
 class NewWorkoutActivity2 : AppCompatActivity() {
 
