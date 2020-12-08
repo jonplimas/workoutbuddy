@@ -3,6 +3,7 @@ package com.example.workoutbuddy
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +43,8 @@ class BadgeAdapter(var context: Context, var badgeList: List<Badge>): BaseAdapte
         // initialize items in relation to achievementBadge.xml
         val badgeImages: ImageView = badgeCardView.findViewById(R.id.achievementBadge)
         val badgeTitles: TextView = badgeCardView.findViewById(R.id.achName)
+        val badgeCurrent: TextView = badgeCardView.findViewById(R.id.goalNum)
+        val badgeGoal: TextView = badgeCardView.findViewById(R.id.currentNum)
 
         // initialize individual Badges based on indices.
         val badge: Badge = badgeList[position]
@@ -49,11 +52,16 @@ class BadgeAdapter(var context: Context, var badgeList: List<Badge>): BaseAdapte
         // fill workout card with data
         if(badge.count < badge.goal) {
             badgeImages.setImageResource(badge.lockImage)
+            badgeCurrent.setTextColor(Color.RED)
         } else {
             badgeImages.setImageResource(badge.imageResource)
+            badgeCurrent.setTextColor(Color.BLUE)
         }
 
         badgeTitles.text = badge.title
+        badgeCurrent.text = badge.count.toString()
+        badgeGoal.text = badge.goal.toString()
+
 
 
         badgeCardView.setOnClickListener {

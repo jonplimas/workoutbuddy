@@ -31,6 +31,23 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/goalNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/achName"
+            android:text="0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <TextView
+            android:id="@+id/currentNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/achName"
+            android:layout_alignRight="@id/achievementBadge"
+            android:text="5"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
