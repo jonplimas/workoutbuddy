@@ -71,8 +71,7 @@ class WorkoutAdapter(var context: Context, var workoutList: List<WorkoutItem>, p
             intent.putExtra("wCat", workoutList[position].category)
             intent.putExtra("wDesc", workoutList[position].description)
             intent.putExtra("wImage", workoutList[position].workoutImageResource)
-            //intent.putExtra("wReps", workoutList[position].reps)
-            //intent.putExtra("wSets", workoutList[position].sets)
+            intent.putExtra("wID", workoutList[position].workoutID)
             startActivity(context,intent, Bundle.EMPTY)
         }
 

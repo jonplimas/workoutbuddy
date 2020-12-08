@@ -18,9 +18,6 @@ private lateinit var routineViewModel: RoutineViewModel
 
 class StartWorkoutActivity : AppCompatActivity() {
 
-    private var mRoutines = emptyList<Routine>()
-    private var workoutID: Int = 1
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_workout)
@@ -40,18 +37,10 @@ class StartWorkoutActivity : AppCompatActivity() {
         val name = bundle?.getString("wName", "Title") ?: "NAME?"
         val category = bundle?.getString("wCat","Title") ?: "CAT?"
         val descr = bundle?.getString("wDesc", "Title") ?: "DESC?"
-
+        val workoutID = bundle?.getInt("wID") ?: 69
+        var mRoutines = emptyList<Routine>()
 
         routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
-        routineViewModel.allWorkouts.observe(this, Observer { workouts ->
-            for(workout in workouts){
-                if(workout.name == name) {
-                    workoutID = workout.workoutID
-                    break
-                }
-            }
-        })
-
         routineViewModel.allRoutines.observe(this, Observer { routines ->
             for(routine in routines) {
                 if(routine.exID == workoutID){
@@ -63,6 +52,8 @@ class StartWorkoutActivity : AppCompatActivity() {
         //Display Workout info that was clicked
         wNameTV.text = name
         wDescriptionTV.text = descr
+
+        //Display RecyclerView HERE
 
 
         // Back button to main activity

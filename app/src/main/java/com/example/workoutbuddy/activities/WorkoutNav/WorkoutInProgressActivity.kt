@@ -17,8 +17,6 @@ private lateinit var routineViewModel: RoutineViewModel
 
 class WorkoutInProgressActivity : AppCompatActivity() {
 
-    private var mRoutines = emptyList<Routine>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workout_in_progress)
@@ -28,7 +26,8 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val bundle = intent.extras
         val name = bundle?.getString("wName", "Title") ?: "NAME?"
         val category = bundle?.getString("wCat","Title") ?: "CAT?"
-        val workoutID = bundle?.getInt("wID", 0) ?: 69
+        val workoutID = bundle?.getInt("wID", 1) ?: 69
+        var mRoutines = emptyList<Routine>()
 
         // hardcoded list of Exercises and their descriptions
         val exercises = arrayOf("Crunches", "Toe Touches","Russian Twists", "Bicycle Crunches", "Leg Raises")
