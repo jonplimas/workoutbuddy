@@ -12,9 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutbuddy.Data.Routine
 import com.example.workoutbuddy.Data.RoutineDao
+import com.example.workoutbuddy.ExerciseAdapter
 import com.example.workoutbuddy.R
+import com.example.workoutbuddy.RoutineAdapter
 import com.example.workoutbuddy.ViewModels.RoutineViewModel
 import com.example.workoutbuddy.WorkoutAdapter2
+import kotlinx.android.synthetic.main.activity_start_workout.*
+import kotlinx.android.synthetic.main.fragment_exercises.*
 
 private lateinit var routineViewModel: RoutineViewModel
 
@@ -40,21 +44,31 @@ class StartWorkoutActivity : AppCompatActivity() {
         val category = bundle?.getString("wCat","Title") ?: "CAT?"
         val descr = bundle?.getString("wDesc", "Title") ?: "DESC?"
         val workoutID = bundle?.getInt("wID") ?: 69
-        var mRoutines: List<Routine> = listOf()
+        val routineRecyclerView = findViewById<RecyclerView>(R.id.routineRV)
+
+
+        val adapter = RoutineAdapter(this)
+        routineRecyclerView.adapter = adapter
+        routineRecyclerView.layoutManager = LinearLayoutManager(this)
+        routineRecyclerView.setHasFixedSize(true)
+
+
 
         routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
         routineViewModel.allRoutines.observe(this, Observer { routines ->
-            mRoutines = routines
+            routines?.let {
+                (routineRecyclerView.adapter as RoutineAdapter).setRoutines(routines)
+//                for(routine in routines) {
+//                    if(routine.exID == workoutID) {
+//                        routineRecyclerView.adapter.set
+//                    }
+//                }
+                // Toast.makeText(this, "Second Routine: ${routines[1].name}", Toast.LENGTH_SHORT).show()
+            }
         })
 
-        val routines: MutableList<Routine> = mutableListOf()
-        for(m in mRoutines){
-            if(m.exID == workoutID){
-                routines.add(m)
-            }
-        }
 
-        //Toast.makeText(this, "First Routine: ${mRoutines[0].name}", Toast.LENGTH_SHORT).show()
+
 
         //Display Workout info that was clicked
         wNameTV.text = name

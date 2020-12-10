@@ -86,11 +86,13 @@
         app:layout_constraintTop_toBottomOf="@id/textView4" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/routineRV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/wDescriptionTitleTV2"
-        tools:listitem="@layout/exercise_item_startworkout"
-        tools:ignore="MissingConstraints,NotSibling" />
+        tools:ignore="MissingConstraints,NotSibling"
+        tools:listitem="@layout/exercise_item_startworkout" />
 
     <Button
         android:id="@+id/startWorkoutBtn"

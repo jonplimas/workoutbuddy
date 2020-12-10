@@ -20,7 +20,7 @@ interface RoutineDao {
 
 
     // ConflictStrategy: ignores new word if it has the same name as one already in the list
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     suspend fun insertRoutine(routine: Routine)
 
 

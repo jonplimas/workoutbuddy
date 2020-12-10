@@ -18,12 +18,10 @@ class ExerciseAdapter internal constructor(context: Context) : RecyclerView.Adap
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var exercises = emptyList<ExerciseItem>()   // Cached copy of exercises
-    private var heartClicked = false
 
 
     @RequiresApi(Build.VERSION_CODES.M)
     inner class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        val imageView: ImageView = itemView.findViewById(R.id.exerciseImage)
         val textView1: TextView = itemView.findViewById(R.id.exerciseName)
         val textView2: TextView = itemView.findViewById(R.id.exerciseType)
 
@@ -40,21 +38,6 @@ class ExerciseAdapter internal constructor(context: Context) : RecyclerView.Adap
                 itemView.context.startActivity(i)
 
             }
-
-
-            // Favorites action
-//            itemView.imageHeartButton.setOnClickListener {
-//                if(!heartClicked){
-//                    itemView.imageHeartButton.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
-//                    heartClicked = true
-//                } else {
-//                    itemView.imageHeartButton.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24)
-//                    heartClicked = false
-//                }
-//            }
-
-
-
         }
 
     }
@@ -69,7 +52,6 @@ class ExerciseAdapter internal constructor(context: Context) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         val currentItem = exercises[position]
-//        holder.imageView.setImageResource(currentItem.imageResource)
         holder.textView1.text = currentItem.name
         holder.textView2.text = currentItem.type
     }
