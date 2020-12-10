@@ -61,8 +61,8 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val wProgressTV = findViewById<TextView>(R.id.textView3)
         val repsSetsTV = findViewById<TextView>(R.id.textView11)
         var x = 1
-        val end = myRoutines.size
-        val incrementSize = (x/end) * 100
+        val end = 5 // myRoutines.size
+        val incrementSize = 20// (x/end) * 100
 
         val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
 
@@ -84,9 +84,9 @@ class WorkoutInProgressActivity : AppCompatActivity() {
                 endWorkoutTV.isVisible = true
                 nextBtn.text = "Next Exercise"
             }
-            exName.text = mRoutines[x-1].name
-            wDescr.text = mRoutines[x-1].description
-            repsSetsTV.text = "${myRoutines[x-1].sets} Sets  X  ${myRoutines[x-1].reps} ${myRoutines[x-1].setQuantifier} "
+            exName.text = exercises[x-1]// mRoutines[x-1].name
+            wDescr.text = descriptions[x-1]// mRoutines[x-1].description
+            // repsSetsTV.text = "${myRoutines[x-1].sets} Sets  X  ${myRoutines[x-1].reps} ${myRoutines[x-1].setQuantifier} "
         }
 
 
@@ -112,9 +112,9 @@ class WorkoutInProgressActivity : AppCompatActivity() {
                 endWorkoutTV.isVisible = false
                 nextBtn.text = "Finish"
             }
-            exName.text = mRoutines[x-1].name
-            wDescr.text = mRoutines[x-1].name
-            repsSetsTV.text = "${myRoutines[x-1].sets} Sets  X  ${myRoutines[x-1].reps} ${myRoutines[x-1].setQuantifier} "
+            exName.text = exercises[x-1]    //mRoutines[x-1].name
+            wDescr.text = descriptions[x-1] //mRoutines[x-1].name
+            // repsSetsTV.text = "${myRoutines[x-1].sets} Sets  X  ${myRoutines[x-1].reps} ${myRoutines[x-1].setQuantifier} "
         }
 
         endWorkoutTV.setOnClickListener{
