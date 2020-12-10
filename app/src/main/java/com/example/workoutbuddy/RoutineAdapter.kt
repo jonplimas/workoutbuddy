@@ -22,7 +22,6 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
         val setsTV: TextView = itemView.findViewById(R.id.ex_sets)
         val repsTV: TextView = itemView.findViewById(R.id.ex_reps)
 
-
         init {
             itemView.setOnClickListener {
                 Toast.makeText(itemView.context, "Routine Description: " + routines[adapterPosition].description, Toast.LENGTH_SHORT).show()
@@ -42,7 +41,6 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
         holder.nameTV.text = currentItem.name
         holder.setsTV.text = currentItem.sets.toString() + " Sets"
         holder.repsTV.text =  "${currentItem.reps.toString()} ${currentItem.setQuantifier}"
-
     }
 
     override fun getItemCount() = routines.size
