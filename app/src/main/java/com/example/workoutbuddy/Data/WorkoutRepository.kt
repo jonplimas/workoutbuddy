@@ -7,7 +7,7 @@ class WorkoutRepository(private val workoutDao: WorkoutDao, private val routineD
     val allWorkouts: LiveData<List<WorkoutItem>> = workoutDao.getAlphabetizedWorkouts()
     val recentWorkouts: LiveData<List<WorkoutItem>> = workoutDao.getRecentWorkouts()
 
-    val allRoutines: LiveData<List<Routine>> = routineDao.getAlphabetizedRoutines()
+    val allRoutines: LiveData<List<Routine>> = routineDao.getRoutines()
 
     suspend fun insertWorkout(workout: WorkoutItem) { workoutDao.insertWorkout(workout) }
 

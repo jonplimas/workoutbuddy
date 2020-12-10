@@ -42,7 +42,7 @@ data class Routine(
     @ColumnInfo(name = "sets") var sets: Int?,
     @ColumnInfo(name = "setQuantifier") var setQuantifier: String?
 ) {
-    @PrimaryKey @NonNull @ColumnInfo(name = "routineID") var routineID: Int = 0
+    @PrimaryKey(autoGenerate = true)  @NonNull @ColumnInfo(name = "routineID") var routineID: Int = 0
 }
 
 

@@ -1,13 +1,12 @@
 package com.example.workoutbuddy.Data
 
 import androidx.lifecycle.LiveData
-import kotlin.properties.Delegates
 
 class RoutineRepository(private val routineDao: RoutineDao, private val workoutDao: WorkoutDao) {
 
 
     // private var x by Delegates.notNull<Int>()
-    val allRoutines: LiveData<List<Routine>> = routineDao.getAlphabetizedRoutines()
+    val allRoutines: LiveData<List<Routine>> = routineDao.getRoutines()
     val allWorkouts: LiveData<List<WorkoutItem>> = workoutDao.getAlphabetizedWorkouts()
 
 

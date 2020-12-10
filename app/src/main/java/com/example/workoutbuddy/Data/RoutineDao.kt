@@ -9,8 +9,8 @@ interface RoutineDao {
 
     // Retrieves the entire list of Routines in ABC order
     // Note: LiveData allows data to be observable and live changes can be made to UI upon db updates.
-    @Query("SELECT * from routine_table ORDER BY name ASC")
-    fun getAlphabetizedRoutines(): LiveData<List<Routine>>
+    @Query("SELECT * from routine_table")
+    fun getRoutines(): LiveData<List<Routine>>
 
     @Query("SELECT * from routine_table WHERE type = 'Core' ORDER BY name ASC")
     fun getCoreRoutines(): LiveData<List<Routine>>
@@ -20,7 +20,7 @@ interface RoutineDao {
 
 
     // ConflictStrategy: ignores new word if it has the same name as one already in the list
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertRoutine(routine: Routine)
 
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/ex_text"
@@ -25,12 +25,12 @@
         android:id="@+id/ex_sets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
+        android:layout_marginStart="188dp"
+        android:layout_marginLeft="188dp"
         android:text="Sets"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/def_text_size"
-        app:layout_constraintStart_toEndOf="@+id/ex_text"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -42,6 +42,8 @@
         android:text="Reps"
         android:textColor="@color/dark_gray"
         android:textSize="@dimen/def_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ex_sets"
         app:layout_constraintTop_toTopOf="parent" />
 
