@@ -54,6 +54,11 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
         notifyDataSetChanged()
     }
 
+    internal fun insertRoutine(routine: Routine) {
+        this.routines += routine
+        notifyDataSetChanged()
+    }
+
 
 
 

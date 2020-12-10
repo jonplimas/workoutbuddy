@@ -14,7 +14,6 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     val allLogins: LiveData<List<Login>>
 
-
     init {
         val loginDao = ExerciseRoomDatabase.getDatabase(
             application,
