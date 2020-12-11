@@ -110,13 +110,13 @@ class NewWorkoutActivity2 : AppCompatActivity() {
                     xSetsQ += exercise.setQuantifier!!.toString()
                 }
             }
-            Toast.makeText(this, "1st EXERCISE: ${xNames[0]}, ${xSets[0]} Sets X ${xReps[0]} ${xSetsQ[0]}", Toast.LENGTH_LONG).show()
+//            Toast.makeText(this, "1st EXERCISE: ${xNames[0]}, ${xSets[0]} Sets X ${xReps[0]} ${xSetsQ[0]}", Toast.LENGTH_LONG).show()
 
             lateinit var routine: Routine
             for(i in 0 until xNames.size) {
                 // create routine
                 routine = Routine(
-                    exID = id!!.toInt(),
+                    exID = name,
                     name = xNames[i],
                     type = xTypes[i],
                     description = xDescripts[i],

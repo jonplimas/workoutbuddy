@@ -34,7 +34,7 @@ data class ExerciseItem(
 
 @Entity(tableName = "routine_table")
 data class Routine(
-    @NonNull @ColumnInfo(name = "exID") var exID: Int,
+    @NonNull @ColumnInfo(name = "exID") var exID: String,
     @NonNull @ColumnInfo(name = "name") var name: String,
     @NonNull @ColumnInfo(name = "type") var type: String,
     @NonNull @ColumnInfo(name = "description") var description: String,

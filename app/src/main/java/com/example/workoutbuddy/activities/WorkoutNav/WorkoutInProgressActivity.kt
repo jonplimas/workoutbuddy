@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,8 @@ private lateinit var routineViewModel: RoutineViewModel
 
 class WorkoutInProgressActivity : AppCompatActivity() {
 
+    private var mRoutines: List<Routine> = emptyList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workout_in_progress)
@@ -27,7 +30,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val name = bundle?.getString("wName", "Title") ?: "NAME?"
         val category = bundle?.getString("wCat","Title") ?: "CAT?"
         val workoutID = bundle?.getInt("wID", 1) ?: 69
-        var mRoutines: List<Routine> = listOf()
+
 
         // hardcoded list of Exercises and their descriptions
         val exercises = arrayOf("Crunches", "Toe Touches","Russian Twists", "Bicycle Crunches", "Leg Raises")
@@ -46,12 +49,13 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         })
 
         val myRoutines: MutableList<Routine> = mutableListOf()
-        for(routine in mRoutines){
-            if(routine.exID == workoutID){
+        for(routine in mRoutines) {
+            if(routine.exID == name) {
                 myRoutines.add(routine)
             }
         }
 
+        Toast.makeText(this, "2nd Routine ${myRoutines[1].name}", Toast.LENGTH_SHORT).show()
 
         val exName = findViewById<TextView>(R.id.curExNameTV)
         val wDescr = findViewById<TextView>(R.id.workoutdesc)

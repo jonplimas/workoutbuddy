@@ -24,7 +24,7 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
 
         init {
             itemView.setOnClickListener {
-                Toast.makeText(itemView.context, "Routine Description: " + routines[adapterPosition].description, Toast.LENGTH_SHORT).show()
+                Toast.makeText(itemView.context, "Routine exID: " + routines[adapterPosition].exID, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -39,7 +39,7 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: RoutineAdapter.RoutineViewHolder, position: Int) {
         val currentItem = routines[position]
         holder.nameTV.text = currentItem.name
-        holder.setsTV.text = currentItem.sets.toString() + " Sets"
+        holder.setsTV.text = "${currentItem.sets} Sets"
         holder.repsTV.text =  "${currentItem.reps.toString()} ${currentItem.setQuantifier}"
     }
 
@@ -54,8 +54,14 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
         notifyDataSetChanged()
     }
 
-    internal fun insertRoutine(routine: Routine) {
-        this.routines += routine
+    internal fun setFilteredRoutines(routines: List<Routine>, id: String) {
+        var r: List<Routine> = listOf()
+
+        for(routine in routines) {
+            if(routine.exID == id) {
+                this.routines += routine
+            }
+        }
         notifyDataSetChanged()
     }
 

@@ -45,27 +45,25 @@ class StartWorkoutActivity : AppCompatActivity() {
         val descr = bundle?.getString("wDesc", "Title") ?: "DESC?"
         val workoutID = bundle?.getInt("wID") ?: 69
         val routineRecyclerView = findViewById<RecyclerView>(R.id.routineRV)
+        var mRoutines: List<Routine> = listOf()
 
 
         val adapter = RoutineAdapter(this)
         routineRecyclerView.adapter = adapter
         routineRecyclerView.layoutManager = LinearLayoutManager(this)
-        // routineRecyclerView.setHasFixedSize(true)
-
+        routineRecyclerView.setHasFixedSize(true)
 
 
         routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
         routineViewModel.allRoutines.observe(this, Observer { routines ->
             routines?.let {
+                (routineRecyclerView.adapter as RoutineAdapter).setFilteredRoutines(routines, name)
 
-                for(routine in routines) {
-                    if(routine.exID == workoutID) {
-                        (routineRecyclerView.adapter as RoutineAdapter).insertRoutine(routine)
-                    }
-                }
-//                 Toast.makeText(this, "Second Routine: ${routines[1].name}", Toast.LENGTH_SHORT).show()
             }
         })
+
+
+
 
 
 

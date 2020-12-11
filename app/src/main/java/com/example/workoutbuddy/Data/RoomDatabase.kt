@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
-@Database(entities = arrayOf(ExerciseItem::class, WorkoutItem::class, Badge::class, Login::class, User::class, Routine::class), version = 18, exportSchema = false)
+@Database(entities = arrayOf(ExerciseItem::class, WorkoutItem::class, Badge::class, Login::class, User::class, Routine::class), version = 19, exportSchema = false)
 abstract class ExerciseRoomDatabase : RoomDatabase() {
 
     abstract fun exerciseDao(): ExerciseDao
@@ -495,7 +495,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             workoutDao.insertWorkout(workout)
 
             var routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Crunches",
                 type = "Core",
                 description = "Target Muscles: abdominal, obliques\n\n" +
@@ -511,7 +511,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Plank",
                 type = "Core",
                 description = "Target Muscles: abdominals, triceps, obliques, latissimus, glutes\n\n" +
@@ -527,7 +527,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Side Planks",
                 type = "Core",
                 description = "Target Muscles: abdominals, glutes, obliques, abductors, triceps\n\n" +
@@ -543,7 +543,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Mountain Climbers",
                 type = "Core",
                 description = "Target Muscles: deltoids, triceps, obliques, abdominals, quads, hamstrings\n\n" +
@@ -560,7 +560,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bicycle Crunches",
                 type = "Core",
                 description = "1. Lie down on your back with your hands behind your head\n" +
@@ -585,7 +585,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             workoutDao.insertWorkout(workout)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bicep Curls",
                 type = "Triceps/Biceps",
                 description = "(requires dumbbells or barbell)\n\n" +
@@ -602,7 +602,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Lateral Raises",
                 type = "Shoulders",
                 description = "(require dumbbells or kettlebells)\n\n" +
@@ -619,7 +619,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Push-Ups",
                 type = "Chest/Back",
                 description = "Target Muscles: pectorals, deltoids, triceps, abdominals, serratus\n\n" +
@@ -636,7 +636,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Shoulder press",
                 type = "Shoulders",
                 description = "(Requires dumbbells or barbell)\n\n" +
@@ -653,7 +653,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bench Press",
                 type = "Chest/Back",
                 description = "(require dumbbell or barbell)\n\n" +
@@ -681,7 +681,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             workoutDao.insertWorkout(workout)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Push-Ups",
                 type = "Chest/Back",
                 description = "Target Muscles: pectorals, deltoids, triceps, abdominals, serratus\n\n" +
@@ -697,7 +697,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Side Planks",
                 type = "Core",
                 description = "Target Muscles: abdominals, glutes, obliques, abductors, triceps\n\n" +
@@ -713,7 +713,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Reverse Crunches",
                 type = "Core",
                 description = ". Lie down on your back with your hands straight out at your sides \n" +
@@ -730,7 +730,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bicycle Crunches",
                 type = "Core",
                 description = "1. Lie down on your back with your hands behind your head\n" +
@@ -746,7 +746,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Burpees",
                 type = "Core",
                 description = "Target Muscles: quads, calves, glutes, hamstring, abdominals, triceps, deltoids\n\n" +
@@ -764,7 +764,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Forearm Planks",
                 type = "Core",
                 description = "Target Muscles: abdominals, triceps, obliques, latissimus, glutes\n\n" +
@@ -791,7 +791,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Plank",
                 type = "Core",
                 description = "Target Muscles: abdominals, triceps, obliques, latissimus, glutes\n\n" +
@@ -805,7 +805,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Crunches",
                 type = "Core",
                 description = "Target Muscles: abdominal, obliques\n\n" +
@@ -821,7 +821,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bench Press",
                 type = "Chest/Back",
                 description = "(require dumbbell or barbell)\n\n" +
@@ -837,7 +837,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Barbell Deadlift",
                 type = "Quads/Hams",
                 description = "1. Stand with feet shoulder-width apart, in front of a barbell\n" +
@@ -853,7 +853,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bent-over Rows",
                 type = "Chest/Back",
                 description = "Target Muscles: latissimus, trapezius, rhomboids, deltoids, forearms\n" +
@@ -883,7 +883,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             workoutDao.insertWorkout(workout)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Donkey Kicks",
                 type = "Glutes",
                 description = "Target Muscles: glutes, core, hamstrings\n\n" +
@@ -898,7 +898,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Lunges",
                 type = "Quads/Hams",
                 description = "Target Muscles: glutes, quads, calves, latissimus, trapezius, rhomboids, hamstrings\n\n" +
@@ -914,7 +914,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bridges",
                 type = "Glutes",
                 description = "Target Muscles: glutes, hamstrings\n\n" +
@@ -930,7 +930,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Mountain Climbers",
                 type = "Core",
                 description = "Target Muscles: deltoids, triceps, obliques, abdominals, quads, hamstrings\n\n" +
@@ -946,7 +946,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Single-leg Squats",
                 type = "Quads/Hams",
                 description = "Target Muscles: quads, hamstrings, glutes, abdominals, calves.\n\n" +
@@ -962,7 +962,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Calf Raises",
                 type = "Calves",
                 description = "Target Muscles: calves, tibialis posterior, soleus \n\n" +
@@ -990,7 +990,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Jump Rope",
                 type = "Calves",
                 description = "(requires jump rope or equivalent)\n\n" +
@@ -1005,7 +1005,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Dumbbell Squats",
                 type = "Glutes",
                 description = "(Requires dumbbells)\n\n" +
@@ -1022,7 +1022,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Dumbbell Lunges",
                 type = "Quads/Hams",
                 description = "require dumbbells\n\n" +
@@ -1039,7 +1039,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Barbell Deadlift",
                 type = "Quads/Hams",
                 description = "1. Stand with feet shoulder-width apart, in front of a barbell\n" +
@@ -1056,7 +1056,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Kettlebell Swings",
                 type = "Shoulders",
                 description = "Target Muscles:  gluteal, abdominals, latissimus, hamstrings, deltoids\n" +
@@ -1085,7 +1085,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Pull-Ups",
                 type = "Chest/Back",
                 description = "Target Muscles: latissimus, trapezius, biceps, triceps, deltoids, pectorals\n" +
@@ -1103,7 +1103,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bent-over Rows",
                 type = "Chest/Back",
                 description = "Target Muscles: latissimus, trapezius, rhomboids, deltoids, forearms\n" +
@@ -1121,7 +1121,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Overhead Press",
                 type = "Shoulders",
                 description = "require dumbbells or barbell\n\n" +
@@ -1137,7 +1137,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bicep Curls",
                 type = "Triceps/Biceps",
                 description = "(requires dumbbells or barbell)\n\n" +
@@ -1154,7 +1154,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Skull Crushers",
                 type = "Triceps/Biceps",
                 description = "lying on bench, barbell tricep extension behind the head",
@@ -1165,7 +1165,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Lateral Raises",
                 type = "Shoulders",
                 description = "(require dumbbells or kettlebells)\n\n" +
@@ -1191,7 +1191,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             workoutDao.insertWorkout(workout)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name ="Push-Ups",
                 type = "Chest/Back",
                 description = "Target Muscles: pectorals, deltoids, triceps, abdominals, serratus\n\n" +
@@ -1208,7 +1208,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Side Planks",
                 type = "Core",
                 description = "Target Muscles: abdominals, glutes, obliques, abductors, triceps\n\n" +
@@ -1223,7 +1223,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Mountain Climbers",
                 type = "Core",
                 description = "Target Muscles: deltoids, triceps, obliques, abdominals, quads, hamstrings\n\n" +
@@ -1240,7 +1240,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Squats",
                 type = "Quads/Hams",
                 description = "Target Muscles: quads, hamstrings, glutes, abdominals, calves\n\n" +
@@ -1256,7 +1256,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Crunches",
                 type = "Core",
                 description = "Target Muscles: abdominal, obliques\n\n" +
@@ -1272,7 +1272,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Wall Sits",
                 type = "Quads/Hams",
                 description = "Target Muscles: glutes, calves, quads, hamstrings\n\n" +
@@ -1297,7 +1297,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             workoutDao.insertWorkout(workout)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Bicep Curls",
                 type = "Triceps/Biceps",
                 description = "(requires dumbbells or barbell)\n\n" +
@@ -1314,7 +1314,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Burpees",
                 type = "Core",
                 description = "Target Muscles: quads, calves, glutes, hamstring, abdominals, triceps, deltoids\n\n" +
@@ -1332,7 +1332,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Donkey Kicks",
                 type = "Glutes",
                 description = "Target Muscles: glutes, core, hamstrings\n\n" +
@@ -1347,7 +1347,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Kettlebell Swings",
                 type = "Shoulders",
                 description = "Target Muscles:  gluteal, abdominals, latissimus, hamstrings, deltoids\n" +
@@ -1364,7 +1364,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
             routineDao.insertRoutine(routine)
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Dumbbell Squats",
                 type = "Glutes",
                 description = "(Requires dumbbells)\n\n" +
@@ -1382,7 +1382,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Lateral Raises",
                 type = "Shoulders",
                 description = "(require dumbbells or kettlebells)\n\n" +
@@ -1400,7 +1400,7 @@ abstract class ExerciseRoomDatabase : RoomDatabase() {
 
 
             routine = Routine(
-                exID = workout.workoutID,
+                exID = workout.name,
                 name = "Jump Rope",
                 type = "Calves",
                 description = "(requires jump rope or equivalent)\n\n" +
