@@ -15,10 +15,11 @@ import com.example.workoutbuddy.R
 import com.example.workoutbuddy.ViewModels.RoutineViewModel
 
 private lateinit var routineViewModel: RoutineViewModel
+private lateinit var mRoutines: MutableList<Routine>
 
 class WorkoutInProgressActivity : AppCompatActivity() {
 
-    private var mRoutines: List<Routine> = emptyList()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,17 +46,21 @@ class WorkoutInProgressActivity : AppCompatActivity() {
 
         routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
         routineViewModel.allRoutines.observe(this, Observer { routines ->
-            mRoutines = routines
+            for(routine in routines) {
+                if(name== routine.exID){
+                    mRoutines.add(routine)
+                }
+            }
         })
 
-        val myRoutines: MutableList<Routine> = mutableListOf()
-        for(routine in mRoutines) {
-            if(routine.exID == name) {
-                myRoutines.add(routine)
-            }
-        }
+//        val myRoutines: MutableList<Routine> = mutableListOf()
+//        for(routine in mRoutines) {
+//            if(routine.exID == name) {
+//                myRoutines.add(routine)
+//            }
+//        }
 
-        Toast.makeText(this, "2nd Routine ${myRoutines[1].name}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "2nd Routine ${mRoutines[1].name}", Toast.LENGTH_SHORT).show()
 
         val exName = findViewById<TextView>(R.id.curExNameTV)
         val wDescr = findViewById<TextView>(R.id.workoutdesc)
@@ -65,7 +70,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val wProgressTV = findViewById<TextView>(R.id.textView3)
         val repsSetsTV = findViewById<TextView>(R.id.textView11)
         var x = 1
-        val end = myRoutines.size
+        val end = mRoutines.size
         val incrementSize = 100 / end
 
         val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
@@ -90,7 +95,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
             }
             exName.text = mRoutines[x-1].name
             wDescr.text = mRoutines[x-1].description
-            repsSetsTV.text = "${myRoutines[x-1].sets} Sets  X  ${myRoutines[x-1].reps} ${myRoutines[x-1].setQuantifier} "
+            repsSetsTV.text = "${mRoutines[x-1].sets} Sets  X  ${mRoutines[x-1].reps} ${mRoutines[x-1].setQuantifier} "
         }
 
 
@@ -118,7 +123,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
             }
             exName.text = mRoutines[x-1].name
             wDescr.text = mRoutines[x-1].name
-            repsSetsTV.text = "${myRoutines[x-1].sets} Sets  X  ${myRoutines[x-1].reps} ${myRoutines[x-1].setQuantifier} "
+            repsSetsTV.text = "${mRoutines[x-1].sets} Sets  X  ${mRoutines[x-1].reps} ${mRoutines[x-1].setQuantifier} "
         }
 
         endWorkoutTV.setOnClickListener{
