@@ -20,18 +20,9 @@ private lateinit var mRoutines: MutableList<Routine>
 class WorkoutInProgressActivity : AppCompatActivity() {
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workout_in_progress)
-
-
-        //get extras from intent
-        val bundle = intent.extras
-        val name = bundle?.getString("wName", "Title") ?: "NAME?"
-        val category = bundle?.getString("wCat","Title") ?: "CAT?"
-        val workoutID = bundle?.getInt("wID", 1) ?: 69
-
 
         // hardcoded list of Exercises and their descriptions
         val exercises = arrayOf("Crunches", "Toe Touches","Russian Twists", "Bicycle Crunches", "Leg Raises")
@@ -44,23 +35,49 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         )
 
 
-        routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
-        routineViewModel.allRoutines.observe(this, Observer { routines ->
-            for(routine in routines) {
-                if(name== routine.exID){
-                    mRoutines.add(routine)
-                }
-            }
-        })
+        //get extras from intent
+        val bundle = intent.extras
+        val name = bundle?.getString("wName", "Title") ?: "NAME?"
+        val category = bundle?.getString("wCat","Title") ?: "CAT?"
+        val workoutID = bundle?.getInt("wID", 1) ?: 69
 
-//        val myRoutines: MutableList<Routine> = mutableListOf()
-//        for(routine in mRoutines) {
-//            if(routine.exID == name) {
-//                myRoutines.add(routine)
+
+        val rNames = intent.getStringArrayListExtra("rNames")
+        val rTypes = intent.getStringArrayListExtra("rTypes")
+        val rDescriptions = intent.getStringArrayListExtra("rDesc")
+        val rSets = intent.getIntegerArrayListExtra("rSets")
+        val rReps = intent.getIntegerArrayListExtra("rReps")
+        val rSetsQ = intent.getStringArrayListExtra("rSetsQ")
+
+
+
+
+        mRoutines = mutableListOf<Routine>()
+
+        //Toast.makeText(this, "First Routine: ${rNames?.get(0)}", Toast.LENGTH_SHORT).show()
+
+//        if (rNames != null) {
+//            for(i in 0.. rNames.size) {
+//                val routine = rDescriptions?.get(i)?.let {
+//                    rTypes?.get(i)?.let { it1 ->
+//                        Routine (
+//                            exID = name,
+//                            name = rNames[i],
+//                            type = it1,
+//                            description = it,
+//                            reps = rReps?.get(i),
+//                            sets = rSets?.get(i),
+//                            setQuantifier =  rSetsQ?.get(i)
+//                        )
+//                    }
+//                }
+//                if (routine != null) {
+//                    mRoutines.add(routine)
+//                }
 //            }
 //        }
 
-        Toast.makeText(this, "2nd Routine ${mRoutines[1].name}", Toast.LENGTH_SHORT).show()
+        // Toast.makeText(this, "2nd Routine ${mRoutines[1].name}", Toast.LENGTH_SHORT).show()
 
         val exName = findViewById<TextView>(R.id.curExNameTV)
         val wDescr = findViewById<TextView>(R.id.workoutdesc)

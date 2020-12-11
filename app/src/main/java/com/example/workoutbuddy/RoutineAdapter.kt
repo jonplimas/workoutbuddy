@@ -45,8 +45,8 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
 
     override fun getItemCount() = routines.size
 
-    fun getRoutineAtPosition(position: Int): Routine {
-        return routines[position]
+    fun getRoutines(): List<Routine> {
+        return this.routines
     }
 
     internal fun setRoutines(routines: List<Routine>) {
@@ -64,6 +64,7 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
         }
         notifyDataSetChanged()
     }
+
 
 
 
