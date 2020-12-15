@@ -60,23 +60,30 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val endWorkoutTV = findViewById<TextView>(R.id.endWorkoutTV)
         val wProgressTV = findViewById<TextView>(R.id.textView3)
         val repsSetsTV = findViewById<TextView>(R.id.textView11)
+
         var x = 1
         val end = rNames?.size
-        val incrementSize = 5
+        val incrementSize = 100/end!!
 
         val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
 
-        backBtn.isEnabled = false
+        // initalize Text Views based on first Routine
+        wProgressTV.text = "Exercise $x of $end"
+        exName.text = rNames?.get(x-1)
+        wDescr.text = rDescriptions?.get(x-1)
+        repsSetsTV.text = "${rSets?.get(x-1)} Sets  X  ${rReps?.get(x-1)} ${rSetsQ?.get(x-1)} "
 
+
+        // Back Button Logic
+        backBtn.isEnabled = false
         backBtn.setOnClickListener {
             if (progressBar.progress > incrementSize) {
                 progressBar.progress -= incrementSize
                 x--
                 wProgressTV.text = "Exercise $x of $end"
-
             }
 
-            if (progressBar.progress == incrementSize) {
+            if (x == 1) {
                 backBtn.isEnabled = false
             }
 
@@ -90,6 +97,7 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         }
 
 
+        // Next Button Logic
         nextBtn.setOnClickListener {
             backBtn.isEnabled = true
 
