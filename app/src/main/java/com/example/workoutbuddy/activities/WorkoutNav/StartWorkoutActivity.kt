@@ -47,25 +47,6 @@ class StartWorkoutActivity : AppCompatActivity() {
         val routineRecyclerView = findViewById<RecyclerView>(R.id.routineRV)
         var mRoutines: List<Routine> = listOf()
 
-        //Display Workout info that was clicked
-        wNameTV.text = name
-        wDescriptionTV.text = descr
-
-
-        // Display Recycler View of Routines
-        val adapter = RoutineAdapter(this)
-        routineRecyclerView.adapter = adapter
-        routineRecyclerView.layoutManager = LinearLayoutManager(this)
-        routineRecyclerView.setHasFixedSize(true)
-
-        // set Routines from database
-        routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
-        routineViewModel.allRoutines.observe(this, Observer { routines ->
-            routines?.let { (routineRecyclerView.adapter as RoutineAdapter).setFilteredRoutines(routines, name) }
-        })
-
-
-        val routinesToPass = (routineRecyclerView.adapter as RoutineAdapter).getRoutines()
         val rNames = arrayListOf<String>()
         val rTypes = arrayListOf<String>()
         val rDescriptions = arrayListOf<String>()
@@ -73,15 +54,40 @@ class StartWorkoutActivity : AppCompatActivity() {
         val rReps= arrayListOf<Int>()
         val rSetsQ = arrayListOf<String>()
 
-        for(routine in routinesToPass) {
-            rNames.add(routine.name)
-            rTypes.add(routine.type)
-            rDescriptions.add(routine.description)
-            routine.sets?.let { rSets.add(it) }
-            routine.reps?.let { rReps.add(it) }
-            routine.setQuantifier?.let { rSetsQ.add(it) }
-        }
 
+        // Display Workout info that was clicked
+        wNameTV.text = name
+        wDescriptionTV.text = descr
+
+
+        routineViewModel = ViewModelProvider(this).get(RoutineViewModel::class.java)
+        // Display Recycler View of Routines
+        val adapter = RoutineAdapter(this, routineViewModel)
+        routineRecyclerView.adapter = adapter
+        routineRecyclerView.layoutManager = LinearLayoutManager(this)
+        routineRecyclerView.setHasFixedSize(true)
+
+        // set Routines from database
+        val i2 = Intent(this, WorkoutInProgressActivity::class.java)
+
+        routineViewModel.allRoutines.observe(this, Observer { routines ->
+            routines?.let { mRoutines = (routineRecyclerView.adapter as RoutineAdapter).setFilteredRoutines(routines, name) }
+            for(routine in mRoutines) {
+                rNames.add(routine.name)
+                rTypes.add(routine.type)
+                rDescriptions.add(routine.description)
+                routine.sets?.let { rSets.add(it) }
+                routine.reps?.let { rReps.add(it) }
+                routine.setQuantifier?.let { rSetsQ.add(it) }
+            }
+
+            i2.putStringArrayListExtra("rNames", rNames)
+            i2.putStringArrayListExtra("rTypes", rTypes)
+            i2.putStringArrayListExtra("rDesc", rDescriptions)
+            i2.putIntegerArrayListExtra("rSets", rSets)
+            i2.putIntegerArrayListExtra("rReps", rReps)
+            i2.putStringArrayListExtra("rSetsQ", rSetsQ)
+        })
 
 
 
@@ -92,17 +98,9 @@ class StartWorkoutActivity : AppCompatActivity() {
 
 
         startWorkoutBtn.setOnClickListener {
-            val i2 = Intent(this, WorkoutInProgressActivity::class.java)
             i2.putExtra("wName", name)
             i2.putExtra("wCat", category)
             i2.putExtra("wID", workoutID)
-
-            i2.putStringArrayListExtra("rNames", rNames)
-            i2.putStringArrayListExtra("rTypes", rTypes)
-            i2.putStringArrayListExtra("rDesc", rDescriptions)
-            i2.putIntegerArrayListExtra("rSets", rSets)
-            i2.putIntegerArrayListExtra("rReps", rReps)
-            i2.putStringArrayListExtra("rSetsQ", rSetsQ)
             startActivity(i2)
             finish()
         }

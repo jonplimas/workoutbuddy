@@ -10,12 +10,13 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.workoutbuddy.Data.ExerciseDao
 import com.example.workoutbuddy.Data.Routine
 import com.example.workoutbuddy.R
+import com.example.workoutbuddy.RoutineAdapter
 import com.example.workoutbuddy.ViewModels.RoutineViewModel
 
-private lateinit var routineViewModel: RoutineViewModel
-private lateinit var mRoutines: MutableList<Routine>
+
 
 class WorkoutInProgressActivity : AppCompatActivity() {
 
@@ -42,42 +43,15 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val workoutID = bundle?.getInt("wID", 1) ?: 69
 
 
-        val rNames = intent.getStringArrayListExtra("rNames")
-        val rTypes = intent.getStringArrayListExtra("rTypes")
-        val rDescriptions = intent.getStringArrayListExtra("rDesc")
-        val rSets = intent.getIntegerArrayListExtra("rSets")
-        val rReps = intent.getIntegerArrayListExtra("rReps")
-        val rSetsQ = intent.getStringArrayListExtra("rSetsQ")
+        val rNames = bundle?.getStringArrayList("rNames")
+        val rTypes = bundle?.getStringArrayList("rTypes")
+        val rDescriptions = bundle?.getStringArrayList("rDesc")
+        val rSets = bundle?.getIntegerArrayList("rSets")
+        val rReps = bundle?.getIntegerArrayList("rReps")
+        val rSetsQ = bundle?.getStringArrayList("rSetsQ")
 
+        Toast.makeText(this, "2nd Routine ${rNames?.get(1)}", Toast.LENGTH_SHORT).show()
 
-
-
-        mRoutines = mutableListOf<Routine>()
-
-        //Toast.makeText(this, "First Routine: ${rNames?.get(0)}", Toast.LENGTH_SHORT).show()
-
-//        if (rNames != null) {
-//            for(i in 0.. rNames.size) {
-//                val routine = rDescriptions?.get(i)?.let {
-//                    rTypes?.get(i)?.let { it1 ->
-//                        Routine (
-//                            exID = name,
-//                            name = rNames[i],
-//                            type = it1,
-//                            description = it,
-//                            reps = rReps?.get(i),
-//                            sets = rSets?.get(i),
-//                            setQuantifier =  rSetsQ?.get(i)
-//                        )
-//                    }
-//                }
-//                if (routine != null) {
-//                    mRoutines.add(routine)
-//                }
-//            }
-//        }
-
-        // Toast.makeText(this, "2nd Routine ${mRoutines[1].name}", Toast.LENGTH_SHORT).show()
 
         val exName = findViewById<TextView>(R.id.curExNameTV)
         val wDescr = findViewById<TextView>(R.id.workoutdesc)
@@ -87,8 +61,8 @@ class WorkoutInProgressActivity : AppCompatActivity() {
         val wProgressTV = findViewById<TextView>(R.id.textView3)
         val repsSetsTV = findViewById<TextView>(R.id.textView11)
         var x = 1
-        val end = mRoutines.size
-        val incrementSize = 100 / end
+        val end = rNames?.size
+        val incrementSize = 5
 
         val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
 
@@ -110,9 +84,9 @@ class WorkoutInProgressActivity : AppCompatActivity() {
                 endWorkoutTV.isVisible = true
                 nextBtn.text = "Next Exercise"
             }
-            exName.text = mRoutines[x-1].name
-            wDescr.text = mRoutines[x-1].description
-            repsSetsTV.text = "${mRoutines[x-1].sets} Sets  X  ${mRoutines[x-1].reps} ${mRoutines[x-1].setQuantifier} "
+            exName.text = rNames?.get(x-1)
+            wDescr.text = rDescriptions?.get(x-1)
+            repsSetsTV.text = "${rSets?.get(x-1)} Sets  X  ${rReps?.get(x-1)} ${rSetsQ?.get(x-1)} "
         }
 
 
@@ -138,9 +112,9 @@ class WorkoutInProgressActivity : AppCompatActivity() {
                 endWorkoutTV.isVisible = false
                 nextBtn.text = "Finish"
             }
-            exName.text = mRoutines[x-1].name
-            wDescr.text = mRoutines[x-1].name
-            repsSetsTV.text = "${mRoutines[x-1].sets} Sets  X  ${mRoutines[x-1].reps} ${mRoutines[x-1].setQuantifier} "
+            exName.text = rNames?.get(x-1)
+            wDescr.text = rDescriptions?.get(x-1)
+            repsSetsTV.text = "${rSets?.get(x-1)} Sets  X  ${rReps?.get(x-1)} ${rSetsQ?.get(x-1)} "
         }
 
         endWorkoutTV.setOnClickListener{

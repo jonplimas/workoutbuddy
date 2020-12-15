@@ -10,8 +10,10 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.workoutbuddy.Data.Routine
+import com.example.workoutbuddy.ViewModels.RoutineViewModel
+import com.example.workoutbuddy.ViewModels.WorkoutViewModel
 
-class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapter<RoutineAdapter.RoutineViewHolder>() {
+class RoutineAdapter internal constructor(context: Context, private val routineViewModel: RoutineViewModel) : RecyclerView.Adapter<RoutineAdapter.RoutineViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var routines = emptyList<Routine>()   // Cached copy of Routines
@@ -45,8 +47,8 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
 
     override fun getItemCount() = routines.size
 
-    fun getRoutines(): List<Routine> {
-        return this.routines
+    fun getRoutines(id: String) {
+        return routineViewModel.getRoutinesById(id)
     }
 
     internal fun setRoutines(routines: List<Routine>) {
@@ -54,8 +56,7 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
         notifyDataSetChanged()
     }
 
-    internal fun setFilteredRoutines(routines: List<Routine>, id: String) {
-        var r: List<Routine> = listOf()
+    internal fun setFilteredRoutines(routines: List<Routine>, id: String): List<Routine> {
 
         for(routine in routines) {
             if(routine.exID == id) {
@@ -63,6 +64,7 @@ class RoutineAdapter internal constructor(context: Context) : RecyclerView.Adapt
             }
         }
         notifyDataSetChanged()
+        return this.routines
     }
 
 

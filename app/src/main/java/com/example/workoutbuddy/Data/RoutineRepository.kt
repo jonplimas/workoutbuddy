@@ -19,7 +19,7 @@ class RoutineRepository(private val routineDao: RoutineDao, private val workoutD
         routineDao.deleteRoutinesByWorkoutID(workoutID)
     }
 
-    fun getRoutinesByWorkoutID(workoutID: Int) {
+    fun getRoutinesByWorkoutID(workoutID: String) {
         routineDao.getRoutinesByWorkoutID(workoutID)
 
     }

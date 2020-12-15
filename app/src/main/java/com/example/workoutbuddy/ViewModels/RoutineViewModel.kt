@@ -38,6 +38,9 @@ class RoutineViewModel(application: Application): AndroidViewModel(application) 
         repository.insertRoutine(routine)
     }
 
+    fun getRoutinesById(id: String) {
+        return repository.getRoutinesByWorkoutID(id)
+    }
 
 
 }
